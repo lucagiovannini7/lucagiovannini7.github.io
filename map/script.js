@@ -15,7 +15,7 @@ let locations = [
 "long": -1.264856,
 "title1": "University of Warwick",
 "title2": "Erasmus+ stay, 2014-15",
-"url":"https://www.warwick.ac.uk/"
+"type":"study"
 },
 {
 "id": 2,
@@ -23,7 +23,7 @@ let locations = [
 "long": 7.6868565,
 "title1": "Università degli Studi di Torino",
 "title2": "B.A. 2014-17 / M.A. 2017-20",
-"url":"https://www.unito.it/"
+"type":"study"
 },
 {
 "id": 3,
@@ -31,7 +31,7 @@ let locations = [
 "long": 6.959974,
 "title1": "Universität zu Köln",
 "title2": "Erasmus+ stay, 2017-18",
-"url":"https://www.uni-koeln.de/"
+"type":"study"
 },
 {
 "id": 4,
@@ -39,7 +39,7 @@ let locations = [
 "long": 13.064349,
 "title1": "Universität Potsdam",
 "title2": "Joint PhD, 2021-",
-"url":"https://www.uni-potsdam.de/"
+"type":"study"
 },
 {
 "id": 5,
@@ -47,17 +47,17 @@ let locations = [
 "long": 11.876761,
 "title1": "Università degli Studi di Padova",
 "title2": "Joint PhD, 2023-",
-"url":"https://www.unipd.it/"
+"type":"study"
 }
 ]
 
 let markers = []
 for ( let i = 0 ; i< locations.length ; i++){
 markers[i] = new L.Marker([locations[i].lat,locations[i].long], {title1: locations[i].title1,title2: locations[i].title2}).addTo(map);
- if (locations[i].id === 4) {
+ if (locations[i].type === "study") {
   markers[i].setIcon(L.icon({
     iconUrl: "https://cdn-icons-png.flaticon.com/512/149/149059.png",
-    iconSize: [25, 25],
+    iconSize: [25, 40],
     iconAnchor: [12, 12],
     popupAnchor: [0, -0],
     shadowSize: [10, 10]
