@@ -20,7 +20,7 @@ let locations = [
 
 let markers = []
 for ( let i = 0 ; i< locations.length ; i++){
- markers[i] = new L.Marker([locations[i].lat,locations[i].long]).addTo(map);
+    markers[i] = new L.Marker([locations[i].lat,locations[i].long], {title: locations[i].title, url: locations[i].url}).addTo(map);
 }
 
 markers.forEach(marker => {
