@@ -1,5 +1,5 @@
 let mapOptions = {
-    center:[51.958, 9.141],
+    center:[45.070312, 7.6868565],
     zoom:10
 }
 
@@ -22,8 +22,8 @@ let locations = [
 "lat": 45.070312,
 "long": 7.6868565,
 "src": 'images/2.jpg',
-"title": "Bachelors' degree, 2014-17",
-"title": "Masters' degree, 2017-20",
+"title1": "Bachelors' degree, 2014-17",
+"title2": "Masters' degree, 2017-20",
 "url":"https://www.unito.it/"
 },
 {
@@ -39,11 +39,11 @@ let locations = [
 "lat": 52.391703,
 "long": 13.064349,
 "src": 'images/4.jpg',
-"title": "Doctoral degree, 2021-"
+"title": "Doctoral degree, 2021-",
 "url":"https://www.uni-potsdam.de/"
 }
 ]
 
 for ( let i = 0 ; i< locations.length ; i++){
- new L.Marker([element.lat,element.long]).addTo(map)
+ new L.Marker([locations[i].lat,locations[i].long]).addTo(map);
 }
