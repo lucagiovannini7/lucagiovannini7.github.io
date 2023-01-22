@@ -59,8 +59,9 @@ for (let i = 0; i < locations.length; i++) {
     }).addTo(map);
     if (locations[i].type === "study") {
         markers[i].setIcon(L.AwesomeMarkers.icon({
-            icon: 'map-marker',
-            markerColor: 'red'
+            icon: 'star',
+            markerColor: 'red',
+			prefix: 'fa'
         }));
     }
 }
