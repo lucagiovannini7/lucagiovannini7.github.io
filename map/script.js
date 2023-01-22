@@ -1,6 +1,6 @@
 let mapOptions = {
 center:[48.78232, 9.17702],
-zoom:5
+zoom:3
 }
 
 let map = new L.map('map' , mapOptions);
@@ -57,10 +57,10 @@ markers[i] = new L.Marker([locations[i].lat,locations[i].long], {title1: locatio
  if (locations[i].id === 4) {
   markers[i].setIcon(L.icon({
     iconUrl: "https://cdn-icons-png.flaticon.com/512/149/149059.png",
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41]
+    iconSize: [25, 25],
+    iconAnchor: [12, 12],
+    popupAnchor: [0, -0],
+    shadowSize: [10, 10]
   }));
  }
 }
