@@ -37,7 +37,7 @@ let locations = [
 "id": 4,
 "lat": 52.391703,
 "long": 13.064349,
-"title1": "University of Warwick",
+"title1": "Universität Potsdam",
 "title2": "Joint PhD, 2021-",
 "url":"https://www.uni-potsdam.de/"
 },
@@ -46,6 +46,7 @@ let locations = [
 "lat": 45.406435,
 "long": 11.876761,
 "title1": "Università degli Studi di Padova",
+"title2": "Joint PhD, 2023-",
 "url":"https://www.unipd.it/"
 }
 ]
@@ -53,6 +54,15 @@ let locations = [
 let markers = []
 for ( let i = 0 ; i< locations.length ; i++){
 markers[i] = new L.Marker([locations[i].lat,locations[i].long], {title1: locations[i].title1,title2: locations[i].title2}).addTo(map);
+ if (locations[i].id === 4) {
+  markers[i].setIcon(L.icon({
+    iconUrl: 'path/to/red-marker.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  }));
+ }
 }
 
 markers.forEach(marker => {
