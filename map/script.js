@@ -13,36 +13,47 @@ let locations = [
         "id": 1,
         "lat": 52.378091,
         "long": -1.264856,
-        "title": "Erasmus+ stay, 2014-15",
+        "title1": "University of Warwick",
+		"title2": "Erasmus+ stay, 2014-15",
         "url":"https://www.warwick.ac.uk/"
     },
     {
         "id": 2,
         "lat": 45.070312,
         "long": 7.6868565,
-        "title1": "Bachelors' degree, 2014-17",
-        "title2": "Masters' degree, 2017-20",
+		"title1": "Università degli Studi di Torino",
+        "title2": "B.A. 2014-17 / M.A. 2017-20",
         "url":"https://www.unito.it/"
     },
     {
         "id": 3,
         "lat": 50.938361,
         "long": 6.959974,
-        "title": "Erasmus+ stay, 2017-18",
+		"title1": "Universität zu Köln",
+        "title2": "Erasmus+ stay, 2017-18",
         "url":"https://www.uni-koeln.de/"
     },
     {
         "id": 4,
         "lat": 52.391703,
         "long": 13.064349,
-        "title": "Doctoral degree, 2021-",
+		"title1": "University of Warwick",
+        "title2": "Joint PhD, 2021-",
         "url":"https://www.uni-potsdam.de/"
     }
+	{
+		"id": 4,
+		"lat": 45.406435,
+		"long": 11.876761,
+		"title1": "Università degli Studi di Padova",
+		"title2": "Joint PhD, 2023-"",
+		"url":"https://www.unipd.it/"
+}
 ]
 
 let markers = []
 for ( let i = 0 ; i< locations.length ; i++){
-    markers[i] = new L.Marker([locations[i].lat,locations[i].long], {title1: locations[i].title1,title2: locations[i].title2, url: locations[i].url}).addTo(map);
+    markers[i] = new L.Marker([locations[i].lat,locations[i].long], {title1: locations[i].title1,title2: locations[i].title2).addTo(map);
 }
 
 markers.forEach(marker => {
@@ -51,8 +62,5 @@ markers.forEach(marker => {
     })
     .on("mouseout", event => {
         event.target.closePopup();
-    })
-    .on("click" , () => {
-        window.open(marker.options.url);
     })
 });
