@@ -55,13 +55,10 @@ let markers = []
 for ( let i = 0 ; i< locations.length ; i++){
 markers[i] = new L.Marker([locations[i].lat,locations[i].long], {title1: locations[i].title1,title2: locations[i].title2}).addTo(map);
  if (locations[i].type === "study") {
-  markers[i].setIcon(L.icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/149/149059.png",
-    iconSize: [25, 40],
-    iconAnchor: [12, 12],
-    popupAnchor: [0, -0],
-    shadowSize: [10, 10]
-  }));
+  markers[i].setIcon((L.AwesomeMarkers.icon({
+            icon: 'pin',
+            markerColor: 'red'
+        }));
  }
 }
 
