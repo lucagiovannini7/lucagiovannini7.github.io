@@ -52,15 +52,19 @@ let locations = [
 ]
 
 let markers = []
-for ( let i = 0 ; i< locations.length ; i++){
-markers[i] = new L.Marker([locations[i].lat,locations[i].long], {title1: locations[i].title1,title2: locations[i].title2}).addTo(map);
- if (locations[i].type === "study") {
-  markers[i].setIcon((L.AwesomeMarkers.icon({
+for (let i = 0; i < locations.length; i++) {
+    markers[i] = new L.Marker([locations[i].lat, locations[i].long], {
+        title1: locations[i].title1,
+        title2: locations[i].title2
+    }).addTo(map);
+    if (locations[i].type === "study") {
+        markers[i].setIcon(L.AwesomeMarkers.icon({
             icon: 'map-marker',
             markerColor: 'red'
         }));
- }
+    }
 }
+
 
 markers.forEach(marker => {
 marker.on("mouseover",event =>{
