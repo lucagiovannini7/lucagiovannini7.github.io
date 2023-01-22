@@ -1,6 +1,6 @@
 let mapOptions = {
     center:[51.958, 9.141],
-    zoom:1
+    zoom:10
 }
 
 let map = new L.map('map' , mapOptions);
@@ -43,3 +43,7 @@ let locations = [
 "url":"https://www.uni-potsdam.de/"
 }
 ]
+
+for ( let i = 0 ; i< locations.length ; i++){
+ new L.Marker([element.lat,element.long]).addTo(map)
+}
