@@ -13,7 +13,6 @@ let locations = [
 "id": 1,
 "lat": 52.378091,
 "long": -1.264856,
-"src": 'images/1.jpg',
 "title": "Erasmus+ stay, 2014-15",
 "url":"https://www.warwick.ac.uk/"
 },
@@ -21,7 +20,6 @@ let locations = [
 "id": 2,
 "lat": 45.070312,
 "long": 7.6868565,
-"src": 'images/2.jpg',
 "title1": "Bachelors' degree, 2014-17",
 "title2": "Masters' degree, 2017-20",
 "url":"https://www.unito.it/"
@@ -30,7 +28,6 @@ let locations = [
 "id": 3,
 "lat": 50.938361,
 "long": 6.959974,
-"src": 'images/3.jpg',
 "title": "Erasmus+ stay, 2017-18",
 "url":"https://www.uni-koeln.de/"
 },
@@ -38,12 +35,24 @@ let locations = [
 "id": 4,
 "lat": 52.391703,
 "long": 13.064349,
-"src": 'images/4.jpg',
 "title": "Doctoral degree, 2021-",
 "url":"https://www.uni-potsdam.de/"
 }
 ]
 
+let markers = []
 for ( let i = 0 ; i< locations.length ; i++){
- new L.Marker([locations[i].lat,locations[i].long]).addTo(map);
+ markers[i] = new L.Marker([locations[i].lat,locations[i].long]).addTo(map);
 }
+
+markers.forEach(marker => {
+    marker.on("mouseover",event =>{
+        event.target.bindPopup('<div class="card"> <h3>'+element.title+'</h3></div>').openPopup();
+    })
+    .on("mouseout", event => {
+        event.target.closePopup();
+    })
+    .on("click" , () => {
+        window.open(element.url);
+    })
+});
