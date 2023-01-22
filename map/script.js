@@ -32,3 +32,16 @@ locations.forEach(element => {
         event.target.closePopup();
     })
 });
+
+locations.forEach(element => {
+    new L.Marker([element.lat,element.long]).addTo(map)
+    .on("mouseover",event =>{
+        event.target.bindPopup('<div class="card"><img src="'+element.src+'" width="80" height="80" alt="'+element.title+'">   <h3>'+element.title+'</h3></div>').openPopup();
+    })
+    .on("mouseout", event => {
+        event.target.closePopup();
+    })
+    .on("click" , () => {
+        window.open(element.url);
+    })
+});
