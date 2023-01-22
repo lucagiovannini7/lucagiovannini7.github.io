@@ -60,8 +60,7 @@ for (let i = 0; i < locations.length; i++) {
     if (locations[i].type === "study") {
         markers[i].setIcon(L.AwesomeMarkers.icon({
             icon: 'star',
-            markerColor: 'red',
-			prefix: 'fa'
+            markerColor: 'red'
         }));
     }
 };
