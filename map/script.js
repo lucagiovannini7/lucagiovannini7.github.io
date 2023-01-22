@@ -56,7 +56,7 @@ for ( let i = 0 ; i< locations.length ; i++){
 markers[i] = new L.Marker([locations[i].lat,locations[i].long], {title1: locations[i].title1,title2: locations[i].title2}).addTo(map);
  if (locations[i].id === 4) {
   markers[i].setIcon(L.icon({
-    iconUrl: 'https://png.pngtree.com/png-clipart/20210205/ourlarge/pngtree-location-design-png-image_2884573.jpg',
+    iconUrl: "https://cdn-icons-png.flaticon.com/512/149/149059.png",
     iconSize: [25, 41],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
