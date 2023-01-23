@@ -58,15 +58,6 @@ locations.forEach(location => {
         title2: location.title2
     }).addTo(map);
     markers.push(marker);
-	    if(location.type === "study"){
-        marker.setIcon(L.icon({
-            iconUrl: 'https://cdn-icons-png.flaticon.com/512/149/149059.png',
-            iconSize: [30,30], // size of the icon
-            iconAnchor: [12,41],
-            popupAnchor: [1,-34],
-            shadowSize: [10,10]
-        }));
-    }
     marker.on("mouseover", event => {
         event.target.bindPopup('<div class="card"> <h3>' + marker.options.title1 + '</h3> <h3>' + marker.options.title2 + '</h3></div>').openPopup();
     })
