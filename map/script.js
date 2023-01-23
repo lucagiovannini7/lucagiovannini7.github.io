@@ -57,11 +57,6 @@ for (let i = 0; i < locations.length; i++) {
         title1: locations[i].title1,
         title2: locations[i].title2
     }).addTo(map);
-    if (locations[i].type === "study") {
-        markers[i].setIcon(L.AwesomeMarkers.icon({
-            icon: 'star',
-            markerColor: 'red'
-        }));
     }
 };
 
