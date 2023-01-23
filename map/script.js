@@ -52,20 +52,16 @@ let locations = [
 ]
 
 let markers = []
-for (let i = 0; i < locations.length; i++) {
-    markers[i] = new L.Marker([locations[i].lat, locations[i].long], {
-        title1: locations[i].title1,
-        title2: locations[i].title2
+locations.forEach(location => {
+    let marker = new L.Marker([location.lat, location.long], {
+        title1: location.title1,
+        title2: location.title2
     }).addTo(map);
-    }
-};
-
-
-markers.forEach(marker => {
-marker.on("mouseover",event =>{
-event.target.bindPopup('<div class="card"> <h3>'+marker.options.title1+'</h3> <h3>'+ marker.options.title2+'</h3></div>').openPopup();
-})
-.on("mouseout", event => {
-event.target.closePopup();
-})
+    markers.push(marker);
+    marker.on("mouseover", event => {
+        event.target.bindPopup('<div class="card"> <h3>' + marker.options.title1 + '</h3> <h3>' + marker.options.title2 + '</h3></div>').openPopup();
+    })
+    .on("mouseout", event => {
+        event.target.closePopup();
+    });
 });
