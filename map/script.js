@@ -60,9 +60,9 @@ locations.forEach(location => {
     markers.push(marker);
 	    if(location.type === "study"){
         marker.setIcon(L.icon({
-            iconUrl: "https://cdn-icons-png.flaticon.com/512/660/660624.png",
-            iconSize: [25,41], // size of the icon
-            iconAnchor: [12,41],
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/660/660624.png',
+            iconSize: [41,25], // size of the icon
+            iconAnchor: [12,25],
             popupAnchor: [1,-34],
             shadowSize: [10,10]
         }));
