@@ -11,8 +11,8 @@ map.addLayer(layer);
 let locations = [
 {
 "id": 1,
-"lat": 52.378091,
-"long": -1.264856,
+"lat": 52.381791,
+"long": -1.561735,
 "title1": "University of Warwick",
 "title2": "Erasmus+ stay, 2014-15",
 "type":"study"
@@ -35,8 +35,8 @@ let locations = [
 },
 {
 "id": 4,
-"lat": 52.391703,
-"long": 13.064349,
+"lat": 52.40130,
+"long": 13.01132,
 "title1": "Universität Potsdam",
 "title2": "Joint PhD, 2021-",
 "type":"study"
