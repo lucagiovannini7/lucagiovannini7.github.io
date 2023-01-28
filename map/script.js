@@ -48,13 +48,13 @@ let locations = [
 "title1": "Università degli Studi di Padova",
 "title2": "Joint PhD, 2023-",
 "type":"study"
-}
+},
 {
-"id": 6,
-"lat": 52.401789,
-"long": 13.01156,
-"title1": "DHd 2022",
-"title2": "Universität Potsdam (07-11.03.2023)",
+"id": 7,
+"lat": 49.8728256, 
+"long": 8.6511949,
+"title1": "1st Conference for Computational Literary Studies",
+"title2": "Technische Universität Darmstadt",
 "type":"conference"
 }
 ]
