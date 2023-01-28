@@ -82,11 +82,11 @@ let locations = [
 "type":"conference"
 }
 {
-"id": 9,
+"id": 10,
 "lat": 31.798418, 
 "long": 35.239469,
 "title1": "1st HUBJ-FUB DH Winter School",
-"title2": "Trier (27.02-01.03.2023)",
+"title2": "Jerusalem (27.02-01.03.2023)",
 "type":"conference"
 }
 ]
