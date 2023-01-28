@@ -51,8 +51,8 @@ let locations = [
 }
 {
 "id": 6,
-"lat": 52.40130,
-"long": 13.01132,
+"lat": 52.401789,
+"long": 13.01156,
 "title1": "DHd 2022",
 "title2": "Universität Potsdam (07-11.03.2023)",
 "type":"conference"
