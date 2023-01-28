@@ -1,5 +1,5 @@
 let mapOptions = {
-center:[48.78232, 9.17702],
+center:[50.7977, 12.5005],
 zoom:4
 }
 
@@ -51,8 +51,8 @@ let locations = [
 },
 {
 "id": 6,
-"lat": 52.401789,
-"long": 13.01156,
+"lat": 52.3909,
+"long": 13.0713,
 "title1": "DHd 2022",
 "title2": "Universität Potsdam, 07-11.03.2023",
 "type":"conference"
