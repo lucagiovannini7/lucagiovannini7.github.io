@@ -47,7 +47,7 @@ let locations = [
 "long": 11.876761,
 "title1": "Università degli Studi di Padova",
 "title2": "Joint PhD, 2023-",
-"type":"study"
+"type":"none"
 }
 ]
 
@@ -58,6 +58,18 @@ locations.forEach(location => {
         title2: location.title2
     }).addTo(map);
     markers.push(marker);
+	
+	if (location.type === 'study') {
+      marker.setIcon(new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      }));
+    }
+		
     marker.on("mouseover", event => {
         event.target.bindPopup('<div class="card"> <h3>' + marker.options.title1 + '</h3> <h3>' + marker.options.title2 + '</h3></div>').openPopup();
     })
