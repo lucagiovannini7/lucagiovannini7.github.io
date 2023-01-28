@@ -50,11 +50,43 @@ let locations = [
 "type":"study"
 },
 {
+"id": 6,
+"lat": 52.401789,
+"long": 13.01156,
+"title1": "DHd 2022",
+"title2": "Universität Potsdam, 07-11.03.2023",
+"type":"conference"
+},
+{
 "id": 7,
 "lat": 49.8728256, 
 "long": 8.6511949,
 "title1": "1st Conference for Computational Literary Studies",
-"title2": "Technische Universität Darmstadt",
+"title2": "Technische Universität Darmstadt, 01.02-02.06.2023",
+"type":"conference"
+},
+{
+"id": 8,
+"lat": 49.6116667, 
+"long": 6.1316667,
+"title1": "DHd 2023",
+"title2": "Universität Luxemburg, 13-14.03.2023",
+"type":"conference"
+},
+{
+"id": 9,
+"lat": 49.755868, 
+"long": 6.638778,
+"title1": "DHd 2023",
+"title2": "Universität Trier, 15-17.03.2023",
+"type":"conference"
+},
+{
+"id": 10,
+"lat": 31.798418, 
+"long": 35.239469,
+"title1": "1st HUBJ-FUB DH Winter School",
+"title2": "Hebrew University of Jerusalem, 27.02-01.03.2023",
 "type":"conference"
 }
 ]
