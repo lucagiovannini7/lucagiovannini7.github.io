@@ -57,37 +57,37 @@ let locations = [
 //"title2": "Universität Potsdam (07-11.03.2023)",
 //"type":"conference"
 //}
-{
-"id": 7,
-"lat": 49.8728256, 
-"long": 8.6511949,
-"title1": "1st Conference for Computational Literary Studies",
-"title2": "Technische Universität Darmstadt",
-"type":"conference"
-}
-{
-"id": 8,
-"lat": 49.6116667, 
-"long": 6.1316667,
-"title1": "Dhd 2023",
-"title2": "Belval (13-14.03.2023)",
-"type":"conference"
-}
-{
-"id": 9,
-"lat": 49.755868, 
-"long": 6.638778,
-"title1": "Dhd 2023",
-"title2": "Trier (15-17.03.2023)",
-"type":"conference"
-}
-{
-"id": 10,
-"lat": 31.798418, 
-"long": 35.239469,
-"title1": "1st HUBJ-FUB DH Winter School",
-"title2": "Jerusalem (27.02-01.03.2023)",
-"type":"conference"
+//{
+//"id": 7,
+//"lat": 49.8728256, 
+//"long": 8.6511949,
+//"title1": "1st Conference for Computational Literary Studies",
+//"title2": "Technische Universität Darmstadt",
+//"type":"conference"
+//}
+//{
+//"id": 8,
+//"lat": 49.6116667, 
+//"long": 6.1316667,
+//"title1": "Dhd 2023",
+//"title2": "Belval (13-14.03.2023)",
+//"type":"conference"
+//}
+//{
+//"id": 9,
+//"lat": 49.755868, 
+//"long": 6.638778,
+//"title1": "Dhd 2023",
+//"title2": "Trier (15-17.03.2023)",
+//"type":"conference"
+//}
+//{
+//"id": 10,
+//"lat": 31.798418, 
+//"long": 35.239469,
+//"title1": "1st HUBJ-FUB DH Winter School",
+//"title2": "Jerusalem (27.02-01.03.2023)",
+//"type":"conference"
 }
 ]
 
