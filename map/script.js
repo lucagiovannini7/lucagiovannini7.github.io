@@ -1,5 +1,5 @@
 let mapOptions = {
-center:[45.65, 13.78],
+center:[43.856259, 18.413076],
 zoom:4
 }
 
