@@ -27,8 +27,8 @@ let locations = [
 },
 {
 "id": 3,
-"lat": 50.938361,
-"long": 6.959974,
+"lat": 50.927858,
+"long": 6.927288,
 "title1": "Universität zu Köln",
 "title2": "Erasmus+ stay, 2017-18",
 "type":"study"
@@ -87,6 +87,14 @@ let locations = [
 "long": 35.239469,
 "title1": "1st HUBJ-FUB DH Winter School",
 "title2": "Hebrew University of Jerusalem, 27.02-01.03.2023",
+"type":"conference"
+}
+{
+"id": 11,
+"lat": 50.85776, 
+"long": 7.08367,
+"title1": "Workshop on Computational Drama Analysis",
+"title2": "Universität zu Köln, 15-16.09.2022",
 "type":"conference"
 }
 ]
