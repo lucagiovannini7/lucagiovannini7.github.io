@@ -88,7 +88,7 @@ let locations = [
 "title1": "1st HUBJ-FUB DH Winter School",
 "title2": "Hebrew University of Jerusalem, 27.02-01.03.2023",
 "type":"conference"
-}
+},
 {
 "id": 11,
 "lat": 50.942596, 
