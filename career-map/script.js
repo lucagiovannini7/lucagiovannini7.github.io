@@ -27,8 +27,8 @@ let locations = [
 },
 {
 "id": 3,
-"lat": 50.944467,
-"long": 6.957300,
+"lat": 50.92807216246431,
+"long": 6.927971877108897,
 "title1": "Universität zu Köln",
 "title2": "Erasmus+ stay, 2017-18",
 "type":"study"
@@ -91,8 +91,8 @@ let locations = [
 },
 {
 "id": 11,
-"lat": 50.942596, 
-"long": 6.959364,
+"lat": 50.857928985215686,  
+"long": 7.083653440601657,
 "title1": "Workshop on Computational Drama Analysis",
 "title2": "Universität zu Köln, 15-16.09.2022",
 "type":"conference"
