@@ -91,8 +91,8 @@ let locations = [
 },
 {
 "id": 11,
-"lat": 50.857928985215686,  
-"long": 7.083653440601657,
+"lat": 50.85792,  
+"long": 7.08365,
 "title1": "Workshop on Computational Drama Analysis",
 "title2": "Universität zu Köln, 15-16.09.2022",
 "type":"conference"
