@@ -16,17 +16,21 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-var cities = ["New York"];
+var cities = ["New York", "Rome"];
 var geocoder = L.Control.Geocoder.nominatim();
 
 var addMarkers = function() {
     cities.forEach(function(city) {
-        geocoder.geocode(city, function(results) {
-            var r = results[0];
-            if (r) {
-                L.marker([r.lat, r.lng]).addTo(map).bindPopup(r.name);
-            }
-        });
+        try {
+            geocoder.geocode(city, function(results) {
+                var r = results[0];
+                if (r) {
+                    L.marker([r.lat, r.lng]).addTo(map).bindPopup(r.name);
+                }
+            });
+        } catch (error) {
+            console.log(`Error while processing ${city}: ${error}`);
+        }
     });
 };
 
