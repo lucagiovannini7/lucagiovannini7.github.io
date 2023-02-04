@@ -31,26 +31,28 @@
     "London","Coventry","Warwick","Leamington Spa","Birmingham","Manchester","Edinburgh","Glasgow","Bath","Salisbury",
     "Oxford","Cambridge",
     
-    "Paris","Versailles","Marseille","Nice","Oranges","Pont-du-Gard","Avignon","Chambery","Annecy"
+    "Paris","Versailles","Marseille","Nice","Oranges","Pont-du-Gard","Avignon","Chambery","Annecy","Argeles-sur-mer",
+
+    "Barcelona","Valencia","Malaga","Granada","Sevilla"
 
     ];
 
     var addMarkers = function() {
-        cities.forEach(function(city) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", `https://nominatim.openstreetmap.org/search?q=${city}&format=json`, true);
-            xhr.onreadystatechange = function() {
-                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-                    var result = JSON.parse(this.responseText);
-                    if (result.length > 0) {
-                        var r = result[0];
-                        L.marker([r.lat, r.lon]).addTo(map).bindPopup(r.display_name);
-                    }
-                }
-            };
-            xhr.send();
-        });
-    };
+    cities.forEach(function(city) {
+        fetch(`https://cors-anywhere.herokuapp.com/https://nominatim.openstreetmap.org/search?q=${city}&format=json`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.length == 0) {
+                console.log(`Error: no results found for ${city}`);
+                return;
+            }
+
+            var r = data[0];
+            L.marker([r.lat, r.lng], {icon: greenIcon}).addTo(map).bindPopup(r.display_name);
+        })
+        .catch(error => console.error(error));
+    });
+};
 
     addMarkers();
   </script>
