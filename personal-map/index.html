@@ -33,24 +33,28 @@
     
     "Paris","Versailles","Marseille","Nice","Oranges","Pont-du-Gard","Avignon","Chambery","Annecy","Argeles-sur-mer",
 
-    "Barcelona","Valencia","Malaga","Granada","Sevilla"
+    "Barcelona","Valencia","Malaga","Granada","Sevilla","Cordoba","Toledo","Madrid","Zaragoza",
+
+    "Lubiana","Nova Gorica","Portoroz","Rijeka","Budapest","Oradea","Sibiu",""
 
     ];
 
     var addMarkers = function() {
     cities.forEach(function(city) {
-        fetch(`https://cors-anywhere.herokuapp.com/https://nominatim.openstreetmap.org/search?q=${city}&format=json`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.length == 0) {
-                console.log(`Error: no results found for ${city}`);
-                return;
-            }
+        setTimeout(function() {
+            fetch(`https://cors-anywhere.herokuapp.com/https://nominatim.openstreetmap.org/search?q=${city}&format=json`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length == 0) {
+                    console.log(`Error: no results found for ${city}`);
+                    return;
+                }
 
-            var r = data[0];
-            L.marker([r.lat, r.lng], {icon: greenIcon}).addTo(map).bindPopup(r.display_name);
-        })
-        .catch(error => console.error(error));
+                var r = data[0];
+                L.marker([r.lat, r.lng], {icon: greenIcon}).addTo(map).bindPopup(r.display_name);
+            })
+            .catch(error => console.error(error));
+        }, 2000);
     });
 };
 
