@@ -35,7 +35,9 @@
 
     "Barcelona","Valencia","Malaga","Granada","Sevilla","Cordoba","Toledo","Madrid","Zaragoza",
 
-    "Lubiana","Nova Gorica","Portoroz","Rijeka","Budapest","Oradea","Sibiu",""
+    "Lubiana","Nova Gorica","Portoroz","Rijeka","Balaton","Budapest","Oradea","Sibiu","Bran, Brasov","Sinaia",
+
+    "Torino","Ivrea","Saluzzo","Aosta","Genova","San Bartolomeo al mare","Sestri Levante","Cinque Terre","Milano","Pavia"
 
     ];
 
@@ -43,7 +45,7 @@
     cities.forEach(function(city) {
         setTimeout(function() {
             fetch(`https://cors-anywhere.herokuapp.com/https://nominatim.openstreetmap.org/search?q=${city}&format=json`)
-            .then(response => response.json())
+            .then(response => response.text())
             .then(data => {
                 if (data.length == 0) {
                     console.log(`Error: no results found for ${city}`);
