@@ -21,18 +21,18 @@ var geocoder = L.Control.Geocoder.nominatim();
 
 var addMarkers = function() {
     cities.forEach(function(city) {
-        try {
-            geocoder.geocode(city, function(results) {
-                var r = results[0];
-                if (r) {
-                    L.marker([r.lat, r.lng]).addTo(map).bindPopup(r.name);
-                }
-            });
-        } catch (error) {
-            console.log(`Error while processing ${city}: ${error}`);
-        }
+        geocoder.geocode(city, function(results) {
+            if (results.length == 0) {
+                console.log(`Error: no results found for ${city}`);
+                return;
+            }
+
+            var r = results[0];
+            L.marker([r.lat, r.lng]).addTo(map).bindPopup(r.name);
+        });
     });
 };
+
 
 addMarkers();
 
