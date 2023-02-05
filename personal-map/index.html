@@ -30,6 +30,7 @@
     var addMarkers = function() {
         cities.forEach(function(city) {
             var xhr = new XMLHttpRequest();
+            xhr.timeout = 800;
             xhr.open("GET", `https://nominatim.openstreetmap.org/search?q=${city}&format=json`, true);
             xhr.onreadystatechange = function() {
                 if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
