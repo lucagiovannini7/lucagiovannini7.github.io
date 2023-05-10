@@ -35,6 +35,16 @@ a:hover {
 
 /* Section Styles */
 
+.intro .image {
+	flex: 1;
+	text-align: right;
+  }
+  
+.intro .fit-image {
+	max-width: 100%;
+	height: auto;
+  }
+
 .resume-section {
 	padding: 3rem 0;
 }
