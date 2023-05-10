@@ -53,15 +53,14 @@ a:hover {
   flex: 1;
 }
 
-.intro .image {
-  flex: 1;
-  text-align: right;
-}
-
-.intro .fit-image {
-  max-width: 20%;
-  height: auto;
-}
+.image-container {
+	text-align: right;
+  }
+  
+  #profile-image {
+	max-width: 100%;
+	height: auto;
+  }
 
 /* General */
 
