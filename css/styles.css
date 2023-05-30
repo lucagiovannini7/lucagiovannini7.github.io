@@ -63,23 +63,6 @@ a:hover {
 	margin-bottom: 0.5rem;
 }
 
-
-.image-gallery {
-	display: flex;
-	flex-wrap: wrap;
-}
-  
-.gallery-item {
-	flex: 0 0 33.33%; /* Adjust this value to control the width of each gallery item */
-	padding: 10px;
-	box-sizing: border-box;
-}
-  
-.gallery-item img {
-	max-width: 100%;
-	height: auto;
-}  
-
 /* Media Query */
 
 @media (min-width: 992px) {
