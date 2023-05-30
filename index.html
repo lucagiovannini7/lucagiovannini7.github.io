@@ -157,6 +157,25 @@
 	</section>
 	<hr>
 	<hr>
+
+	<style>
+		.image-gallery {
+		  display: flex;
+		  flex-wrap: wrap;
+		}
+		
+		.gallery-item {
+		  flex: 0 0 33.33%; /* Adjust this value to control the width of each gallery item */
+		  padding: 10px;
+		  box-sizing: border-box;
+		}
+		
+		.gallery-item img {
+		  max-width: 100%;
+		  height: auto;
+		}
+	</style>		
+
 	<section class="image-gallery-section" id="gallery">
 		<div class="container">
 		  <h2 class="mb-5">Image Gallery</h2>
