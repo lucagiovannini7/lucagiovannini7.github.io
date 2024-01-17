@@ -1,5 +1,5 @@
 let mapOptions = {
-center:[43.856259, 18.413076],
+center:[48.1486, 17.1077],
 zoom:4
 }
 let map = new L.map('map' , mapOptions);
@@ -18,7 +18,7 @@ let locations = [
 "id": 2,
 "lat": 45.070312,
 "long": 7.6868565,
-"title1": "Università degli Studi di Torino",
+"title1": "Università di Torino",
 "title2": "B.A. 2014-17 / M.A. 2017-20",
 "type":"study"
 },
@@ -42,7 +42,7 @@ let locations = [
 "id": 5,
 "lat": 45.406435,
 "long": 11.876761,
-"title1": "Università degli Studi di Padova",
+"title1": "Università di Padova",
 "title2": "Joint PhD, 2023-",
 "type":"study"
 },
@@ -58,36 +58,12 @@ let locations = [
 "id": 7,
 "lat": 49.8728256, 
 "long": 8.6511949,
-"title1": "CCLS 2023",
-"title2": "Technische Universität Darmstadt, 01.02-02.06.2023",
+"title1": "CCLS 2022",
+"title2": "Technische Universität Darmstadt, 01.02-02.06.2022",
 "type":"conference"
 },
 {
 "id": 8,
-"lat": 49.6116667, 
-"long": 6.1316667,
-"title1": "DHd 2023",
-"title2": "Universität Luxemburg, 13-14.03.2023",
-"type":"conference"
-},
-{
-"id": 9,
-"lat": 49.755868, 
-"long": 6.638778,
-"title1": "DHd 2023",
-"title2": "Universität Trier, 15-17.03.2023",
-"type":"conference"
-},
-{
-"id": 10,
-"lat": 31.798418, 
-"long": 35.239469,
-"title1": "1st HUBJ-FUB DH Winter School",
-"title2": "Hebrew University of Jerusalem, 27.02-01.03.2023",
-"type":"conference"
-},
-{
-"id": 11,
 "lat": 50.85792,  
 "long": 7.08365,
 "title1": "Workshop on Computational Drama Analysis",
@@ -95,47 +71,31 @@ let locations = [
 "type":"conference"
 },
 {
+"id": 9,
+"lat": 31.798418, 
+"long": 35.239469,
+"title1": "1st HUBJ-FUB DH Winter School",
+"title2": "Hebrew University of Jerusalem, 27.02-01.03.2023",
+"type":"conference"
+},
+{
+"id": 10,
+"lat": 49.611622,
+"long": 6.124135,
+"title1": "DHd 2023",
+"title2": "Universität Luxembourg, 13-14.03.2023",
+"type": "conference"
+},
+{
+"id": 11,
+"lat": 49.755868, 
+"long": 6.638778,
+"title1": "DHd 2023",
+"title2": "Universität Trier, 15-17.03.2023",
+"type":"conference"
+},
+{
 "id": 12,
-"lat": 48.573405,
-"long": 13.460086,
-"title1": "DHd 2024",
-"title2": "Universität Passau, 26.01-01.03.2024",
-"type": "conference"
-},
-{
-"id": 13,
-"lat": 45.406434,
-"long": 11.876761,
-"title1": "Digital Philology Seminar",
-"title2": "Università di Padova, 10-14.07.2023",
-"type": "conference"
-},
-{
-"id": 14,
-"lat": 59.436960,
-"long": 24.753574,
-"title1": "CUDAN 2023",
-"title2": "University of Tallinn, 13-16.12.2023",
-"type": "conference"
-},
-{
-"id": 15,
-"lat": 47.070714,
-"long": 15.439504,
-"title1": "DH 2023",
-"title2": "Universität Graz, 10-14.07.2023",
-"type": "conference"
-},
-{
-"id": 16,
-"lat": 49.795304,
-"long": 9.937457,
-"title1": "CCLS 2023",
-"title2": "Universität Würzburg, 22-23.06.2023",
-"type": "conference"
-},
-{
-"id": 17,
 "lat": 43.318011,
 "long": 11.331428,
 "title1": "AIUCD 2023",
@@ -143,11 +103,43 @@ let locations = [
 "type": "conference"
 },
 {
-"id": 18,
-"lat": 49.611622,
-"long": 6.124135,
-"title1": "DHd 2023",
-"title2": "Universität Luxembourg, 13-17.03.2023",
+"id": 13,
+"lat": 49.795304,
+"long": 9.937457,
+"title1": "CCLS 2023",
+"title2": "Universität Würzburg, 22-23.06.2023",
+"type": "conference"
+},
+{
+"id": 14,
+"lat": 47.070714,
+"long": 15.439504,
+"title1": "DH 2023",
+"title2": "Universität Graz, 10-14.07.2023",
+"type": "conference"
+},
+{
+"id": 15,
+"lat": 59.436960,
+"long": 24.753574,
+"title1": "CUDAN 2023",
+"title2": "University of Tallinn, 13-16.12.2023",
+"type": "conference"
+},
+{
+"id": 16,
+"lat": 45.409540,
+"long": 11.876550,
+"title1": "Digital Philology Seminar",
+"title2": "Università di Padova, 10-14.07.2023",
+"type": "conference"
+},
+{
+"id": 17,
+"lat": 48.573405,
+"long": 13.460086,
+"title1": "DHd 2024",
+"title2": "Universität Passau, 26.01-01.03.2024",
 "type": "conference"
 }
 ]
