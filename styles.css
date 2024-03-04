@@ -31,6 +31,10 @@ nav a {
     color: white;
 }
 
+main a {
+    color: darkred;
+}
+
 .button {
     margin-left: auto;
     order: 1;
