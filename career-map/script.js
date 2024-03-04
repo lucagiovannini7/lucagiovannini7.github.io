@@ -131,7 +131,7 @@ let locations = [
 "lat": 45.409540,
 "long": 11.876550,
 "title1": "Digital Philology Seminar",
-"title2": "Università di Padova, 10-14.07.2023",
+"title2": "Università di Padova, 13.02.2024",
 "type": "conference"
 },
 {
@@ -139,7 +139,7 @@ let locations = [
 "lat": 48.573405,
 "long": 13.460086,
 "title1": "DHd 2024",
-"title2": "Universität Passau, 26.01-01.03.2024",
+"title2": "Universität Passau, 26.02-01.03.2024",
 "type": "conference"
 }
 ]
