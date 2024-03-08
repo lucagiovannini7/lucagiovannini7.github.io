@@ -1,6 +1,6 @@
 let mapOptions = {
 center:[48.1486, 17.1077],
-zoom:4
+zoom:1
 }
 let map = new L.map('map' , mapOptions);
 let layer = new L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
@@ -51,7 +51,7 @@ let locations = [
 "lat": 52.41762, 
 "long": 13.0636,
 "title1": "DHd 2022",
-"title2": "Universität Potsdam, 07-11.03.2023",
+"title2": "Universität Potsdam, 7-11.03.2023",
 "type":"conference"
 },
 {
@@ -59,7 +59,7 @@ let locations = [
 "lat": 49.8728256, 
 "long": 8.6511949,
 "title1": "CCLS 2022",
-"title2": "Technische Universität Darmstadt, 01.02-02.06.2022",
+"title2": "Technische Universität Darmstadt, 31.05-2.06.2022",
 "type":"conference"
 },
 {
@@ -75,7 +75,7 @@ let locations = [
 "lat": 31.798418, 
 "long": 35.239469,
 "title1": "1st HUBJ-FUB DH Winter School",
-"title2": "Hebrew University of Jerusalem, 27.02-01.03.2023",
+"title2": "Hebrew University of Jerusalem, 27.02-1.03.2023",
 "type":"conference"
 },
 {
@@ -139,7 +139,15 @@ let locations = [
 "lat": 48.573405,
 "long": 13.460086,
 "title1": "DHd 2024",
-"title2": "Universität Passau, 26.02-01.03.2024",
+"title2": "Universität Passau, 26.02-1.03.2024",
+"type": "conference"
+}
+{
+"id": 18,
+"lat": 38.8799697,
+"long": -77.1067698,
+"title1": "DHd 2024",
+"title2": "George Mason University, 6.08-9.08.2024",
 "type": "conference"
 }
 ]
