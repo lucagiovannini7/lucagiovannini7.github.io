@@ -1,6 +1,6 @@
 let mapOptions = {
 center:[48.1486, 17.1077],
-zoom:1
+zoom:3
 }
 let map = new L.map('map' , mapOptions);
 let layer = new L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
@@ -141,12 +141,12 @@ let locations = [
 "title1": "DHd 2024",
 "title2": "Universität Passau, 26.02-1.03.2024",
 "type": "conference"
-}
+},
 {
 "id": 18,
 "lat": 38.8799697,
 "long": -77.1067698,
-"title1": "DHd 2024",
+"title1": "DH 2024",
 "title2": "George Mason University, 6.08-9.08.2024",
 "type": "conference"
 }
