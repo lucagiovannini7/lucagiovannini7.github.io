@@ -149,6 +149,22 @@ let locations = [
 "title1": "DH 2024",
 "title2": "George Mason University, 6.08-9.08.2024",
 "type": "conference"
+},
+{
+"id": 19,
+"lat": 37.5073,
+"long": 15.0873,
+"title1": "AIUCD 2024",
+"title2": "Università di Catania, 28-30.05.2024",
+"type": "conference"
+},
+{
+"id": 20,
+"lat": 48.2082,
+"long": 16.3738,
+"title1": "CLS INFRA/DraCor Training School + CCLS 2024",
+"title2": "Universität Wien, 10-15.06.2024",
+"type": "conference"
 }
 ]
 let markers = [];
