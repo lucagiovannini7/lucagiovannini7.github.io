@@ -166,6 +166,14 @@ let locations = [
 "title2": "Universität Wien, 10-15.06.2024",
 "type": "conference"
 }
+{
+"id": 21,
+"lat": 44.40478000,
+"long": 8.94439000,
+"title1": "SRDH Doctoral Symposium",
+"title2": "Università di Genova, 21-22.05.2024",
+"type": "conference"
+}
 ]
 let markers = [];
 locations.forEach(location => {
