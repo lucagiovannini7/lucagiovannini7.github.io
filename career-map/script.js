@@ -165,7 +165,7 @@ let locations = [
 "title1": "CLS INFRA/DraCor Training School + CCLS 2024",
 "title2": "Universität Wien, 10-15.06.2024",
 "type": "conference"
-}
+},
 {
 "id": 21,
 "lat": 44.40478000,
