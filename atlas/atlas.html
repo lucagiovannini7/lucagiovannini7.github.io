@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Little Atlas of English Early Modern Drama</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Tahoma, sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .header {
+            text-align: center;
+            padding: 10px;
+            font-size: 2em;
+            background-color: #f8f9fa;
+        }
+        .info-box {
+            text-align: center;
+            padding: 5px;
+            background-color: #e9ecef;
+            margin: 20px;
+        }
+        #map {
+            flex-grow: 1;
+        }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="header">A Little Atlas of English Early Modern Drama</div>
+        <div class="info-box">This map charts most cities nominated in the about 400 plays from the <a href="https://dracor.org/eng">English Drama Corpus (EngDraCor)</a>. <br>Toponims have been extracted through several heuristic methods and coordinates extracted via <i>geopy</i>.<br><small>Under consideration for CHR 2024. Contact the author <a href="mailto:giovannini@uni-potsdam.de">here</a>.</small></div>
+        <div id="map"></div>
+    </div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+                // Initialize the map
+        var map = L.map('map').setView([0, 0], 3); // Default view at center of the world
+
+        // Load and display tile layer on the map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Load locations data from CSV file
+        fetch('locations.csv')
+            .then(response => response.text())
+            .then(data => {
+                // Parse CSV data
+                let rows = data.trim().split('\n');
+                rows.forEach(row => {
+                    let columns = row.split(',');
+                    let lat = parseFloat(columns[0]);
+                    let lng = parseFloat(columns[1]);
+                    let text = columns.slice(2).join(',');
+
+                    // Create marker and bind popup
+                    var marker = L.marker([lat, lng]).addTo(map);
+                    marker.bindPopup(`<b>${text}</b>`);
+
+                    // Display popup on hover
+                    marker.on('mouseover', function (e) {
+                        this.openPopup();
+                    });
+                    marker.on('mouseout', function (e) {
+                        this.closePopup();
+                    });
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching locations:', error);
+            });
+    </script>
+</body>
+</html>
