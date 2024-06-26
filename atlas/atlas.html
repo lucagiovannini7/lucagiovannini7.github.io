@@ -29,6 +29,7 @@
         }
         #map {
             flex-grow: 1;
+            height: 600px; /* Adjust map height as needed */
         }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
@@ -40,43 +41,6 @@
         <div id="map"></div>
     </div>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-                // Initialize the map
-        var map = L.map('map').setView([0, 0], 3); // Default view at center of the world
-
-        // Load and display tile layer on the map
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-        }).addTo(map);
-
-        // Load locations data from CSV file
-        fetch('locations.csv')
-            .then(response => response.text())
-            .then(data => {
-                // Parse CSV data
-                let rows = data.trim().split('\n');
-                rows.forEach(row => {
-                    let columns = row.split(',');
-                    let lat = parseFloat(columns[0]);
-                    let lng = parseFloat(columns[1]);
-                    let text = columns.slice(2).join(',');
-
-                    // Create marker and bind popup
-                    var marker = L.marker([lat, lng]).addTo(map);
-                    marker.bindPopup(`<b>${text}</b>`);
-
-                    // Display popup on hover
-                    marker.on('mouseover', function (e) {
-                        this.openPopup();
-                    });
-                    marker.on('mouseout', function (e) {
-                        this.closePopup();
-                    });
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching locations:', error);
-            });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
