@@ -511,7 +511,7 @@
             "day-wilkins-rowley-the-travels-of-the-three-english-brothers"
         ],
         "locations": [
-            "Persia, *postcorrected"
+            "Persia*"
         ]
     },
     {
@@ -762,7 +762,7 @@
             "jonson-bartholomew-fair"
         ],
         "locations": [
-            "Alba / Scotland, United Kingdom"
+            "Alba/Scotland, United Kingdom"
         ]
     },
     {
@@ -903,10 +903,13 @@
             "peele-the-old-wives-tale",
             "ford-the-fancies-chaste-and-noble",
             "chapman-an-humorous-day-s-mirth",
-            "glapthorne-the-ladies-privilege"
+            "glapthorne-the-ladies-privilege",
+            "anon-alphonsus-emperor-of-germany",
+            "jonson-catiline-his-conspiracy",
+            "jonson-sejanus-his-fall"
         ],
         "locations": [
-            "France"
+            "France/Gallia"
         ]
     },
     {
@@ -1038,8 +1041,8 @@
     },
     {
         "coordinates": [
-            39.7837304,
-            -100.445882
+            9.9070,
+            -83.6817
         ],
         "titles": [
             "beaumont-fletcher-the-coxcomb",
@@ -1053,7 +1056,7 @@
             "shirley-the-gamester"
         ],
         "locations": [
-            "United States"
+            "America"
         ]
     },
     {
@@ -1090,10 +1093,15 @@
             "anon-alphonsus-emperor-of-germany",
             "dekker-chettle-haughton-patient-grissel",
             "peele-edward-the-first",
-            "middleton-the-mayor-of-quinborough"
+            "middleton-the-mayor-of-quinborough",
+            "anon-the-true-chronicle-of-king-leir",
+            "dekker-chettle-haughton-patient-grissel",
+            "middleton-the-mayor-of-quinborough",
+            "peele-edward-the-first",
+            "s-locrine"
         ],
         "locations": [
-            "Cymru / Wales, United Kingdom"
+            "Cymru/Wales, United Kingdom"
         ]
     },
     {
@@ -1224,7 +1232,8 @@
             "gascoigne-the-glass-of-government",
             "zouche-the-sophister",
             "middleton-a-game-at-chess",
-            "anon-a-larum-for-london"
+            "anon-a-larum-for-london",
+            "anon-a-larum-for-london", "ford-perkin-warbeck", "gascoigne-the-glass-of-government", "marlowe-the-jew-of-malta", "shirley-the-ball"
         ],
         "locations": [
             "Antwerpen, Vlaanderen, Belgi\u00eb / Belgique / Belgien"
@@ -1336,7 +1345,7 @@
             "belchier-hans-beer-pot"
         ],
         "locations": [
-            "\u00c9ire / Ireland"
+            "Eire/Ireland"
         ]
     },
     {
@@ -1439,7 +1448,7 @@
             "peele-the-old-wives-tale"
         ],
         "locations": [
-            "Thessaly, *postcorrected"
+            "Thessaly*"
         ]
     },
     {
@@ -1460,7 +1469,7 @@
             "chettle-hoffman"
         ],
         "locations": [
-            "Nile, *postcorrected"
+            "Nile River*"
         ]
     },
     {
@@ -1560,7 +1569,7 @@
             "glapthorne-argalus-and-parthenia"
         ],
         "locations": [
-            "Corinth, *postcorrected"
+            "Corinth*"
         ]
     },
     {
@@ -1592,7 +1601,8 @@
             "daniel-hymen-s-triumph",
             "chapman-the-blind-beggar-of-alexandria",
             "d-the-knave-in-grain-new-vamped",
-            "milton-comus"
+            "milton-comus",
+            "anon-caesar-and-pompey", "daniel-cleopatra", "lyly-endymion", "marston-what-you-will"
         ],
         "locations": [
             "Egypt"
@@ -1696,7 +1706,7 @@
             "anon-the-trial-of-chivalry"
         ],
         "locations": [
-            "Dover, *postcorrected"
+            "Dover*"
         ]
     },
     {
@@ -1714,7 +1724,7 @@
             "nashe-summer-s-last-will-and-testament"
         ],
         "locations": [
-            "Richmond, North Yorkshire, *postcorrected"
+            "Richmond, North Yorkshire*"
         ]
     },
     {
@@ -1818,7 +1828,7 @@
             "belchier-hans-beer-pot"
         ],
         "locations": [
-            "Lancaster, *postcorrected"
+            "Lancaster*"
         ]
     },
     {
@@ -1992,7 +2002,7 @@
             "massinger-the-renegado"
         ],
         "locations": [
-            "Rhodes, *postcorrected"
+            "Rhodes*"
         ]
     },
     {
@@ -2069,8 +2079,8 @@
     },
     {
         "coordinates": [
-            39.8963997,
-            -4.49743657062888
+            40.3319,
+            -4.4721
         ],
         "titles": [
             "beaumont-fletcher-a-king-and-no-king",
@@ -2078,38 +2088,7 @@
             "chapman-the-tragedy-of-charles-duke-of-byron"
         ],
         "locations": [
-            "Iberia, Espa\u00f1a"
-        ]
-    },
-    {
-        "coordinates": [
-            52.2434979,
-            5.6343227
-        ],
-        "titles": [
-            "brome-the-new-academy",
-            "dekker-the-honest-whore-2",
-            "dekker-webster-northward-ho",
-            "tomkis-albumazar",
-            "sharpham-cupid-s-whirligig",
-            "shirley-the-impostor",
-            "cavendish-the-variety",
-            "jonson-the-alchemist",
-            "s-thomas-lord-cromwell",
-            "fletcher-ford-massinger-webster-the-fair-maid-of-the-inn",
-            "brome-the-northern-lass",
-            "middleton-anything-for-a-quiet-life",
-            "beaumont-fletcher-love-s-pilgrimage",
-            "shirley-the-school-of-compliment",
-            "marmion-holland-s-leaguer",
-            "dekker-middleton-the-honest-whore-1",
-            "wilson-the-three-lords-and-three-ladies-of-london",
-            "randolph-aristippus-or-the-jovial-philosopher",
-            "d-the-knave-in-grain-new-vamped",
-            "shirley-the-ball"
-        ],
-        "locations": [
-            "Nederland"
+            "Iberia"
         ]
     },
     {
@@ -2156,7 +2135,7 @@
             "beaumont-fletcher-massinger-beggars-bush"
         ],
         "locations": [
-            "\u039a\u03cd\u03c0\u03c1\u03bf\u03c2, \u039a\u03cd\u03c0\u03c1\u03bf\u03c2 - K\u0131br\u0131s"
+            "Cyprus"
         ]
     },
     {
@@ -2189,7 +2168,7 @@
             "daniel-the-queen-s-arcadia"
         ],
         "locations": [
-            "Sparta, \u0394\u03ae\u03bc\u03bf\u03c2 \u03a3\u03c0\u03ac\u03c1\u03c4\u03b7\u03c2, \u03a0\u03b5\u03c1\u03b9\u03c6\u03b5\u03c1\u03b5\u03b9\u03b1\u03ba\u03ae \u0395\u03bd\u03cc\u03c4\u03b7\u03c4\u03b1 \u039b\u03b1\u03ba\u03c9\u03bd\u03af\u03b1\u03c2, \u03a0\u03b5\u03c1\u03b9\u03c6\u03ad\u03c1\u03b5\u03b9\u03b1 \u03a0\u03b5\u03bb\u03bf\u03c0\u03bf\u03bd\u03bd\u03ae\u03c3\u03bf\u03c5, \u0391\u03c0\u03bf\u03ba\u03b5\u03bd\u03c4\u03c1\u03c9\u03bc\u03ad\u03bd\u03b7 \u0394\u03b9\u03bf\u03af\u03ba\u03b7\u03c3\u03b7 \u03a0\u03b5\u03bb\u03bf\u03c0\u03bf\u03bd\u03bd\u03ae\u03c3\u03bf\u03c5, \u0394\u03c5\u03c4\u03b9\u03ba\u03ae\u03c2 \u0395\u03bb\u03bb\u03ac\u03b4\u03b1\u03c2 \u03ba\u03b1\u03b9 \u0399\u03bf\u03bd\u03af\u03bf\u03c5, 231 00, \u0395\u03bb\u03bb\u03ac\u03c2"
+            "Sparta"
         ]
     },
     {
@@ -2207,10 +2186,16 @@
             "beaumont-fletcher-the-coxcomb",
             "brome-the-queen-s-exchange",
             "marlowe-dr-faustus",
-            "peele-the-battle-of-alcazar"
+            "peele-the-battle-of-alcazar",
+            "anon-a-knack-to-know-a-knave",
+            "anon-caesar-and-pompey",
+            "dekker-ford-the-sun-s-darling",
+            "fletcher-massinger-the-little-french-lawyer",
+            "greene-orlando-furioso",
+            "may-cleopatra-queen-of-egypt"
         ],
         "locations": [
-            "Africa, *postcorrected"
+            "Africa*"
         ]
     },
     {
@@ -2286,7 +2271,7 @@
             "brome-the-damoiselle-or-the-new-ordinary"
         ],
         "locations": [
-            "Turnbull St., London, *postcorrected"
+            "Turnbull St., London*"
         ]
     },
     {
@@ -2325,7 +2310,7 @@
             "dekker-haughton-day-lust-s-dominion"
         ],
         "locations": [
-            "Barbary, approx. Algiers, *postcorrected"
+            "Barbary, approx. Algiers*"
         ]
     },
     {
@@ -2347,7 +2332,7 @@
             "cavendish-the-variety"
         ],
         "locations": [
-            "Tempe Valley, *postcorrected"
+            "Tempe Valley*"
         ]
     },
     {
@@ -2404,7 +2389,7 @@
             "tomkis-lingua"
         ],
         "locations": [
-            "Magyarorsz\u00e1g"
+            "Hungary"
         ]
     },
     {
@@ -2457,7 +2442,7 @@
             "brome-the-weeding-of-the-covent-garden"
         ],
         "locations": [
-            "Jordania, *postcorrected"
+            "Jordania*"
         ]
     },
     {
@@ -2493,10 +2478,13 @@
             "shirley-the-gamester",
             "porter-the-two-angry-women-of-abingdon",
             "jonson-bartholomew-fair",
-            "shirley-the-ball"
+            "shirley-the-ball",
+            "shirley-the-gamester",
+            "massinger-the-guardian",
+            "dekker-haughton-day-lust-s-dominion"
         ],
         "locations": [
-            "\u05d9\u05e8\u05d5\u05e9\u05dc\u05d9\u05dd | \u0627\u0644\u0642\u062f\u0633, \u05e0\u05e4\u05ea \u05d9\u05e8\u05d5\u05e9\u05dc\u05d9\u05dd, \u05de\u05d7\u05d5\u05d6 \u05d9\u05e8\u05d5\u05e9\u05dc\u05d9\u05dd, \u05d9\u05e9\u05e8\u05d0\u05dc"
+            "Jerusalem"
         ]
     },
     {
@@ -2561,7 +2549,7 @@
             "kyd-soliman-and-perseda"
         ],
         "locations": [
-            "Pelion Mt., Greece, *postcorrected"
+            "Pelion Mt., Greece*"
         ]
     },
     {
@@ -2574,7 +2562,7 @@
             "chapman-the-tragedy-of-charles-duke-of-byron"
         ],
         "locations": [
-            "Arden Forest, *postcorrected"
+            "Arden Forest*"
         ]
     },
     {
@@ -2592,7 +2580,7 @@
             "chapman-caesar-and-pompey-the-wars-of-caesar-and-pompey"
         ],
         "locations": [
-            "\u0398\u03c1\u03ac\u03ba\u03b7\u03c2, \u03a6\u03bf\u03af\u03bd\u03b9\u03ba\u03bf\u03c2, \u039a\u03bf\u03b9\u03bd\u03cc\u03c4\u03b7\u03c4\u03b1 \u03a9\u03c1\u03b1\u03b9\u03bf\u03ba\u03ac\u03c3\u03c4\u03c1\u03bf\u03c5, \u0394\u03b7\u03bc\u03bf\u03c4\u03b9\u03ba\u03ae \u0395\u03bd\u03cc\u03c4\u03b7\u03c4\u03b1 \u03a9\u03c1\u03b1\u03b9\u03bf\u03ba\u03ac\u03c3\u03c4\u03c1\u03bf\u03c5, \u0394\u03ae\u03bc\u03bf\u03c2 \u03a9\u03c1\u03b1\u03b9\u03bf\u03ba\u03ac\u03c3\u03c4\u03c1\u03bf\u03c5, \u039c\u03b7\u03c4\u03c1\u03bf\u03c0\u03bf\u03bb\u03b9\u03c4\u03b9\u03ba\u03ae \u0395\u03bd\u03cc\u03c4\u03b7\u03c4\u03b1 \u0398\u03b5\u03c3\u03c3\u03b1\u03bb\u03bf\u03bd\u03af\u03ba\u03b7\u03c2, \u03a0\u03b5\u03c1\u03b9\u03c6\u03ad\u03c1\u03b5\u03b9\u03b1 \u039a\u03b5\u03bd\u03c4\u03c1\u03b9\u03ba\u03ae\u03c2 \u039c\u03b1\u03ba\u03b5\u03b4\u03bf\u03bd\u03af\u03b1\u03c2, \u0391\u03c0\u03bf\u03ba\u03b5\u03bd\u03c4\u03c1\u03c9\u03bc\u03ad\u03bd\u03b7 \u0394\u03b9\u03bf\u03af\u03ba\u03b7\u03c3\u03b7 \u039c\u03b1\u03ba\u03b5\u03b4\u03bf\u03bd\u03af\u03b1\u03c2 - \u0398\u03c1\u03ac\u03ba\u03b7\u03c2, 570 13, \u0395\u03bb\u03bb\u03ac\u03c2"
+            "Thracia"
         ]
     },
     {
@@ -2655,7 +2643,7 @@
             "chapman-the-tragedy-of-charles-duke-of-byron"
         ],
         "locations": [
-            "Albania, *postcorrected"
+            "Albania*"
         ]
     },
     {
@@ -2668,7 +2656,7 @@
             "heywood-the-brazen-age"
         ],
         "locations": [
-            "\u03a0\u03ac\u03c6\u03bf\u03c2, \u0394\u03ae\u03bc\u03bf\u03c2 \u03a0\u03ac\u03c6\u03bf\u03c5, \u0395\u03c0\u03b1\u03c1\u03c7\u03af\u03b1 \u03a0\u03ac\u03c6\u03bf\u03c5, \u039a\u03cd\u03c0\u03c1\u03bf\u03c2, 8047, \u039a\u03cd\u03c0\u03c1\u03bf\u03c2 - K\u0131br\u0131s"
+            "Paphos"
         ]
     },
     {
@@ -2699,13 +2687,13 @@
             "chettle-hoffman"
         ],
         "locations": [
-            "\u00d6sterreich"
+            "Austria"
         ]
     },
     {
         "coordinates": [
-            41.8931576,
-            -70.9111517
+            54.5743,
+            -1.2348
         ],
         "titles": [
             "d-the-knave-in-grain-new-vamped",
@@ -2713,7 +2701,7 @@
             "heywood-a-challenge-for-beauty"
         ],
         "locations": [
-            "Middleborough, Plymouth County, Massachusetts, 02346, United States"
+            "Middleborough"
         ]
     },
     {
@@ -2727,7 +2715,7 @@
             "marlowe-the-jew-of-malta"
         ],
         "locations": [
-            "\u05d9\u05e9\u05e8\u05d0\u05dc"
+            "Israel"
         ]
     },
     {
@@ -2750,7 +2738,7 @@
             "jonson-catiline-his-conspiracy"
         ],
         "locations": [
-            "Thebes, *postcorrected"
+            "Thebes*"
         ]
     },
     {
@@ -2864,7 +2852,7 @@
             "ford-the-lady-s-trial"
         ],
         "locations": [
-            "Sardigna/Sardegna, Italia"
+            "Sardinia, Italia"
         ]
     },
     {
@@ -2879,7 +2867,7 @@
             "hawkins-apollo-shroving"
         ],
         "locations": [
-            "Parnassus Mt., *postcorrected"
+            "Parnassus Mt.*"
         ]
     },
     {
@@ -2897,10 +2885,14 @@
             "jonson-bartholomew-fair",
             "day-wilkins-rowley-the-travels-of-the-three-english-brothers",
             "dekker-if-it-be-not-good-the-devil-is-in-it",
-            "chapman-the-tragedy-of-charles-duke-of-byron"
+            "chapman-the-tragedy-of-charles-duke-of-byron",
+            "denham-the-sophy",
+            "greene-selimus-1",
+            "greville-mustapha",
+            "munday-chettle-the-death-of-robert-earl-of-huntingdon"
         ],
         "locations": [
-            "T\u00fcrkiye"
+            "Turkiye/Anatolia"
         ]
     },
     {
@@ -2913,21 +2905,7 @@
             "dekker-blurt-master-constable"
         ],
         "locations": [
-            "Castile, Spain, *postcorrected"
-        ]
-    },
-    {
-        "coordinates": [
-            31.78847185,
-            35.21879441094499
-        ],
-        "titles": [
-            "shirley-the-gamester",
-            "massinger-the-guardian",
-            "dekker-haughton-day-lust-s-dominion"
-        ],
-        "locations": [
-            "\u05d9\u05e8\u05d5\u05e9\u05dc\u05d9\u05dd, \u05e0\u05e4\u05ea \u05d9\u05e8\u05d5\u05e9\u05dc\u05d9\u05dd, \u05de\u05d7\u05d5\u05d6 \u05d9\u05e8\u05d5\u05e9\u05dc\u05d9\u05dd, \u05d9\u05e9\u05e8\u05d0\u05dc"
+            "Castile, Spain*"
         ]
     },
     {
@@ -2946,7 +2924,7 @@
             "shirley-the-cardinal"
         ],
         "locations": [
-            "Aragona, Spain, *postcorrected"
+            "Aragona, Spain*"
         ]
     },
     {
@@ -2971,7 +2949,7 @@
             "dekker-match-me-in-london"
         ],
         "locations": [
-            "Sevilla, *postcorrected"
+            "Sevilla*"
         ]
     },
     {
@@ -2984,7 +2962,7 @@
             "dekker-middleton-the-honest-whore-1"
         ],
         "locations": [
-            "Bethlem, *postcorrected"
+            "Bethlem*"
         ]
     },
     {
@@ -3063,7 +3041,7 @@
             "drue-the-duchess-of-suffolk"
         ],
         "locations": [
-            "Aldgate, London, *postcorrected"
+            "Aldgate, London*"
         ]
     },
     {
@@ -3076,7 +3054,7 @@
             "greene-friar-bacon-and-friar-bongay"
         ],
         "locations": [
-            "Rye, England, *postcorrected"
+            "Rye, England*"
         ]
     },
     {
@@ -3117,7 +3095,7 @@
             "marston-the-malcontent"
         ],
         "locations": [
-            "Genoa, *postcorrected"
+            "Genoa*"
         ]
     },
     {
@@ -3145,7 +3123,7 @@
             "fletcher-shirley-the-night-walker"
         ],
         "locations": [
-            "River Thames, England, United Kingdom"
+            "Thames River, England, United Kingdom"
         ]
     },
     {
@@ -3184,7 +3162,7 @@
             "may-cleopatra-queen-of-egypt"
         ],
         "locations": [
-            "Samos, Greece, *postcorrected"
+            "Samos, Greece*"
         ]
     },
     {
@@ -3197,7 +3175,7 @@
             "glapthorne-argalus-and-parthenia"
         ],
         "locations": [
-            "\u039c\u03b5\u03b3\u03ac\u03bb\u03b7 \u039c\u03b1\u03bd\u03c4\u03af\u03bd\u03b5\u03b9\u03b1, \u0394\u03b7\u03bc\u03bf\u03c4\u03b9\u03ba\u03ae \u0395\u03bd\u03cc\u03c4\u03b7\u03c4\u03b1 \u0391\u03b2\u03af\u03b1\u03c2, \u0394\u03ae\u03bc\u03bf\u03c2 \u0394\u03c5\u03c4\u03b9\u03ba\u03ae\u03c2 \u039c\u03ac\u03bd\u03b7\u03c2, \u03a0\u03b5\u03c1\u03b9\u03c6\u03b5\u03c1\u03b5\u03b9\u03b1\u03ba\u03ae \u0395\u03bd\u03cc\u03c4\u03b7\u03c4\u03b1 \u039c\u03b5\u03c3\u03c3\u03b7\u03bd\u03af\u03b1\u03c2, \u03a0\u03b5\u03c1\u03b9\u03c6\u03ad\u03c1\u03b5\u03b9\u03b1 \u03a0\u03b5\u03bb\u03bf\u03c0\u03bf\u03bd\u03bd\u03ae\u03c3\u03bf\u03c5, \u0391\u03c0\u03bf\u03ba\u03b5\u03bd\u03c4\u03c1\u03c9\u03bc\u03ad\u03bd\u03b7 \u0394\u03b9\u03bf\u03af\u03ba\u03b7\u03c3\u03b7 \u03a0\u03b5\u03bb\u03bf\u03c0\u03bf\u03bd\u03bd\u03ae\u03c3\u03bf\u03c5, \u0394\u03c5\u03c4\u03b9\u03ba\u03ae\u03c2 \u0395\u03bb\u03bb\u03ac\u03b4\u03b1\u03c2 \u03ba\u03b1\u03b9 \u0399\u03bf\u03bd\u03af\u03bf\u03c5, 241 00, \u0395\u03bb\u03bb\u03ac\u03c2"
+            "Mantinea, Greece*"
         ]
     },
     {
@@ -3210,7 +3188,7 @@
             "greene-alphonsus-king-of-aragon"
         ],
         "locations": [
-            "Scythia, *postcorrected"
+            "Scythia*"
         ]
     },
     {
@@ -3233,10 +3211,12 @@
         ],
         "titles": [
             "greene-selimus-1",
-            "randolph-the-jealous-lovers"
+            "randolph-the-jealous-lovers","greene-selimus-1",
+            "heywood-the-golden-age", "kirke-the-seven-champions-of-christendom",
+            "sampson-the-vow-breaker"
         ],
         "locations": [
-            "Tartaria, *postcorrected"
+            "Tartaria*"
         ]
     },
     {
@@ -3254,19 +3234,6 @@
     },
     {
         "coordinates": [
-            10.2116702,
-            38.6521203
-        ],
-        "titles": [
-            "hawkins-apollo-shroving",
-            "shirley-the-lady-of-pleasure"
-        ],
-        "locations": [
-            "\u12a2\u1275\u12ee\u1335\u12eb"
-        ]
-    },
-    {
-        "coordinates": [
             50.1612,
             -5.062
         ],
@@ -3275,7 +3242,7 @@
             "heywood-a-challenge-for-beauty"
         ],
         "locations": [
-            "Flushing, Cornwall, *postcorrected"
+            "Flushing, Cornwall*"
         ]
     },
     {
@@ -3301,7 +3268,7 @@
             "wilson-the-three-ladies-of-london"
         ],
         "locations": [
-            "Bristow/Bristol, *postcorrected"
+            "Bristow/Bristol*"
         ]
     },
     {
@@ -3314,7 +3281,7 @@
             "heywood-the-fair-maid-of-the-west-1"
         ],
         "locations": [
-            "Maroc / \u2d4d\u2d4e\u2d56\u2d54\u2d49\u2d31 / \u0627\u0644\u0645\u063a\u0631\u0628, Maroc \u2d4d\u2d4e\u2d56\u2d54\u2d49\u2d31 \u0627\u0644\u0645\u063a\u0631\u0628"
+            "Morocco"
         ]
     },
     {
@@ -3340,7 +3307,243 @@
             "middleton-the-family-of-love"
         ],
         "locations": [
-            "Bruxelles - Brussel, Ville de Bruxelles - Stad Brussel, Brussel-Hoofdstad - Bruxelles-Capitale, R\u00e9gion de Bruxelles-Capitale - Brussels Hoofdstedelijk Gewest, Belgi\u00eb / Belgique / Belgien"
+            "Bruxelles - Brussel"
         ]
+    },
+    {
+        "coordinates": [32.375351, 13.002911], 
+        "titles": ["alexander-caesar", "anon-caesar-and-pompey", "marlowe-nashe-dido-queen-of-carthage"],
+        "locations": ["Libya"]
+    },
+    {
+        "coordinates": [24.837503, 67.010517], 
+        "titles": ["alexander-the-alexandraean-tragedy", "jonson-neptune-s-triumph-for-the-return-of-albion", "jonson-the-fortunate-isles-and-their-union"],
+        "locations": ["Indus River"]
+    },
+    {
+        "coordinates": [53.234444, -0.538611], 
+        "titles": ["anon-a-knack-to-know-a-knave", "anon-the-true-tragedy-of-richard-the-third", "greene-friar-bacon-and-friar-bongay"],
+        "locations": ["Lincoln"]
+    },
+    {
+        "coordinates": [31.200092, 29.918739], 
+        "titles": ["anon-a-knack-to-know-a-knave", "chapman-the-blind-beggar-of-alexandria", "daniel-hymen-s-triumph", "lower-the-phoenix-in-her-flames", "marlowe-the-jew-of-malta", "may-cleopatra-queen-of-egypt"],
+        "locations": ["Alexandria"]
+    },
+    {
+        "coordinates": [52.0967, 5.6222], 
+        "titles": ["anon-a-larum-for-london", "belchier-hans-beer-pot", "brome-the-sparagus-garden", "glapthorne-the-hollander", "middleton-a-game-at-chess", "shirley-the-ball","brome-the-new-academy",
+            "dekker-the-honest-whore-2",
+            "dekker-webster-northward-ho",
+            "tomkis-albumazar",
+            "sharpham-cupid-s-whirligig",
+            "shirley-the-impostor",
+            "cavendish-the-variety",
+            "jonson-the-alchemist",
+            "s-thomas-lord-cromwell",
+            "fletcher-ford-massinger-webster-the-fair-maid-of-the-inn",
+            "brome-the-northern-lass",
+            "middleton-anything-for-a-quiet-life",
+            "beaumont-fletcher-love-s-pilgrimage",
+            "shirley-the-school-of-compliment",
+            "marmion-holland-s-leaguer",
+            "dekker-middleton-the-honest-whore-1",
+            "wilson-the-three-lords-and-three-ladies-of-london",
+            "randolph-aristippus-or-the-jovial-philosopher",
+            "d-the-knave-in-grain-new-vamped",
+            "shirley-the-ball"],
+        "locations": ["Netherlands"]
+    },
+    {
+        "coordinates": [52.5001698, 5.5038416], 
+        "titles": ["anon-a-larum-for-london", "davenant-the-cruel-brother", "sharpham-cupid-s-whirligig"],
+        "locations": ["Zealand"]
+    },
+    {
+        "coordinates": [41.8933, 12.7153], 
+        "titles": ["anon-caesar-and-pompey", "belchier-hans-beer-pot", "fisher-fuimus-troes"],
+        "locations": ["Lazio"]
+    },
+    {
+        "coordinates": [34.802075, 38.996815], 
+        "titles": ["anon-caesar-and-pompey", "chapman-the-tragedy-of-charles-duke-of-byron", "daniel-cleopatra", "ford-the-lover-s-melancholy"],
+        "locations": ["Syria"]
+    },
+    {
+        "coordinates": [29.971491, 31.134202], 
+        "titles": ["anon-caesar-and-pompey", "chapman-the-blind-beggar-of-alexandria", "nabbes-the-bride"],
+        "locations": ["Memphis"]
+    },
+    {
+        "coordinates": [40.640063, 22.944419], 
+        "titles": ["anon-caesar-and-pompey", "greene-selimus-1", "peele-clyomon-and-clamydes"],
+        "locations": ["Macedonia"]
+    },
+    {
+        "coordinates": [40.50204, 14.04336], 
+        "titles": ["anon-caesar-and-pompey", "heywood-how-a-man-may-choose-a-good-wife-from-a-bad", "kyd-the-spanish-tragedy", "may-antigone-the-theban-princess"],
+        "locations": ["Avernus Lake"]
+    },
+    {
+        "coordinates": [39.399872, -8.224454], 
+        "titles": ["anon-jeronimo-with-the-wars-of-portugal-1", "dekker-haughton-day-lust-s-dominion", "fletcher-field-four-plays", "peele-the-battle-of-alcazar", "shirley-the-court-secret","anon-jeronimo-with-the-wars-of-portugal-1", "heywood-if-you-know-not-me-you-know-nobody-2", "rowley-when-you-see-me-you-know-me"],
+        "locations": ["Portugal"]
+    },
+    {
+        "coordinates": [39.4699075, -0.3762881], 
+        "titles": ["anon-mucedorus-and-amadine", "barnes-the-devil-s-charter", "brome-the-cunning-lovers", "gascoigne-the-glass-of-government", "middleton-rowley-the-changeling", "shirley-the-doubtful-heir"],
+        "locations": ["Valencia"]
+    },
+    {
+        "coordinates": [9.145, 40.489673], 
+        "titles": ["anon-nero", "fletcher-massinger-the-little-french-lawyer", "fletcher-the-woman-s-prize", "porter-the-two-angry-women-of-abingdon", "rawlins-the-rebellion", "shirley-the-wedding", "hawkins-apollo-shroving","shirley-the-lady-of-pleasure"],
+        "locations": ["Ethiopia"]
+    },
+    {
+        "coordinates": [51.372087, -0.098864], 
+        "titles": ["anon-the-london-prodigal", "chapman-two-wise-men-and-all-the-rest-fools", "jonson-the-new-inn", "killigrew-the-parson-s-wedding", "nashe-summer-s-last-will-and-testament"],
+        "locations": ["Croyden"]
+    },
+    {
+        "coordinates": [52.675073, 0.949084], 
+        "titles": ["anon-the-merry-devil-of-edmonton", "brome-the-english-moor", "dekker-webster-westward-ho", "killigrew-the-parson-s-wedding", "rowley-the-birth-of-merlin"],
+        "locations": ["Norfolk"]
+    },
+    {
+        "coordinates": [51.63717, -0.053071], 
+        "titles": ["anon-the-merry-devil-of-edmonton", "beaumont-the-knight-of-the-burning-pestle", "dekker-rowley-ford-the-witch-of-edmonton", "killigrew-the-parson-s-wedding"],
+        "locations": ["Waltham"]
+    },
+    {
+        "coordinates": [51.59241, -0.07312], 
+        "titles": ["anon-the-merry-devil-of-edmonton", "brome-the-new-academy", "jonson-bartholomew-fair", "jonson-the-devil-is-an-ass", "tomkis-albumazar"],
+        "locations": ["Tottenham"]
+    },
+    {
+        "coordinates": [40.069099, 45.038189], 
+        "titles": ["anon-the-pedlar-s-prophecy", "beaumont-fletcher-a-king-and-no-king", "chapman-bussy-d-ambois", "greene-alphonsus-king-of-aragon", "may-cleopatra-queen-of-egypt", "yarington-two-lamentable-tragedies"],
+        "locations": ["Armenia"]
+    },
+    {
+        "coordinates": [52.923299, -1.477535], 
+        "titles": ["anon-the-reign-of-king-edward-the-third", "brome-the-antipodes", "dekker-webster-northward-ho", "ford-perkin-warbeck"],
+        "locations": ["Darby"]
+    },
+    {
+        "coordinates": [53.683071, -1.49768], 
+        "titles": ["anon-the-true-tragedy-of-richard-the-third", "greene-george-a-green-the-pinner-of-wakefield", "munday-chettle-the-death-of-robert-earl-of-huntingdon", "s-the-honest-lawyer", "wilkins-the-miseries-of-enforced-marriage"],
+        "locations": ["Wakefield"]
+    },
+    {
+        "coordinates": [52.240479, -0.902656], 
+        "titles": ["anon-the-true-tragedy-of-richard-the-third", "heywood-the-wise-woman-of-hogsdon", "middleton-anything-for-a-quiet-life", "shirley-the-constant-maid", "wilson-the-three-ladies-of-london"],
+        "locations": ["Northampton"]
+    },
+    {
+        "coordinates": [32.538666, 44.422766], 
+        "titles": ["anon-the-wars-of-cyrus", "greene-friar-bacon-and-friar-bongay", "greene-orlando-furioso", "randolph-aristippus-or-the-jovial-philosopher", "tomkis-lingua"],
+        "locations": ["Babylon"]
+    },
+    {
+        "coordinates": [51.7374, 0.4738], 
+        "titles": ["belchier-hans-beer-pot", "drue-the-duchess-of-suffolk", "killigrew-the-parson-s-wedding", "middleton-michaelmas-term"],
+        "locations": ["Essex"]
+    },
+    {
+        "coordinates": [50.95877, 1.85078], 
+        "titles": ["belchier-hans-beer-pot", "chapman-monsieur-d-olive", "dekker-haughton-day-lust-s-dominion", "rowley-when-you-see-me-you-know-me"],
+        "locations": ["Calais"]
+    },
+    {
+        "coordinates": [39.1295, 27.185], 
+        "titles": ["brathwait-mercurius-britannicus", "fisher-fuimus-troes", "s-locrine", "stephens-cynthia-s-revenge"],
+        "locations": ["Pergamus"]
+    },
+    {
+        "coordinates": [51.5155, -0.0708], 
+        "titles": ["brome-the-damoiselle-or-the-new-ordinary", "brome-the-sparagus-garden", "dekker-middleton-the-roaring-girl", "heywood-if-you-know-not-me-you-know-nobody-2", "jonson-bartholomew-fair", "massinger-the-city-madam"],
+        "locations": ["Smithfield"]
+    },
+    {
+        "coordinates": [51.5054, -0.0464], 
+        "titles": ["cavendish-the-variety", "chapman-jonson-marston-eastward-ho", "daborne-a-christian-turned-turk", "dekker-webster-northward-ho"],
+        "locations": ["Wapping"]
+    },
+    {
+        "coordinates": [53.8108, -2.3933], 
+        "titles": ["chapman-caesar-and-pompey-the-wars-of-caesar-and-pompey", "fisher-fuimus-troes", "marlowe-the-jew-of-malta", "peele-edward-the-first", "shirley-saint-patrick-for-ireland-1"],
+        "locations": ["Britaine"]
+    },
+    {
+        "coordinates": [60.472, 8.4689], 
+        "titles": ["chettle-hoffman", "davenant-the-wits", "peele-clyomon-and-clamydes", "shirley-the-politician"],
+        "locations": ["Norway"]
+    },
+    {
+        "coordinates": [51.9225, 4.47917], 
+        "titles": ["d-the-knave-in-grain-new-vamped", "davenant-albovine-king-of-the-lombards", "drue-the-duchess-of-suffolk", "greene-friar-bacon-and-friar-bongay", "jonson-volpone", "shirley-the-ball"],
+        "locations": ["Rotterdam"]
+    },
+    {
+        "coordinates": [61.524, 105.3188], 
+        "titles": ["davenant-the-cruel-brother", "day-wilkins-rowley-the-travels-of-the-three-english-brothers", "greene-selimus-1", "randolph-aristippus-or-the-jovial-philosopher", "webster-the-white-devil"],
+        "locations": ["Russia"]
+    },
+    {
+        "coordinates": [51.51521, -0.12991], 
+        "titles": ["dekker-satiromastix", "fletcher-shirley-the-night-walker", "jonson-the-devil-is-an-ass", "middleton-the-puritan", "nashe-summer-s-last-will-and-testament", "wilson-the-three-lords-and-three-ladies-of-london"],
+        "locations": ["Newgate Prison"]
+    },
+    {
+        "coordinates": [51.2791, 1.0804], 
+        "titles": ["dekker-webster-northward-ho", "middleton-the-mayor-of-quinborough", "rowley-a-shoemaker-a-gentleman", "wilson-the-three-ladies-of-london"],
+        "locations": ["Canterbury"]
+    },
+    {
+        "coordinates": [51.754816, -1.254367], 
+        "titles": ["drue-the-duchess-of-suffolk", "greene-friar-bacon-and-friar-bongay", "heywood-the-wise-woman-of-hogsdon", "jonson-bartholomew-fair", "jonson-the-new-inn"],
+        "locations": ["Oxford"]
+    },
+    {
+        "coordinates": [-9.19, -75.0152], 
+        "titles": ["fletcher-beaumont-the-noble-gentleman", "jonson-the-alchemist", "shirley-the-lady-of-pleasure", "tomkis-lingua"],
+        "locations": ["Peru"]
+    },
+    {
+        "coordinates": [68.9, 20.5], 
+        "titles": ["fletcher-ford-massinger-webster-the-fair-maid-of-the-inn", "fletcher-the-chances", "glapthorne-the-hollander", "heywood-brome-the-late-lancashire-witches", "shirley-the-ball", "shirley-the-duke-s-mistress", "shirley-the-young-admiral"],
+        "locations": ["Lapland"]
+    },
+    {
+        "coordinates": [52.2823, -1.5849], 
+        "titles": ["ford-perkin-warbeck", "greene-george-a-green-the-pinner-of-wakefield", "munday-drayton-wilson-hathaway-sir-john-oldcastle-1", "shirley-the-ball"],
+        "locations": ["Warwick"]
+    },
+    {
+        "coordinates": [35.240117, 24.8092691], 
+        "titles": ["ford-the-lover-s-melancholy", "heywood-the-golden-age", "heywood-the-iron-age-1", "heywood-the-wise-woman-of-hogsdon", "markham-sampson-herod-and-antipater", "rowley-when-you-see-me-you-know-me", "tomkis-lingua"],
+        "locations": ["Creta"]
+    },
+    {
+        "coordinates": [38.375445, 21.76529], 
+        "titles": ["heywood-the-iron-age-1", "kyd-soliman-and-perseda", "marmion-holland-s-leaguer", "massinger-the-great-duke-of-florence"],
+        "locations": ["Ithaca"]
+    },
+    {
+        "coordinates": [40.8, 14.8], 
+        "titles": ["jonson-poetaster", "jonson-sejanus-his-fall", "marlowe-dr-faustus", "may-julia-agrippina-empress-of-rome"],
+        "locations": ["Campania"]
+    },
+    {
+        "coordinates": [52.240996, 0.909063], 
+        "titles": ["killigrew-the-parson-s-wedding", "middleton-anything-for-a-quiet-life", "middleton-the-mayor-of-quinborough", "munday-drayton-wilson-hathaway-sir-john-oldcastle-1"],
+        "locations": ["Suffolk"]
+    },
+    {
+        "coordinates": [45.51467, 25.37605], 
+        "titles": ["shirley-the-impostor"],
+        "locations": ["Transylvania"]
     }
 ]
+
+
