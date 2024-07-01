@@ -10,7 +10,7 @@ fetch('database.json')
         data.forEach(location => {
             let lat = location.coordinates[0];
             let lng = location.coordinates[1];
-            let titles = location.titles.map(title => `<a href="https://dracor.org/eng/${encodeURIComponent(title)}" target="_blank">${title}</a>`).join(', ');
+            let titles = location.titles.map(title => `<a href="https://dracor.org/eng/${encodeURIComponent(title)}#text" target="_blank">${title}</a>`).join(', ');
             let locationName = location.locations.join(', ');
             let radius = Math.min(15, location.titles.length * 1.1);
 

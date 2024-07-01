@@ -354,7 +354,7 @@
             "jonson-catiline-his-conspiracy"
         ],
         "locations": [
-            "Spain *postcorrected"
+            "Spain*"
         ]
     },
     {
@@ -382,7 +382,7 @@
             "davenant-the-wits"
         ],
         "locations": [
-            "Delphi, Greece *postcorrected"
+            "Delphi, Greece*"
         ]
     },
     {
@@ -632,7 +632,7 @@
             "belchier-hans-beer-pot"
         ],
         "locations": [
-            "Greece *postcorrected"
+            "Greece*"
         ]
     },
     {
@@ -650,7 +650,7 @@
             "stephens-cynthia-s-revenge"
         ],
         "locations": [
-            "Euphrates *postcorrected"
+            "Euphrates*"
         ]
     },
     {
@@ -690,7 +690,7 @@
             "chapman-the-blind-beggar-of-alexandria"
         ],
         "locations": [
-            "Arabia *postcorrected"
+            "Arabia*"
         ]
     },
     {
@@ -730,7 +730,7 @@
             "jonson-catiline-his-conspiracy"
         ],
         "locations": [
-            "Athens *postcorrected"
+            "Athens*"
         ]
     },
     {
@@ -1364,7 +1364,7 @@
             "anon-the-trial-of-chivalry"
         ],
         "locations": [
-            "Palestine *postcorrected"
+            "Palestine*"
         ]
     },
     {
@@ -3211,8 +3211,9 @@
         ],
         "titles": [
             "greene-selimus-1",
-            "randolph-the-jealous-lovers","greene-selimus-1",
-            "heywood-the-golden-age", "kirke-the-seven-champions-of-christendom",
+            "randolph-the-jealous-lovers",
+            "heywood-the-golden-age", 
+            "kirke-the-seven-champions-of-christendom",
             "sampson-the-vow-breaker"
         ],
         "locations": [
