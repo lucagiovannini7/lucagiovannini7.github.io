@@ -1,14 +1,17 @@
-/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
 }
 
-header {
-    background-color: #333;
+header, footer {
+    background-color: #222; /* Darker gray/black */
     color: white;
-    padding: 1em;
+    padding: 1em 1.5em; /* Reduced size */
 }
 
 nav ul {
@@ -27,17 +30,39 @@ nav ul li {
 }
 
 nav a {
+    font-weight:bold;
     text-decoration: none;
-    color: white;
+    color: white; /* Dark red text */
+    text-shadow: 2px 2px darkred;
+    /*background-color: white;
+    /*padding: 3px 10px;
+    /*border-radius: 3px;*/
 }
 
+nav a:hover {
+    background-color: #f4f4f9; /* Slightly off-white on hover */
+    color: darkred; /* Ensure text color stays consistent */
+    text-shadow: none;
+}
+
+
 main a {
-    color: darkred;
+    color: darkred; /* Dark red for links in the main content */
 }
 
 .button {
     margin-left: auto;
     order: 1;
+    background-color: white; /* White background for contrast */
+    color: darkred; /* Dark red text */
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid darkred; /* Slight border */
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #f4f4f9; /* Slightly off-white hover */
 }
 
 main {
@@ -47,11 +72,9 @@ main {
 }
 
 footer {
-    background-color: #333;
-    color: white;
     text-align: center;
-    padding: 0.5em;
     position: fixed;
     bottom: 0;
     width: 100%;
+    padding: 0.8em 1.5em; /* Reduced size */
 }
