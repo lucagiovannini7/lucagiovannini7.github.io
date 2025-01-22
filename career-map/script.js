@@ -173,6 +173,30 @@ let locations = [
 "title1": "SRDH Doctoral Symposium",
 "title2": "Università di Genova, 21-22.05.2024",
 "type": "conference"
+},
+{
+"id": 22,
+"lat": 44.40478000,
+"long": 8.94439000,
+"title1": "Workshop: Digitale Komparatistik: Perspektiven und Strategien",
+"title2": "Universität Halle, 14-15.11.2024",
+"type": "seminar"
+},
+{
+"id": 23,
+"lat": 44.40478000,
+"long": 8.94439000,
+"title1": "Seminar, Humanités Numériques Tourangelles",
+"title2": "University of Tours, 04.02.2025",
+"type": "seminar"
+},
+{
+"id": 24,
+"lat": 44.40478000,
+"long": 8.94439000,
+"title1": "Digital Humanities Kolloquium, University of Erlangen-Nuremberg",
+"title2": "Universität Erlangen-Nuremberg, 27-28.02.2025",
+"type": "seminar"
 }
 ]
 let markers = [];
@@ -197,6 +221,17 @@ locations.forEach(location => {
   if (location.type === 'conference') {
     marker.setIcon(new L.Icon({
       iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    }));
+  }
+  
+    if (location.type === 'seminar') {
+    marker.setIcon(new L.Icon({
+      iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
       shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
       iconSize: [25, 41],
       iconAnchor: [12, 41],
