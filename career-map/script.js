@@ -176,24 +176,24 @@ let locations = [
 },
 {
 "id": 22,
-"lat": 44.40478000,
-"long": 8.94439000,
+"lat": 51.49380069817352,
+"long": 11.969547012172603,
 "title1": "Workshop: Digitale Komparatistik: Perspektiven und Strategien",
 "title2": "Universität Halle, 14-15.11.2024",
 "type": "seminar"
 },
 {
 "id": 23,
-"lat": 44.40478000,
-"long": 8.94439000,
+"lat": 47.3893585905333,
+"long": 8.0.6877272943095468,
 "title1": "Seminar, Humanités Numériques Tourangelles",
 "title2": "University of Tours, 04.02.2025",
 "type": "seminar"
 },
 {
 "id": 24,
-"lat": 44.40478000,
-"long": 8.94439000,
+"lat": 49.590840622199885,
+"long": 11.00094220119949,
 "title1": "Digital Humanities Kolloquium, University of Erlangen-Nuremberg",
 "title2": "Universität Erlangen-Nuremberg, 27-28.02.2025",
 "type": "seminar"
