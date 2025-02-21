@@ -184,8 +184,8 @@ let locations = [
 },
 {
 "id": 23,
-"lat": 47.3893585905333,
-"long": 8.6877272943095468,
+"lat": 47.39330981787114,
+"long": 0.6866973259950495,
 "title1": "Seminar, Humanités Numériques Tourangelles",
 "title2": "University of Tours, 04.02.2025",
 "type": "seminar"
