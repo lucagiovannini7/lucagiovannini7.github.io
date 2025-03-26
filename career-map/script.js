@@ -197,6 +197,22 @@ let locations = [
 "title1": "Digital Humanities Kolloquium, University of Erlangen-Nuremberg",
 "title2": "Universität Erlangen-Nuremberg, 27-28.02.2025",
 "type": "seminar"
+},
+{
+"id": 25,
+"lat": 52.02272524655956, 
+"long": 8.531584176662534,
+"title1": "DHd 2025",
+"title2": "Universität Bielefeld, 04-07.03.2025",
+"type": "seminar"
+},
+{
+"id": 26,
+"lat": 38.74726374726814, 
+"long": -9.149096529080209,
+"title1": "DH 2025",
+"title2": "NOVA University of Lisbon, 14-18.07.2025",
+"type": "seminar"
 }
 ]
 let markers = [];
