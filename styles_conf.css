@@ -1,0 +1,41 @@
+/* styles_conf.css */
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: flex-start;
+}
+
+.conf-card {
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.25rem;
+  width: 15%;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.conf-card h4 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.conf-card p {
+  font-size: 0.85rem;
+  margin: 0.25rem 0;
+  line-height: 1.4;
+}
+
+.conf-card a {
+  font-size: 0.9rem;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.conf-card a:hover {
+  text-decoration: underline;
+}
