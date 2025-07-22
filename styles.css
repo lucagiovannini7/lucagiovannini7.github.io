@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Merriweather:wght@700&display=swap');
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -6,75 +6,114 @@ body {
     padding: 0;
     background-color: #f4f4f9;
     color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+h1, h2, h3 {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 0.5em;
 }
 
 header, footer {
-    background-color: #222; /* Darker gray/black */
+    background-color: #222;
     color: white;
-    padding: 1em 1.5em; /* Reduced size */
+    padding: 1em 2em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 nav ul {
-    list-style-type: none;
+    list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    gap: 15px;
 }
 
 nav ul li {
     display: inline;
-    margin-right: 20px;
 }
 
 nav a {
-    font-weight:bold;
+    font-weight: bold;
     text-decoration: none;
-    color: white; /* Dark red text */
-    text-shadow: 2px 2px darkred;
-    /*background-color: white;
-    /*padding: 3px 10px;
-    /*border-radius: 3px;*/
+    color: white;
+    position: relative;
+    padding: 5px 0;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: darkred;
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
 }
 
 nav a:hover {
-    background-color: #f4f4f9; /* Slightly off-white on hover */
-    color: darkred; /* Ensure text color stays consistent */
-    text-shadow: none;
+    color: #ddd;
 }
-
 
 main a {
-    color: darkred; /* Dark red for links in the main content */
-}
-
-.button {
-    margin-left: auto;
-    order: 1;
-    background-color: white; /* White background for contrast */
-    color: darkred; /* Dark red text */
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: 1px solid darkred; /* Slight border */
-    cursor: pointer;
-}
-
-.button:hover {
-    background-color: #f4f4f9; /* Slightly off-white hover */
+    color: darkred;
+    text-decoration: underline;
 }
 
 main {
     max-width: 1000px;
-    margin: 20px auto;
+    margin: 40px auto;
     padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.button {
+    background-color: white;
+    color: darkred;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid darkred;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: darkred;
+    color: white;
 }
 
 footer {
     text-align: center;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
-    padding: 0.8em 1.5em; /* Reduced size */
+    padding: 1em 2em;
+    font-size: 0.9em;
+    background-color: #1c1c1c;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    main {
+        margin: 20px;
+        padding: 15px;
+    }
 }
