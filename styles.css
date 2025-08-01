@@ -1,120 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
 
 body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fafafa;
-    color: #2c2c2c;
-    line-height: 1.75;
-    font-size: 50px;
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0 auto;
+    max-width: 900px;
+    padding: 2rem;
 }
 
-h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 0.5em;
+header {
+    margin-bottom: 2rem;
 }
 
-header, footer {
-    background-color: #1a1a1a;
-    color: white;
-    padding: 1.25em 2em;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-nav ul {
+header nav ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
 }
 
-nav ul li {
+header nav li {
     display: inline;
 }
 
-nav a {
-    font-weight: 600;
+header nav a {
     text-decoration: none;
-    color: white;
-    position: relative;
-    padding: 6px 0;
+    color: #2c3e50;
+    font-weight: bold;
     font-size: 1rem;
 }
 
-nav a::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #a30000;
-    transition: width 0.3s;
+h1, h2, h3 {
+    color: #1a1a1a;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.3rem;
+    font-weight: normal;
 }
 
-nav a:hover::after {
-    width: 100%;
-}
-
-nav a:hover {
-    color: #ccc;
-}
-
-main a {
-    color: #a30000;
+a {
+    color: #007acc;
     text-decoration: underline;
 }
 
 main {
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 3rem;
 }
 
-.button {
-    background-color: white;
-    color: #a30000;
-    padding: 10px 20px;
-    border-radius: 6px;
-    border: 2px solid #a30000;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 600;
+ol {
+    padding-left: 1.2rem;
 }
 
-.button:hover {
-    background-color: #a30000;
-    color: white;
+ol li {
+    margin-bottom: 1rem;
 }
 
 footer {
     text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    padding: 1.25em 2em;
     font-size: 0.9em;
-    background-color: #141414;
-}
-
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    main {
-        margin: 20px;
-        padding: 20px;
-    }
+    color: #999;
+    margin-top: 3rem;
 }
