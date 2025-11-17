@@ -1,4 +1,3 @@
-<!-- publications.html -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +5,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Luca Giovannini</title>
+    <title>Luca Giovannini - Publications</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .network-container {
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        #coauthor-network {
+            width: 100%;
+            height: 450px;
+            background: white;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .network-legend {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .network-legend h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 5px 0;
+            font-size: 0.8em;
+        }
+
+        .legend-color {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .loading-status {
+            background: #f0f0f0;
+            border-left: 3px solid #007acc;
+            padding: 0.8rem;
+            margin: 1rem 0;
+            font-size: 0.9em;
+        }
+
+        .loading-status.success {
+            background: #e8f5e9;
+            border-color: #4caf50;
+        }
+
+        .node {
+            cursor: pointer;
+            stroke: #fff;
+            stroke-width: 2px;
+        }
+
+        .node:hover {
+            stroke: #000;
+            stroke-width: 3px;
+        }
+
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.6;
+        }
+
+        .node-label {
+            font-family: Georgia, serif;
+            font-size: 11px;
+            pointer-events: none;
+            text-anchor: middle;
+            fill: #333;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 2000;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,7 +116,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="publications.html">Publications</a></li>
-				<li><a href="teaching.html">Teaching</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
                 <li><a href="conferences.html">Conferences</a></li>
             </ul>
         </nav>
@@ -24,106 +124,359 @@
 
     <main>
         <section id="publications" style="text-align:justify">
-<h2>Publications</h2>
-				<ol type="1">
-					<li>
-						<h3>Peer-reviewed Journal Articles</h3>
-						<ol type="1" reversed>
-							<li>
-								Gallucci, Giorgia, and <b>Luca Giovannini</b> (2025). "<a href="https://umanisticadigitale.unibo.it/article/view/21114" target="_blank">"Un mare senza lidi": digitalizzazione e modellazione della Drammaturgia di Leone Allacci</a>". <i>Umanistica Digitale</i> 20, pp. 583-599.
-							</li>
-							<li>
-								<b>Giovannini, Luca</b>, and Giorgia Gallucci (2024). "<a href="https://doi.org/10.5334/johd.250" target="_blank">Allacci Digitale:  A Historical Dataset for Early Modern Italian Drama</a>". <i>Journal of Open Humanities Data</i> 10, 1, p. 55.
-							</li>
-							<li>
-								<b>Giovannini, Luca</b>, and Daniil Skorinkin (2024). "<a href="https://doi.org/10.48694/jcls.3595">Computational approaches to opera libretti</a>". <i>Journal of Computational Literary Studies</i> 3, 1, pp. 1-23.
-							</li>
-						</ol>
-					</li>
-					<li>
-						<h3>Peer-reviewed Conference Proceedings</h3>
-						<ol type="1" reversed>
-							<li>
-								<b>Giovannini, Luca</b>, and Andreas Wagner (2025). "<a href="https://aiucd2025.dlls.univr.it/assets/pdf/papers/16.pdf" target="_blank">Prototyping an Atlas of Early Modern English Drama: An Experiment on DraCor Data</a>". In: <i>AIUCD 2025 Book of Abstracts</i>. Università di Verona, 2025.
-							</li>
-							<li>
-								<b>Giovannini, Luca</b> (2025). "<a href="https://lucagiovannini7.github.io/none" target="_blank">A Modest Proposal for Operationalising Dramatic Texts</a>". In: <i>DH2025 Book of Abstracts</i>. NOVA University of Lisbon, 2025, forthcoming.
-							</li>
-							<li>
-								<b>Giovannini, Luca</b>, and Daniil Skorinkin (2024). "<a href="https://zenodo.org/records/13883242" target="_blank">Towards a LLM-powered encoding workflow for plays / Hacia un flujo de trabajo de codificación para obras de teatro impulsado por LLM</a>". In: <i>TEI2024 Book of Abstracts</i>. Universidad del Salvador, 2024, pp. 94-95.
-							</li>
-							<li>
-								Skorinkin, Daniil, <b>Giovannini, Luca</b>, Mischke, Dennis, Fischer, Frank, Milling, Carsten, and Peer Trilcke (2024). "<a href="https://doi.org/10.5281/zenodo.13761066" target="_blank">Introducing AmDraCor: A Digital Resource for the Study of American Drama</a>". In: <i>DH2024 Book of Abstracts</i>. George Mason University, 2024, pp. 214-216.
-							</li>
-							<li>
-								<b>Giovannini, Luca</b>, and Daniil Skorinkin (2024). "<a href="https://doi.org/10.5281/zenodo.13761066" target="_blank">Authorial Mimicry by Large Language Models: A First Assessment</a>". In: <i>DH2024 Book of Abstracts</i>. George Mason University, 2024, pp. 212-213.
-							</li>
-							<li>
-								<b>Giovannini, Luca</b>, and Giorgia Gallucci (2024). "<a href="https://doi.org/10.6092/unibo/amsacta/7927" target="_blank">Digitalizzazione e modellazione della Drammaturgia di Leone Allacci</a>". In: <i>AIUCD 2024 Book of Abstracts</i>. Università di Catania, 2024, pp. 63-66.
-							</li>
-							<li>
-								<b>Giovannini, Luca</b> (2024). "<a href="https://zenodo.org/records/10698266" target="_blank">Quantitative Ansätze zur Untersuchung der frühneuzeitlichen Dramengeschichte</a>". In: <i>DHd2024 Book of Abstracts</i>. Universität Passau, 2024.
-							</li>
-							<li>
-								<b>Giovannini, Luca</b>, Skorinkin, Daniil, Trilcke, Peer, Börner, Ingo, Fischer, Frank, Dudar, Julia, Milling, Carsten, and Petr Pořízka (2023). "<a href="https://zenodo.org/record/8107457" target="_blank">Distributed Corpus Building in Literary Studies: The DraCor Example</a>". In: <i>DH2023 Book of Abstracts</i>. Universität Graz, 2023.
-							</li>
-							<li>
-								<b>Giovannini, Luca</b>, Börner, Ingo, Fischer, Frank, Milling, Carsten, Skorinkin, Daniil, and Peer Trilcke (2023). "<a href="http://www.aiucd.it/wp-content/uploads/2023/06/2023_aiucd_la_memoria_digitale_v1.pdf" target="_blank">Quali prospettive per ItaDraCor? Risorse e strumenti per la codifica di testi drammatici in lingua italiana</a>". In: <i>AIUCD2023 Book of Abstracts</i>. Università di Siena, 2023, pp. 108-111.
-							</li>
-							<li>
-								Börner, Ingo, Fischer, Frank, <b>Giovannini, Luca</b>, Lu, Christopher, Milling, Carsten, Skorinkin, Daniil, Sluyter-Gäthje, Henny, and Peer Trilcke (2023). "<a href="https://zenodo.org/record/7688632" target="_blank">Onboard onto DraCor: Prototyping Workflows to Homogenize Drama Corpora for an Open Infrastructure</a>". In: <i>DHd2023 Book of Abstracts</i>. Universität Luxemburg & Universität Trier, 2023.
-							</li>
-							<li>
-								<b>Giovannini, Luca</b> (2022). "<a href="https://dh2022.dhii.asia/dh2022bookofabsts.pdf" target="_blank">Quantitative Perspectives on European Baroque Drama: Towards a Network Theory-oriented Analysis</a>". In: <i>DH2022 Book of Abstracts</i>. University of Tokyo, 2022, pp. 639-641.
-							</li>
-						</ol>
-					</li>
-					<li>
-						<h3>Databases and applications</h3>
-						<ol type="1" reversed>
-							<li>
-								<b>Giovannini, Luca</b>, and Andreas Wagner (2025). <a href="https://atlas-emed.github.io" target="_blank"><i>A Little Atlas of Early Modern European Drama</i></a>.
-							</li>
-							<li>
-								<b>Giovannini, Luca</b>, and the DraCor Team (2024). <a href="https://dracor.org/eng" target="_blank"><i>English Drama Corpus (EngDraCor)</i></a> (maintainer).
-							</li>
-							<li>
-								<b>Giovannini, Luca</b>, and Giorgia Gallucci (2024). <a href="https://allacci-digitale.github.io/index-en.html" target="_blank"><i>Allacci Digitale</i></a> (editor).
-							</li>
-						</ol>
-					</li>
-					<li>
-						<h3>Preprints</h3>
-						<ol type="1" reversed>
-							<li>
-								<b>Giovannini, Luca</b>, and Daniil Skorinkin, eds. (2025). "<a href="https://doi.org/10.5281/zenodo.16814034" target="_blank">Conference Reader: Second Workshop on Computational Drama Analysis (Berlin, 03.09.2025)</a>". <i>Zenodo</i>.
-							</li>
-							
-							<li>
-								<b>Giovannini, Luca</b>, and Miriam Schirmer (2024). "<a href="https://doi.org/10.5281/zenodo.11105292" target="_blank">The Court as Stage: Exploring the Performative Dimension of Trial Transcripts</a>". <i>Zenodo</i>.
-							</li>
-							<li>
-								<b>Giovannini, Luca</b>, and Daniil Skorinkin (2023). "<a href="https://doi.org/10.5281/zenodo.10118816" target="_blank">The AI Playwright: An Experiment in Literary Morphology</a>". <i>Zenodo</i>.  
-							</li>
-							</li>
-						</ol>
-					</li>
-					<li>
-						<h3>Non-academic</h3>
-						<ol type="1" reversed>
-							<li> <b>Giovannini, Luca</b> (2021). <a href="https://medium.com/towards-artificial-intelligence/the-language-of-qanon-2e3411afa9be" target="_blank">"Decrypting QAnon: An NLP-oriented Look at the Movement’s Core Texts"</a>. <i>Towards AI</i> (2021).</li>
-							<li> <b>Giovannini, Luca</b> (2020). <a href="https://towardsdatascience.com/data-science-meets-murder-she-wrote-47a57af26c55" target="_blank">"Data Science Meets Murder She Wrote"</a>. <i>Towards Data Science</i> (2020).</li>
-						<ol type="1" reversed>
-					</li>
-				</ol>
-                </br>
+            <h2>Publications</h2>
+            
+            <div class="network-container">
+                <div id="loading-status" class="loading-status">
+                    <strong>Loading network...</strong> Extracting co-authorship data from publications.
+                </div>
+                
+                <div id="coauthor-network">
+                    <div class="network-legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #3498db;"></div>
+                            <span>Frequent Collaborator (3+)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #2ecc71;"></div>
+                            <span>Regular Collaborator (2)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #95a5a6;"></div>
+                            <span>Single Collaboration</span>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
+                    <em>Network automatically generated from publication metadata. Node size represents number of collaborations.</em>
+                </p>
             </div>
+
+            <ol type="1">
+                <li>
+                    <h3>Peer-reviewed Journal Articles</h3>
+                    <ol type="1" reversed>
+                        <li data-authors="Giorgia Gallucci,Luca Giovannini">
+                            Gallucci, Giorgia, and <b>Luca Giovannini</b> (2025). "<a href="https://umanisticadigitale.unibo.it/article/view/21114" target="_blank">"Un mare senza lidi": digitalizzazione e modellazione della Drammaturgia di Leone Allacci</a>". <i>Umanistica Digitale</i> 20, pp. 583-599.
+                        </li>
+                        <li data-authors="Luca Giovannini,Giorgia Gallucci">
+                            <b>Giovannini, Luca</b>, and Giorgia Gallucci (2024). "<a href="https://doi.org/10.5334/johd.250" target="_blank">Allacci Digitale: A Historical Dataset for Early Modern Italian Drama</a>". <i>Journal of Open Humanities Data</i> 10, 1, p. 55.
+                        </li>
+                        <li data-authors="Luca Giovannini,Daniil Skorinkin">
+                            <b>Giovannini, Luca</b>, and Daniil Skorinkin (2024). "<a href="https://doi.org/10.48694/jcls.3595">Computational approaches to opera libretti</a>". <i>Journal of Computational Literary Studies</i> 3, 1, pp. 1-23.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <h3>Peer-reviewed Conference Proceedings</h3>
+                    <ol type="1" reversed>
+                        <li data-authors="Luca Giovannini,Andreas Wagner">
+                            <b>Giovannini, Luca</b>, and Andreas Wagner (2025). "<a href="https://aiucd2025.dlls.univr.it/assets/pdf/papers/16.pdf" target="_blank">Prototyping an Atlas of Early Modern English Drama: An Experiment on DraCor Data</a>". In: <i>AIUCD 2025 Book of Abstracts</i>. Università di Verona, 2025.
+                        </li>
+                        <li data-authors="Luca Giovannini">
+                            <b>Giovannini, Luca</b> (2025). "<a href="https://lucagiovannini7.github.io/none" target="_blank">A Modest Proposal for Operationalising Dramatic Texts</a>". In: <i>DH2025 Book of Abstracts</i>. NOVA University of Lisbon, 2025, forthcoming.
+                        </li>
+                        <li data-authors="Luca Giovannini,Daniil Skorinkin">
+                            <b>Giovannini, Luca</b>, and Daniil Skorinkin (2024). "<a href="https://zenodo.org/records/13883242" target="_blank">Towards a LLM-powered encoding workflow for plays / Hacia un flujo de trabajo de codificación para obras de teatro impulsado por LLM</a>". In: <i>TEI2024 Book of Abstracts</i>. Universidad del Salvador, 2024, pp. 94-95.
+                        </li>
+                        <li data-authors="Daniil Skorinkin,Luca Giovannini,Dennis Mischke,Frank Fischer,Carsten Milling,Peer Trilcke">
+                            Skorinkin, Daniil, <b>Giovannini, Luca</b>, Mischke, Dennis, Fischer, Frank, Milling, Carsten, and Peer Trilcke (2024). "<a href="https://doi.org/10.5281/zenodo.13761066" target="_blank">Introducing AmDraCor: A Digital Resource for the Study of American Drama</a>". In: <i>DH2024 Book of Abstracts</i>. George Mason University, 2024, pp. 214-216.
+                        </li>
+                        <li data-authors="Luca Giovannini,Daniil Skorinkin">
+                            <b>Giovannini, Luca</b>, and Daniil Skorinkin (2024). "<a href="https://doi.org/10.5281/zenodo.13761066" target="_blank">Authorial Mimicry by Large Language Models: A First Assessment</a>". In: <i>DH2024 Book of Abstracts</i>. George Mason University, 2024, pp. 212-213.
+                        </li>
+                        <li data-authors="Luca Giovannini,Giorgia Gallucci">
+                            <b>Giovannini, Luca</b>, and Giorgia Gallucci (2024). "<a href="https://doi.org/10.6092/unibo/amsacta/7927" target="_blank">Digitalizzazione e modellazione della Drammaturgia di Leone Allacci</a>". In: <i>AIUCD 2024 Book of Abstracts</i>. Università di Catania, 2024, pp. 63-66.
+                        </li>
+                        <li data-authors="Luca Giovannini">
+                            <b>Giovannini, Luca</b> (2024). "<a href="https://zenodo.org/records/10698266" target="_blank">Quantitative Ansätze zur Untersuchung der frühneuzeitlichen Dramengeschichte</a>". In: <i>DHd2024 Book of Abstracts</i>. Universität Passau, 2024.
+                        </li>
+                        <li data-authors="Luca Giovannini,Daniil Skorinkin,Peer Trilcke,Ingo Börner,Frank Fischer,Julia Dudar,Carsten Milling,Petr Pořízka">
+                            <b>Giovannini, Luca</b>, Skorinkin, Daniil, Trilcke, Peer, Börner, Ingo, Fischer, Frank, Dudar, Julia, Milling, Carsten, and Petr Pořízka (2023). "<a href="https://zenodo.org/record/8107457" target="_blank">Distributed Corpus Building in Literary Studies: The DraCor Example</a>". In: <i>DH2023 Book of Abstracts</i>. Universität Graz, 2023.
+                        </li>
+                        <li data-authors="Luca Giovannini,Ingo Börner,Frank Fischer,Carsten Milling,Daniil Skorinkin,Peer Trilcke">
+                            <b>Giovannini, Luca</b>, Börner, Ingo, Fischer, Frank, Milling, Carsten, Skorinkin, Daniil, and Peer Trilcke (2023). "<a href="http://www.aiucd.it/wp-content/uploads/2023/06/2023_aiucd_la_memoria_digitale_v1.pdf" target="_blank">Quali prospettive per ItaDraCor? Risorse e strumenti per la codifica di testi drammatici in lingua italiana</a>". In: <i>AIUCD2023 Book of Abstracts</i>. Università di Siena, 2023, pp. 108-111.
+                        </li>
+                        <li data-authors="Ingo Börner,Frank Fischer,Luca Giovannini,Christopher Lu,Carsten Milling,Daniil Skorinkin,Henny Sluyter-Gäthje,Peer Trilcke">
+                            Börner, Ingo, Fischer, Frank, <b>Giovannini, Luca</b>, Lu, Christopher, Milling, Carsten, Skorinkin, Daniil, Sluyter-Gäthje, Henny, and Peer Trilcke (2023). "<a href="https://zenodo.org/record/7688632" target="_blank">Onboard onto DraCor: Prototyping Workflows to Homogenize Drama Corpora for an Open Infrastructure</a>". In: <i>DHd2023 Book of Abstracts</i>. Universität Luxemburg & Universität Trier, 2023.
+                        </li>
+                        <li data-authors="Luca Giovannini">
+                            <b>Giovannini, Luca</b> (2022). "<a href="https://dh2022.dhii.asia/dh2022bookofabsts.pdf" target="_blank">Quantitative Perspectives on European Baroque Drama: Towards a Network Theory-oriented Analysis</a>". In: <i>DH2022 Book of Abstracts</i>. University of Tokyo, 2022, pp. 639-641.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <h3>Databases and applications</h3>
+                    <ol type="1" reversed>
+                        <li data-authors="Luca Giovannini,Andreas Wagner">
+                            <b>Giovannini, Luca</b>, and Andreas Wagner (2025). <a href="https://atlas-emed.github.io" target="_blank"><i>A Little Atlas of Early Modern European Drama</i></a>.
+                        </li>
+                        <li data-authors="Luca Giovannini">
+                            <b>Giovannini, Luca</b>, and the DraCor Team (2024). <a href="https://dracor.org/eng" target="_blank"><i>English Drama Corpus (EngDraCor)</i></a> (maintainer).
+                        </li>
+                        <li data-authors="Luca Giovannini,Giorgia Gallucci">
+                            <b>Giovannini, Luca</b>, and Giorgia Gallucci (2024). <a href="https://allacci-digitale.github.io/index-en.html" target="_blank"><i>Allacci Digitale</i></a> (editor).
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <h3>Preprints</h3>
+                    <ol type="1" reversed>
+                        <li data-authors="Luca Giovannini,Daniil Skorinkin">
+                            <b>Giovannini, Luca</b>, and Daniil Skorinkin, eds. (2025). "<a href="https://doi.org/10.5281/zenodo.16814034" target="_blank">Conference Reader: Second Workshop on Computational Drama Analysis (Berlin, 03.09.2025)</a>". <i>Zenodo</i>.
+                        </li>
+                        <li data-authors="Luca Giovannini,Miriam Schirmer">
+                            <b>Giovannini, Luca</b>, and Miriam Schirmer (2024). "<a href="https://doi.org/10.5281/zenodo.11105292" target="_blank">The Court as Stage: Exploring the Performative Dimension of Trial Transcripts</a>". <i>Zenodo</i>.
+                        </li>
+                        <li data-authors="Luca Giovannini,Daniil Skorinkin">
+                            <b>Giovannini, Luca</b>, and Daniil Skorinkin (2023). "<a href="https://doi.org/10.5281/zenodo.10118816" target="_blank">The AI Playwright: An Experiment in Literary Morphology</a>". <i>Zenodo</i>.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <h3>Non-academic</h3>
+                    <ol type="1" reversed>
+                        <li data-authors="Luca Giovannini">
+                            <b>Giovannini, Luca</b> (2021). <a href="https://medium.com/towards-artificial-intelligence/the-language-of-qanon-2e3411afa9be" target="_blank">"Decrypting QAnon: An NLP-oriented Look at the Movement's Core Texts"</a>. <i>Towards AI</i> (2021).
+                        </li>
+                        <li data-authors="Luca Giovannini">
+                            <b>Giovannini, Luca</b> (2020). <a href="https://towardsdatascience.com/data-science-meets-murder-she-wrote-47a57af26c55" target="_blank">"Data Science Meets Murder She Wrote"</a>. <i>Towards Data Science</i> (2020).
+                        </li>
+                    </ol>
+                </li>
+            </ol>
         </section>
     </main>
 
     <footer>
-        </br>
+        <br>
     </footer>
+
+    <script>
+        // Extract co-author relationships from publication list
+        function extractCoauthors() {
+            const publications = document.querySelectorAll('#publications ol li[data-authors]');
+            const coauthorMap = new Map();
+            const links = [];
+            
+            console.log('Found', publications.length, 'publication entries with data-authors');
+            
+            publications.forEach((pub, index) => {
+                const authorsString = pub.getAttribute('data-authors');
+                
+                if (!authorsString) {
+                    console.log('No data-authors for entry', index);
+                    return;
+                }
+                
+                // Split by comma to get individual authors
+                const authors = authorsString.split(',').map(a => a.trim()).filter(a => a.length > 0);
+                
+                console.log('Entry', index, '- Authors:', authors);
+                
+                // Only process if there are multiple authors
+                if (authors.length < 2) {
+                    console.log('Skipping - less than 2 authors');
+                    return;
+                }
+                
+                // Add each author to the map
+                authors.forEach(author => {
+                    if (!coauthorMap.has(author)) {
+                        coauthorMap.set(author, { name: author, collaborations: new Set() });
+                    }
+                });
+                
+                // Create links between all author pairs
+                for (let i = 0; i < authors.length; i++) {
+                    for (let j = i + 1; j < authors.length; j++) {
+                        const author1 = authors[i];
+                        const author2 = authors[j];
+                        
+                        coauthorMap.get(author1).collaborations.add(author2);
+                        coauthorMap.get(author2).collaborations.add(author1);
+                        
+                        // Check if link already exists
+                        const existingLink = links.find(l => 
+                            (l.source === author1 && l.target === author2) ||
+                            (l.source === author2 && l.target === author1)
+                        );
+                        
+                        if (existingLink) {
+                            existingLink.value++;
+                        } else {
+                            links.push({ source: author1, target: author2, value: 1 });
+                        }
+                    }
+                }
+            });
+            
+            console.log('=== FINAL RESULTS ===');
+            console.log('Total nodes:', Array.from(coauthorMap.keys()));
+            console.log('Total links:', links);
+            
+            return { nodes: Array.from(coauthorMap.values()), links };
+        }
+        
+        // Create network visualization
+        function createNetwork() {
+            const statusDiv = document.getElementById('loading-status');
+            const container = document.getElementById('coauthor-network');
+            const width = container.clientWidth;
+            const height = 450;
+            
+            const { nodes, links } = extractCoauthors();
+            
+            if (nodes.length === 0) {
+                statusDiv.innerHTML = '<strong>No co-authorship data found.</strong>';
+                return;
+            }
+            
+            // Calculate collaboration counts - specifically with Luca Giovannini
+            const lucaName = 'Luca Giovannini';
+            
+            console.log('=== CALCULATING COLLABORATION COUNTS ===');
+            
+            nodes.forEach(node => {
+                if (node.name === lucaName) {
+                    node.collabCount = node.collaborations.size; // Total for Luca
+                    console.log(`${node.name}: ${node.collabCount} total collaborations`);
+                } else {
+                    // For others, count number of papers with Luca
+                    // Find all links between this node and Luca
+                    const collabLinks = links.filter(l => 
+                        (l.source === node.name && l.target === lucaName) ||
+                        (l.target === node.name && l.source === lucaName)
+                    );
+                    
+                    // Sum up the values (number of papers)
+                    node.collabCount = collabLinks.reduce((sum, l) => sum + l.value, 0);
+                    console.log(`${node.name}: ${node.collabCount} papers with Luca (links: ${collabLinks.length})`);
+                }
+            });
+            
+            console.log('Node details:', nodes.map(n => ({ name: n.name, count: n.collabCount })));
+            
+            // Create SVG
+            const svg = d3.select('#coauthor-network')
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height);
+            
+            // Create tooltip
+            const tooltip = d3.select('body')
+                .append('div')
+                .attr('class', 'tooltip');
+            
+            // Create force simulation
+            const simulation = d3.forceSimulation(nodes)
+                .force('link', d3.forceLink(links)
+                    .id(d => d.name)
+                    .distance(100))
+                .force('charge', d3.forceManyBody().strength(-300))
+                .force('center', d3.forceCenter(width / 2, height / 2))
+                .force('collision', d3.forceCollide().radius(30));
+            
+            // Create links
+            const link = svg.append('g')
+                .selectAll('line')
+                .data(links)
+                .join('line')
+                .attr('class', 'link')
+                .attr('stroke-width', d => Math.sqrt(d.value) * 2);
+            
+            // Create nodes
+            const node = svg.append('g')
+                .selectAll('circle')
+                .data(nodes)
+                .join('circle')
+                .attr('class', 'node')
+                .attr('r', d => {
+                    if (d.name === 'Luca Giovannini') return 12; // Fixed size for you
+                    return 5 + d.collabCount * 2; // Size based on collaborations with you
+                })
+                .attr('fill', d => {
+                    if (d.name === 'Luca Giovannini') return '#e74c3c';
+                    if (d.collabCount >= 5) return '#3498db';  // 5+ papers with you
+                    if (d.collabCount >= 3) return '#2ecc71';  // 3-4 papers with you
+                    return '#95a5a6';  // 1-2 papers with you
+                })
+                .on('mouseover', (event, d) => {
+                    const collabText = d.name === 'Luca Giovannini' ? 
+                        `${d.collabCount} total collaboration${d.collabCount > 1 ? 's' : ''}` :
+                        `${d.collabCount} collaboration${d.collabCount > 1 ? 's' : ''}`;
+                    tooltip
+                        .style('opacity', 1)
+                        .html(`<strong>${d.name}</strong><br>${collabText}`)
+                        .style('left', (event.pageX + 10) + 'px')
+                        .style('top', (event.pageY - 10) + 'px');
+                })
+                .on('mouseout', () => {
+                    tooltip.style('opacity', 0);
+                })
+                .call(d3.drag()
+                    .on('start', dragstarted)
+                    .on('drag', dragged)
+                    .on('end', dragended));
+            
+            // Create labels
+            const label = svg.append('g')
+                .selectAll('text')
+                .data(nodes)
+                .join('text')
+                .attr('class', 'node-label')
+                .attr('dy', d => {
+                    if (d.name === 'Luca Giovannini') return 20;
+                    return 10 + d.collabCount * 2;
+                })
+                .text(d => {
+                    // Show full name for main author, last name for others
+                    const parts = d.name.split(' ');
+                    return parts[parts.length - 1];
+                });
+            
+            // Update positions on tick
+            simulation.on('tick', () => {
+                link
+                    .attr('x1', d => d.source.x)
+                    .attr('y1', d => d.source.y)
+                    .attr('x2', d => d.target.x)
+                    .attr('y2', d => d.target.y);
+                
+                node
+                    .attr('cx', d => d.x)
+                    .attr('cy', d => d.y);
+                
+                label
+                    .attr('x', d => d.x)
+                    .attr('y', d => d.y);
+            });
+            
+            // Drag functions
+            function dragstarted(event, d) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
+            }
+            
+            function dragged(event, d) {
+                d.fx = event.x;
+                d.fy = event.y;
+            }
+            
+            function dragended(event, d) {
+                if (!event.active) simulation.alphaTarget(0);
+                d.fx = null;
+                d.fy = null;
+            }
+            
+            statusDiv.className = 'loading-status success';
+            statusDiv.innerHTML = `<strong>✓ Network loaded successfully!</strong> ${nodes.length} authors, ${links.length} collaborations.`;
+        }
+        
+        // Initialize on page load
+        createNetwork();
+    </script>
 </body>
 
 </html>
