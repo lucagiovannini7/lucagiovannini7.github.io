@@ -177,6 +177,18 @@
             background: #e8f5e9;
             border-color: #4caf50;
         }
+        
+        .popup-event {
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .popup-event:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -233,6 +245,10 @@
                     <div class="legend-item">
                         <div class="legend-color" style="background: #767676;"></div>
                         <span>Attendance</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: linear-gradient(45deg, #21ba45 50%, #db2828 50%);"></div>
+                        <span>Multiple Activities</span>
                     </div>
                 </div>
             </div>
@@ -404,6 +420,23 @@
             { name: "Jerusalem", fullName: "Hebrew University of Jerusalem", country: "Israel" }
         ];
         
+        // Color priority order (higher priority = displayed on marker)
+        const categoryPriority = {
+            'invited': 5,
+            'contributed': 4,
+            'poster': 3,
+            'organisation': 2,
+            'attendance': 1
+        };
+        
+        const categoryColors = {
+            'invited': 'blue',
+            'contributed': 'green',
+            'poster': 'orange',
+            'organisation': 'red',
+            'attendance': 'grey'
+        };
+        
         // Initialize map
         const map = L.map('map').setView([50, 10], 4);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -463,28 +496,44 @@
             return null;
         }
         
-        // Determine marker color based on section
-        function getMarkerColor(listElement) {
+        // Get category from list element
+        function getCategory(listElement) {
             const listId = listElement.closest('ol').id;
             
-            if (listId.includes('invited')) return 'blue';
-            if (listId.includes('contributed')) return 'green';
-            if (listId.includes('poster')) return 'orange';
-            if (listId.includes('organisation')) return 'red';
-            if (listId.includes('attendance')) return 'grey';
-            return 'grey';
+            if (listId.includes('invited')) return 'invited';
+            if (listId.includes('contributed')) return 'contributed';
+            if (listId.includes('poster')) return 'poster';
+            if (listId.includes('organisation')) return 'organisation';
+            if (listId.includes('attendance')) return 'attendance';
+            return 'attendance';
         }
         
-        // Get category name for popup
-        function getCategoryName(listElement) {
-            const listId = listElement.closest('ol').id;
+        // Get category display name
+        function getCategoryName(category) {
+            const names = {
+                'invited': 'Invited Talk',
+                'contributed': 'Contributed Talk',
+                'poster': 'Poster Presentation',
+                'organisation': 'Organisation/Staff',
+                'attendance': 'Attendance'
+            };
+            return names[category] || 'Conference';
+        }
+        
+        // Determine marker color based on highest priority category
+        function getMarkerColorForCategories(categories) {
+            let highestPriority = 0;
+            let color = 'grey';
             
-            if (listId.includes('invited')) return 'Invited Talk';
-            if (listId.includes('contributed')) return 'Contributed Talk';
-            if (listId.includes('poster')) return 'Poster Presentation';
-            if (listId.includes('organisation')) return 'Organisation/Staff';
-            if (listId.includes('attendance')) return 'Attendance';
-            return 'Conference';
+            for (const category of categories) {
+                const priority = categoryPriority[category] || 0;
+                if (priority > highestPriority) {
+                    highestPriority = priority;
+                    color = categoryColors[category];
+                }
+            }
+            
+            return color;
         }
         
         // Process education locations first
@@ -524,17 +573,18 @@
             await processEducationLocations();
             
             const allItems = document.querySelectorAll('#conferences ol li');
-            const locationMap = new Map(); // Map location to list of items
+            const locationMap = new Map(); // Map location to array of {item, category}
             
-            // Collect items by location
+            // Collect items by location with their categories
             allItems.forEach(item => {
                 const text = item.textContent;
                 const location = extractLocation(text);
                 if (location) {
+                    const category = getCategory(item);
                     if (!locationMap.has(location)) {
                         locationMap.set(location, []);
                     }
-                    locationMap.get(location).push(item);
+                    locationMap.get(location).push({ item, category });
                 }
             });
             
@@ -544,7 +594,7 @@
             const geocodedLocations = {};
             let processed = 0;
             
-            for (const [location, items] of locationMap.entries()) {
+            for (const [location] of locationMap.entries()) {
                 const coords = await geocodeLocation(location);
                 if (coords) {
                     geocodedLocations[location] = coords;
@@ -557,22 +607,47 @@
             }
             
             // Add markers to map
-            for (const [location, items] of locationMap.entries()) {
+            for (const [location, entries] of locationMap.entries()) {
                 if (geocodedLocations[location]) {
                     const coords = geocodedLocations[location];
                     
-                    // Create popup content with all events at this location
-                    let popupContent = `<strong>${location}</strong><br><br>`;
-                    items.forEach(item => {
-                        const category = getCategoryName(item);
-                        const text = item.querySelector('p').textContent;
-                        const titleMatch = text.match(/^[^•]*/);
-                        const title = titleMatch ? titleMatch[0].trim() : text.substring(0, 50);
-                        popupContent += `<em>${category}:</em> ${title}<br>`;
+                    // Group entries by category
+                    const categorizedEntries = {};
+                    const uniqueCategories = new Set();
+                    
+                    entries.forEach(({ item, category }) => {
+                        uniqueCategories.add(category);
+                        if (!categorizedEntries[category]) {
+                            categorizedEntries[category] = [];
+                        }
+                        categorizedEntries[category].push(item);
                     });
                     
-                    // Use color from first item at this location
-                    const color = getMarkerColor(items[0]);
+                    // Create popup content organized by category
+                    let popupContent = `<strong>${location}</strong><br><br>`;
+                    
+                    // Sort categories by priority
+                    const sortedCategories = Array.from(uniqueCategories).sort(
+                        (a, b) => (categoryPriority[b] || 0) - (categoryPriority[a] || 0)
+                    );
+                    
+                    sortedCategories.forEach(category => {
+                        const categoryName = getCategoryName(category);
+                        const items = categorizedEntries[category];
+                        
+                        items.forEach(item => {
+                            const text = item.querySelector('p').textContent;
+                            const titleMatch = text.match(/^[^•]*/);
+                            const title = titleMatch ? titleMatch[0].trim() : text.substring(0, 50);
+                            
+                            popupContent += `<div class="popup-event">`;
+                            popupContent += `<em>${categoryName}:</em><br>${title}`;
+                            popupContent += `</div>`;
+                        });
+                    });
+                    
+                    // Determine marker color based on highest priority category
+                    const color = getMarkerColorForCategories(uniqueCategories);
                     
                     const icon = new L.Icon({
                         iconUrl: `https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-${color}.png`,
@@ -585,7 +660,10 @@
                     
                     L.marker([coords.lat, coords.lon], { icon })
                         .addTo(map)
-                        .bindPopup(popupContent);
+                        .bindPopup(popupContent, {
+                            maxWidth: 300,
+                            maxHeight: 300
+                        });
                 }
             }
             
@@ -595,21 +673,11 @@
             
             // Fit map bounds to show all markers
             const allCoords = [
-                ...Object.values(geocodedLocations).map(c => [c.lat, c.lon]),
-                ...educationLocations.map(async edu => {
-                    const coords = await geocodeLocation(`${edu.fullName}, ${edu.country}`);
-                    return coords ? [coords.lat, coords.lon] : null;
-                })
-            ].filter(Boolean);
+                ...Object.values(geocodedLocations).map(c => [c.lat, c.lon])
+            ];
             
             if (allCoords.length > 0) {
-                // Wait for education coordinates to resolve
-                Promise.all(allCoords).then(bounds => {
-                    const validBounds = bounds.filter(b => b && b.length === 2);
-                    if (validBounds.length > 0) {
-                        map.fitBounds(validBounds, { padding: [50, 50] });
-                    }
-                });
+                map.fitBounds(allCoords, { padding: [50, 50] });
             }
         }
         
