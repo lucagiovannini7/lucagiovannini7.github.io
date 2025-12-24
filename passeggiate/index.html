@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passeggiate (Digitali) nel Canavese</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+</head>
+
+<body>
+  <!-- Welcome Popup -->
+  <div id="welcome-popup" class="popup-overlay">
+    <div class="popup-content">
+      <h2>Benvenut*!</h2>
+      <p><i>"...poiché il poco [che ho potuto fare] è frutto dell'amor di patria spererei che, se non i presenti, i futuri Canavesani mi saranno poi alquanto riconoscenti per aver impedito che la memoria dei nostri avi e delle loro esemplari gesta andassero perdute."</i></p>
+      <p>(Antonino Bertolotti, <i>Passeggiate nel Canavese</i>, vol. VIII, p. ii).</p>
+      <button id="close-popup" class="popup-button">Esploriamo!</button>
+    </div>
+  </div>
+
+  <!-- Top Left Info Box -->
+  <div id="info-box" class="corner-box top-left">
+    <h1>Passeggiate (Digitali)<br>nel Canavese</h1>
+    <p>Tra il 1860 e il 1869 <a href="https://www.treccani.it/enciclopedia/antonino-bertolotti_%28Dizionario-Biografico%29/" target="_blank">Antonino Bertolotti</a>, archivista di Lombardore, percorre il Canavese raccogliendo informazioni su tutti i villaggi che incontra.<br><br>
+	Usa la barra di ricerca qui sotto o clicca su un comune per leggerne il resoconto del Bertolotti, ricco di aneddoti e curiosità. Buona lettura!<br><br>
+	<small>Per maggiori informazioni sul progetto clicca <a href="info.html">qui</a>. </small>
+	</p>
+    <button id="info-toggle" class="toggle-button">🞬</button>
+  </div>
+
+  <!-- Bottom Left Search Box -->
+  <div id="search-box" class="search-box bottom-left-search">
+    <input type="text" id="village-search" placeholder="🔍 Cerca un comune..." autocomplete="off">
+    <div id="search-suggestions" class="search-suggestions hidden"></div>
+  </div>
+
+  <!-- Map Container (Full Screen) -->
+  <div id="map"></div>
+
+  <!-- Village Info Panel -->
+  <div id="popup-panel" class="hidden">
+    <div id="popup-content">
+      <div id="village-content"></div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

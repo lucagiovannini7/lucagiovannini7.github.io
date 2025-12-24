@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>informazioni - Passeggiate Digitali nel Canavese</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Merriweather', serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      padding: 0.5rem 1rem;
+      background: #2c2c2c;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      background: #444;
+    }
+
+    h1 {
+      color: #2c2c2c;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    h2 {
+      color: #2c2c2c;
+      font-size: 1.3rem;
+      margin: 2rem 0 1rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #f1f1f1;
+    }
+
+    p {
+      margin-bottom: 1rem;
+	  text-align: justify;
+    }
+
+    a {
+      color: #2c2c2c;
+      text-decoration: underline;
+    }
+
+    .contact {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 2px solid #f1f1f1;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      .container {
+        padding: 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Torna alla mappa</a>
+
+    <h1>Passeggiate Digitali nel Canavese</h1>
+
+    <h2>L'autore</h2>
+    <p>
+      <strong>Antonino Bertolotti</strong> (Lombardore, 1834 / Mantova, 1893) fu archivista, paleografo e storico. Dopo aver conseguito la patente di farmacista (1856), lavorò al Ministero dei Lavori Pubblici a Torino. Nel 1871 entrò nell'Archivio di Stato di Roma, dove per dieci anni studiò documenti sulla vita artistica romana (XV-XVIII secolo), pubblicando raccolte documentarie su Michelangelo, Cellini, Zuccari e altri artisti. Nel 1880 fu nominato direttore dell'Archivio di Stato di Mantova e libero docente in paleografia all'Università di Roma. Maggiori informazion su Bertolotti sono raccolte nella relativa <a href="https://www.treccani.it/enciclopedia/antonino-bertolotti_%28Dizionario-Biografico%29/">voce</a> del <i>Dizionario Biografico degli Italiani</i> (Roma 1987). 
+    </p>
+	
+	<h2>L'opera</h2>
+	  
+	  Tra il 1867 e il 1877 pubblica otto volumi delle <i><b>Passeggiate nel Canavese</b></i>, opera che documenta sistematicamente la storia di oltre 140 città e villaggi del territorio canavesano. Il metodo dell'autore combina ricerca archivistica e sopralluoghi sul campo, spesso inseriti nella cornice di aneddoti personali. <br> Tipicamente, la descrizione di ogni villaggio comprende etimologia del toponimo, storia feudale e signorile, evoluzione demografica ed economica, descrizione di edifici rilevanti, trascrizione di documenti d'archivio, aneddoti e tradizioni locali. Seppure con le sue imprecisioni, le <i>Passeggiate</i> costituiscono una fonte primaria fondamentale per la storia locale del Piemonte tra Medioevo ed età moderna.
+	</p>
+
+    <h2>Il progetto digitale</h2>
+    <p>
+      Questo sito mira a rendere più fruibile l'opera del Bertolotti trasformandola in una mappa interattiva. Il contenuto degli otto volumi, già digitalizzati su Google Books, è stato estratto e sottoposto a round di correzione semi-automatica. Ogni volume è stato strutturato in formato JSON e le località citate sono state geolocalizzati e inserite su una mappa.
+    <p>
+      <strong>Licenza:</strong> Il testo originale è di pubblico dominio. I dati strutturati e il codice sorgente sono rilasciati con licenza Creative Commons BY 4.0.
+    </p>
+    <p>
+      <strong>Affidabilità:</strong> Tre indicatori segnalano il livello di curatela delle voci:<br>
+			🔴 la voce non è stata ancora rivista.<br>
+			🟡 la voce ha subito una prima correzione semi-automatica (via regex o AI).<br>
+			🟢 la voce è stata interamente riletta e validata da un volontario umano.
+    </p>
+    <p>
+      <strong>Ultimo aggiornamento:</strong> 24.12.2025.
+    </p>
+    <div class="contact">
+      <p>Per richieste e proposte di collaborazione:</br>
+	  Dr. Luca Giovannini, Università di Potsdam</br>
+      <a href="mailto:giovannini@uni-potsdam.de">giovannini@uni-potsdam.de</a></p>
+    </div>
+  </div>
+</body>
+</html>
