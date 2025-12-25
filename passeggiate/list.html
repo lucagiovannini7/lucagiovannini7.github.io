@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogo dei Comuni - Passeggiate nel Canavese</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Merriweather', serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      padding: 0.5rem 1rem;
+      background: #2c2c2c;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    .back-link:hover {
+      background: #444;
+    }
+    h1 {
+      color: #2c2c2c;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .volume {
+      margin-bottom: 3rem;
+    }
+    .volume h2 {
+      color: #2c2c2c;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #f1f1f1;
+    }
+    .village-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
+      list-style: none;
+    }
+    .village-list li {
+      padding: 0.5rem;
+      background: #f9f9f9;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+    .village-list a {
+      color: #2c2c2c;
+      text-decoration: none;
+      display: block;
+      transition: color 0.2s ease;
+    }
+    .village-list a:hover {
+      color: #666;
+      text-decoration: underline;
+    }
+    .volume-stats {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      .container {
+        padding: 1.5rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      .village-list {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Torna alla mappa</a>
+    <h1>Catalogo dei Comuni</h1>
+    <p style="text-align: center; margin-bottom: 3rem; color: #666;">
+      Elenco completo dei comuni documentati nelle <em>Passeggiate nel Canavese</em>
+    </p>
+    <div class="volume">
+      <h2>Volume I (1867)</h2>
+      
+      <ul class="village-list">
+        <li>Lombardore</li>
+        <li>Volpiano</li>
+        <li>San Benigno</li>
+        <li>Montanaro</li>
+		<li>Foglizzo</li>
+        <li>Bosconero</li>
+        <li>Feletto</li>
+        <li>Rivarolo</li>
+      </ul>
+    </div>
+    <div class="volume">
+      <h2>Volume II (1868)</h2>
+      
+      <ul class="village-list">
+        <li>Ozegna</li>
+        <li>Ciconio</li>
+        <li>Lusigliè</li>
+        <li>Cortereggio</li>
+        <li>San Giusto</li>
+        <li>Caluso</li>
+        <li>Mazzè</li>
+        <li>Villaregia</li>
+        <li>Maglione</li>
+        <li>Vische</li>
+        <li>Candia</li>
+        <li>Barone</li>
+        <li>Orio</li>
+        <li>Montalenghe</li>
+        <li>San Giorgio</li>
+      </ul>
+    </div>
+    <div class="volume">
+      <h2>Volume III (1869)</h2>
+      
+      <ul class="village-list">
+        <li>Agliè</li>
+        <li>Cuceglio</li>
+        <li>Mercenasco</li>
+        <li>Strambino</li>
+        <li>Vestigné</li>
+        <li>Borgomasino</li>
+        <li>Cossano</li>
+        <li>Settimo Rottaro</li>
+        <li>Caravino</li>
+        <li>Tina</li>
+        <li>Masino</li>
+        <li>Romano</li>
+        <li>Scarmagno</li>
+        <li>Vialfré</li>
+        <li>Perosa</li>
+      </ul>
+    </div>
+    <div class="volume">
+      <h2>Volume IV (1870)</h2>
+      
+      <ul class="village-list">
+	    <li>San Martino</li>
+        <li>Bairo</li>
+        <li>Torre di Bairo</li>
+        <li>Strambinello</li>
+        <li>Quagliuzzo</li>
+        <li>Parella</li>
+        <li>Colleretto-Parella</li>
+		<li>Loranzè</li>
+		<li>Pavone</li>
+        <li>Samone</li>
+        <li>Salerano</li>
+        <li>Banchette</li>
+        <li>Fiorano</li>
+        <li>Lessolo</li>
+        <li>Albiano</li>
+        <li>Azeglio</li>
+        <li>Piverone</li>
+        <li>Palazzo</li>
+        <li>Bollengo</li>
+        <li>Burolo</li>
+        <li>Chiaverano</li>
+        <li>Montalto</li>
+        <li>Borgofranco</li>
+        <li>Andrate</li>
+        <li>Nomaglio</li>
+        <li>Montestrutto</li>
+      </ul>
+    </div>
+    <div class="volume">
+      <h2>Volume V (1871)</h2>
+      
+      <ul class="village-list">
+        <li>Settimo Vittone</li>
+        <li>Cesnola</li>
+        <li>Carema</li>
+        <li>Quincinetto</li>
+        <li>Tavagnasco</li>
+        <li>Quassolo</li>
+		<li>Baio</li>
+        <li>Brosso</li>
+        <li>Vico</li>
+        <li>Meugliano</li>
+        <li>Novareglia</li>
+        <li>Drusacco</li>
+        <li>Traversella</li>
+        <li>Valchiusella</li>
+        <li>Trausella</li>
+        <li>Rueglio</li>
+        <li>Alice Superiore</li>
+        <li>Gauna</li>
+        <li>Pecco</li>
+        <li>Lugnacco</li>
+        <li>Vistrorio</li>
+        <li>Issiglio</li>
+        <li>Vidracco</li>
+        <li>Baldissero</li>
+        <li>Castellamonte</li>
+        <li>Muriaglio</li>
+        <li>Campo</li>
+        <li>Villa-Castelnuovo</li>
+        <li>Sale-Castelnuovo</li>
+        <li>Cintano</li>
+		<li>Colleretto-Castelnuovo</li>
+        <li>Borgiallo</li>
+		<li>Priacco</li>
+		<li>Chiesanuova</li>
+        <li>Salto</li>
+      </ul>
+    </div>
+    <div class="volume">
+      <h2>Volume VI (1872)</h2>
+      
+      <ul class="village-list">
+        <li>Pont</li>
+        <li>Frassinetto</li>
+        <li>Ingria</li>
+        <li>Ronco</li>
+        <li>Valprato</li>
+        <li>Campiglia</li>
+        <li>Ribordone</li>
+        <li>Sparone</li>
+        <li>Locana</li>
+        <li>Noasca</li>
+        <li>Ceresole Reale</li>
+        <li>Alpette</li>
+        <li>Cuorgnè</li>
+        <li>San Colombano</li>
+        <li>Belmonte</li>
+        <li>Canischio</li>
+        <li>Prascorsano</li>
+        <li>Pratiglione</li>
+        <li>Forno di Rivara</li>
+        <li>Camagna</li>
+        <li>Rivara</li>
+        <li>Pertusio</li>
+      </ul>
+    </div>
+    <div class="volume">
+      <h2>Volume VII (1873)</h2>
+      
+      <ul class="village-list">
+        <li>Valperga, Belmonte e Rivarotte</li>
+        <li>Belmonte</li>
+        <li>Salassa</li>
+        <li>San Ponso</li>
+        <li>Oglianico</li>
+        <li>Favria</li>
+        <li>Busano</li>
+        <li>Levone</li>
+        <li>Rocca di Corio</li>
+        <li>Barbania</li>
+        <li>Vauda di Front</li>
+        <li>Front</li>
+        <li>Rivarossa</li>
+        <li>San Francesco al Campo</li>
+        <li>San Maurizio</li>
+      </ul>
+    </div>
+    <div class="volume">
+      <h2>Volume VIII (1877)</h2>
+      
+      <ul class="village-list">
+        <li>Ciriè</li>
+        <li>Nole</li>
+        <li>San Carlo</li>
+		<li>Villanuova di Mathi</li>
+        <li>Grosso</li>
+        <li>Corio</li>
+        <li>Balangero</li>
+        <li>Le Valli di Lanzo</li>
+        <li>Fiano</li>
+        <li>Borgaro</li>
+        <li>Caselle</li>
+        <li>Settimo Torinese</li>
+        <li>Brandizzo</li>
+        <li>Chivasso</li>
+        <li>Verolengo</li>
+        <li>Rondissone</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
