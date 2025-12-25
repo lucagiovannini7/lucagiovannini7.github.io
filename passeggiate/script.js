@@ -125,7 +125,16 @@ function closeVillagePanel() {
   popup.classList.remove("visible");
   popup.classList.add("hidden");
 }
-
+// Close panel when clicking outside
+document.addEventListener('click', function(e) {
+  const popup = document.getElementById("popup-panel");
+  const popupContent = document.getElementById("popup-content");
+  
+  // Check if popup is visible and click is outside the content
+  if (popup.classList.contains('visible') && !popupContent.contains(e.target)) {
+    closeVillagePanel();
+  }
+});
 // Close panel when clicking outside
 document.addEventListener('click', function(e) {
   const popup = document.getElementById("popup-panel");
