@@ -76,84 +76,38 @@ function initMap(villages) {
 function showVillage(v) {
   const container = document.getElementById("village-content");
 
+  // Determine reliability emoji based on quality field
+  let reliabilityEmoji = '🟡'; // default yellow
+  let reliabilityText = 'Livello di qualità: Media';
+  
+  if (v.quality === 1) {
+    reliabilityEmoji = '🔴';
+    reliabilityText = 'Livello di qualità: Bassa';
+  } else if (v.quality === 3) {
+    reliabilityEmoji = '🟢';
+    reliabilityText = 'Livello di qualità: Alta';
+  }
+
   let html = `
-    <div style="
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 1rem;
-      border-bottom: 2px solid #ddd;
-      margin-bottom: 1.5rem;
-    ">
-      <h2 style="margin: 0; font-size: 1.5rem; color: #2c2c2c;">${v.village_name}</h2>
-      <div style="display: flex; gap: 0.75rem; align-items: center;">
-        <a href="books/${v.source.replace('_cleaned', '')}.pdf" target="_blank" style="
-          padding: 0.5rem 1rem;
-          font-size: 0.85rem;
-          border: 1px solid #2c2c2c;
-          background: #f5f5f5;
-          border-radius: 6px;
-          color: #2c2c2c;
-          text-decoration: none;
-          transition: all 0.2s ease;
-          white-space: nowrap;
-        " onmouseover="this.style.background='#2c2c2c'; this.style.color='white';" 
-           onmouseout="this.style.background='#f5f5f5'; this.style.color='#2c2c2c';">
-          📖 Fonte originale
+    <div class="village-header">
+      <h2>${v.village_name}</h2>
+      <div class="village-buttons">
+        <a href="books/${v.source.replace('_cleaned', '')}.pdf" target="_blank" class="icon-btn" title="Leggi la fonte originale">
+          📖
         </a>
-        <button style="
-          padding: 0.5rem 1rem;
-          font-size: 0.85rem;
-          border: 1px solid #2c2c2c;
-          background: #f5f5f5;
-          border-radius: 6px;
-          color: #2c2c2c;
-          cursor: pointer;
-          transition: all 0.2s ease;
-          white-space: nowrap;
-        " onmouseover="this.style.background='#2c2c2c'; this.style.color='white';" 
-           onmouseout="this.style.background='#f5f5f5'; this.style.color='#2c2c2c';">
-          Affidabilità: 🟡
+        <button class="icon-btn" title="${reliabilityText}">
+          ${reliabilityEmoji}
         </button>
-        <button onclick="closeVillagePanel()" style="
-          background-color: #2c2c2c;
-          color: white;
-          border: none;
-          border-radius: 50%;
-          width: 36px;
-          height: 36px;
-          font-size: 1.2rem;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: all 0.2s ease;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        " onmouseover="this.style.backgroundColor='#444'; this.style.transform='rotate(90deg)';"
-           onmouseout="this.style.backgroundColor='#2c2c2c'; this.style.transform='rotate(0deg)';">✕</button>
+        <button onclick="closeVillagePanel()" class="close-btn">✕</button>
       </div>
     </div>
 
-    <pre style="
-      white-space: pre-wrap;
-      padding: 0;
-      font-family: 'Merriweather', serif;
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin: 0;
-      color: #333;
-    ">${v.village_text}</pre>
+    <pre class="village-text">${v.village_text}</pre>
   `;
 
   if (v.notes) {
-    html += `<div style="
-      margin-top: 1.5rem;
-      padding: 1rem;
-      background: rgba(241, 241, 241, 0.8);
-      border-left: 3px solid #2c2c2c;
-      border-radius: 4px;
-    ">
-      <strong style="color: #2c2c2c;">Note:</strong> ${v.notes}
+    html += `<div class="village-notes">
+      <strong>Note:</strong> ${v.notes}
     </div>`;
   }
 
@@ -191,6 +145,26 @@ infoToggle.addEventListener("click", function(e) {
 
 // Show welcome popup on load
 window.addEventListener("load", () => {
+  // Check if there's a village parameter in URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const villageParam = urlParams.get('village');
+  
+  if (villageParam) {
+    // If village parameter exists, find and show that village
+    const village = allVillages.find(v => 
+      v.village_name && v.village_name.toLowerCase() === villageParam.toLowerCase()
+    );
+    
+    if (village) {
+      // Small delay to ensure map is loaded
+      setTimeout(() => {
+        focusOnVillage(village);
+      }, 500);
+      return; // Don't show welcome popup
+    }
+  }
+  
+  // Show welcome popup if no village parameter
   const popup = document.getElementById("welcome-popup");
   const closeBtn = document.getElementById("close-popup");
 
@@ -285,3 +259,4 @@ function focusOnVillage(village) {
     console.error('Village missing coordinates:', village);
   }
 }
+

@@ -20,18 +20,17 @@ html, body {
 /* Corner Boxes - Shared Styling */
 .corner-box {
   position: fixed;
-  background: rgba(241, 241, 241, 0.95);
-  backdrop-filter: blur(10px);
+  background: rgba(241, 241, 241, 0.98);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   padding: 1.25rem;
   z-index: 500;
   max-width: 320px;
-  transition: all 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 
 .corner-box:hover {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 }
 
 /* Top Left Info Box */
@@ -122,16 +121,15 @@ html, body {
   border-radius: 6px;
   font-family: 'Merriweather', serif;
   font-size: 0.75rem;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 #village-search:focus {
   outline: none;
   border-color: #2c2c2c;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .search-suggestions {
@@ -141,13 +139,12 @@ html, body {
   right: 0;
   margin-bottom: 0.25rem;
   background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(10px);
   border: 1px solid #ccc;
   border-radius: 6px;
   max-height: 200px;
   overflow-y: auto;
   z-index: 10;
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .suggestion-item {
@@ -178,7 +175,6 @@ html, body {
   justify-content: center;
   align-items: center;
   z-index: 2000;
-  backdrop-filter: blur(4px);
 }
 
 .popup-content {
@@ -232,26 +228,14 @@ html, body {
   width: 85%;
   max-width: 700px;
   max-height: 80vh;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
   overflow-y: auto;
   z-index: 1000;
   display: none;
   padding: 2.5rem;
-  animation: slideIn 0.3s ease;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -45%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
+  will-change: transform;
 }
 
 #popup-panel.visible {
@@ -272,6 +256,91 @@ html, body {
 #village-content h3 {
   color: #2c2c2c;
   margin-top: 1.5rem;
+}
+
+/* Village Panel Elements */
+.village-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 1.5rem;
+}
+
+.village-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #2c2c2c;
+}
+
+.village-buttons {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.icon-btn {
+  padding: 0.4rem 0.6rem;
+  font-size: 1.3rem;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  border-radius: 6px;
+  color: #2c2c2c;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'Merriweather', serif;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover {
+  background: #f0f0f0;
+  border-color: #999;
+}
+
+.close-btn {
+  background-color: #2c2c2c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.close-btn:hover {
+  background-color: #444;
+  transform: rotate(90deg);
+}
+
+.village-text {
+  white-space: pre-wrap;
+  padding: 0;
+  font-family: 'Merriweather', serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+  color: #333;
+}
+
+.village-notes {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-left: 3px solid #2c2c2c;
+  border-radius: 4px;
+}
+
+.village-notes strong {
+  color: #2c2c2c;
 }
 
 /* Utility Classes */
