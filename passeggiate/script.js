@@ -126,14 +126,27 @@ function closeVillagePanel() {
   popup.classList.add("hidden");
 }
 
-// Close panel when clicking on the popup overlay (not on content)
+// Close panel when clicking outside - with delay to avoid conflicts with marker clicks
+let clickTimeout;
 document.addEventListener('click', function(e) {
   const popup = document.getElementById("popup-panel");
+  const popupContent = document.getElementById("popup-content");
   
-  // Only close if clicking directly on the popup overlay background
-  if (popup.classList.contains('visible') && e.target === popup) {
-    closeVillagePanel();
-  }
+  // Check if popup is visible
+  if (!popup.classList.contains('visible')) return;
+  
+  // Clear any pending timeout
+  clearTimeout(clickTimeout);
+  
+  // Set a small delay to let marker clicks process first
+  clickTimeout = setTimeout(() => {
+    // Check if click is outside the popup content and not on a marker
+    if (!popupContent.contains(e.target) && 
+        !e.target.closest('.leaflet-marker-icon') &&
+        !e.target.closest('.leaflet-popup')) {
+      closeVillagePanel();
+    }
+  }, 10);
 });
 
 // Toggle info box collapse/expand
