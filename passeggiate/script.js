@@ -125,20 +125,13 @@ function closeVillagePanel() {
   popup.classList.remove("visible");
   popup.classList.add("hidden");
 }
-// Close panel when clicking outside
+
+// Close panel when clicking on the popup overlay (not on content)
 document.addEventListener('click', function(e) {
   const popup = document.getElementById("popup-panel");
-  const popupContent = document.getElementById("popup-content");
   
-  // Check if popup is visible and click is outside the content
-  if (popup.classList.contains('visible') && !popupContent.contains(e.target)) {
-    closeVillagePanel();
-  }
-});
-// Close panel when clicking outside
-document.addEventListener('click', function(e) {
-  const popup = document.getElementById("popup-panel");
-  if (e.target === popup) {
+  // Only close if clicking directly on the popup overlay background
+  if (popup.classList.contains('visible') && e.target === popup) {
     closeVillagePanel();
   }
 });
