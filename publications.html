@@ -125,12 +125,14 @@
     <main>
         <section id="publications" style="text-align:justify">
             <h2>Publications</h2>
-            
-            <div class="network-container">
-                <div id="loading-status" class="loading-status">
-                    <strong>Loading network...</strong> Extracting co-authorship data from publications.
-                </div>
-                
+			<nav class="section-nav">
+                <a href="#articles">Articles</a>
+                <a href="#proceedings">Proceedings</a>
+                <a href="#databases">Databases</a>
+                <a href="#preprints">Preprints</a>
+                <a href="#other">Non-academic</a>
+            </nav>
+            <div class="network-container">  
                 <div id="coauthor-network">
                     <div class="network-legend">
                         <div class="legend-item">
@@ -141,20 +143,16 @@
                             <div class="legend-color" style="background: #2ecc71;"></div>
                             <span>Regular Collaborator</span>
                         </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: #95a5a6;"></div>
-                            <span>Single Collaboration</span>
-                        </div>
                     </div>
                 </div>
                 <p style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
-                    <em>Network automatically generated from publication metadata. Node size represents number of collaborations.</em>
+                    <em>Network automatically generated from publication metadata. Node size reflects number of collaborations.</em>
                 </p>
             </div>
 
             <ol type="1">
                 <li>
-                    <h3>Peer-reviewed Journal Articles</h3>
+                    <h3 id="articles">Peer-reviewed Journal Articles</h3>
                     <ol type="1" reversed>
                         <li data-authors="Giorgia Gallucci,Luca Giovannini">
                             Gallucci, Giorgia, and <b>Luca Giovannini</b> (2025). "<a href="https://umanisticadigitale.unibo.it/article/view/21114" target="_blank">"Un mare senza lidi": digitalizzazione e modellazione della Drammaturgia di Leone Allacci</a>". <i>Umanistica Digitale</i> 20, pp. 583-599.
@@ -168,13 +166,13 @@
                     </ol>
                 </li>
                 <li>
-                    <h3>Peer-reviewed Conference Proceedings</h3>
+                    <h3 id="proceedings">Peer-reviewed Conference Proceedings</h3>
                     <ol type="1" reversed>
                         <li data-authors="Luca Giovannini,Daniil Skorinkin,Peer Trilcke,Ingo Börner,Frank Fischer,Tabeer Khilji">
-                            <b>Giovannini, Luca</b>, Sluyter-Gäthje, Henny, Skorinkin, Daniil, Trilcke, Peer, Börner, Ingo, Fischer, Frank, Khilji, Tabeer (2026). "<a href="none" target="_blank">A Decade in Drama Research. Data Mining the DraCor Bibliography (2015-2025)</a>". In: <i>DH2026 Book of Abstracts</i>. tba, 2026.
+                            <b>Giovannini, Luca</b>, Sluyter-Gäthje, Henny, Skorinkin, Daniil, Trilcke, Peer, Börner, Ingo, Fischer, Frank, Khilji, Tabeer (2026). "<a href="none" target="_blank">A Decade in Drama Research. Data Mining the DraCor Bibliography (2015-2025)</a>". In: <i>DH2026 Book of Abstracts</i>. Korean Association for Digital Humanities, 2026.
                         </li>
 						<li data-authors="Luca Giovannini,Daniil Skorinkin,Peer Trilcke,Ingo Börner,Frank Fischer,Mareike Schumacher,Clara Helmig,Henny Sluyter-Gäthje, Sören Barkey, Clara Funk, Mark Schwindt, Anna Busch">
-                            Trilcke, Peer, Barkey, Sören, Börner, Ingo, Milling, Carsten, Schumacher, Mareike, Skorinkin, Daniil, Sluyter-Gäthje, Henny, Funk, Clara, Schwindt, Mark, Busch, Anna, Fischer, Frank, <b>Giovannini, Luca</b>, Clara Helmig (2026). "<a href="none" target="_blank">Introducing EcoCor: An Open Infrastructure for Digital Ecocriticism</a>". In: <i>DH2026 Book of Abstracts</i>. tba, 2026.
+                            Trilcke, Peer, Barkey, Sören, Börner, Ingo, Milling, Carsten, Schumacher, Mareike, Skorinkin, Daniil, Sluyter-Gäthje, Henny, Funk, Clara, Schwindt, Mark, Busch, Anna, Fischer, Frank, <b>Giovannini, Luca</b>, Clara Helmig (2026). "<a href="none" target="_blank">Introducing EcoCor: An Open Infrastructure for Digital Ecocriticism</a>". In: <i>DH2026 Book of Abstracts</i>. Korean Association for Digital Humanities, 2026.
                         </li>
 						<li data-authors="Frank Fischer,Peer Trilcke,Mark Schwindt,Carsten Milling,Henny Sluyter-Gäthje,Ivan Pozdniakov,Ingo Börner,Julia Jennifer Beine,Daniil Skorinkin,Lisa Poggel,Luca Giovannini">
                             Fischer, Frank, Trilcke, Peer, Schwindt, Mark, Milling, Carsten, Sluyter-Gäthje, Henny, Pozdniakov, Ivan, Börner, Ingo, Beine, Julia Jennifer, Skorinkin, Daniil, Poggel, Lisa, and <b>Luca Giovannini</b> (2026). "<a href="none" target="_blank">Ganz viel Drama auf einen Blick: Der »Distant-Reading Showcase«, zehn Jahre danach</a>". In: <i>DHd2026 Book of Abstracts</i>. Universität Wien, 2026.
@@ -215,7 +213,7 @@
                     </ol>
                 </li>
                 <li>
-                    <h3>Databases and applications</h3>
+                    <h3 id="databases">Databases and applications</h3>
                     <ol type="1" reversed>
                         <li data-authors="Luca Giovannini,Andreas Wagner">
                             <b>Giovannini, Luca</b>, and Andreas Wagner (2025). <a href="https://atlas-emed.github.io" target="_blank"><i>A Little Atlas of Early Modern European Drama</i></a>.
@@ -229,7 +227,7 @@
                     </ol>
                 </li>
                 <li>
-                    <h3>Preprints</h3>
+                    <h3 id="preprints">Preprints</h3>
                     <ol type="1" reversed>
                         <li data-authors="Luca Giovannini,Daniil Skorinkin">
                             <b>Giovannini, Luca</b>, and Daniil Skorinkin, eds. (2025). "<a href="https://doi.org/10.5281/zenodo.16814034" target="_blank">Conference Reader: Second Workshop on Computational Drama Analysis (Berlin, 03.09.2025)</a>". <i>Zenodo</i>.
@@ -243,7 +241,7 @@
                     </ol>
                 </li>
                 <li>
-                    <h3>Non-academic</h3>
+                    <h3 id="other">Non-academic</h3>
                     <ol type="1" reversed>
                         <li data-authors="Luca Giovannini">
                             <b>Giovannini, Luca</b> (2021). <a href="https://medium.com/towards-artificial-intelligence/the-language-of-qanon-2e3411afa9be" target="_blank">"Decrypting QAnon: An NLP-oriented Look at the Movement's Core Texts"</a>. <i>Towards AI</i> (2021).
