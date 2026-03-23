@@ -3,81 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
     <title>Luca Giovannini - Conferences</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
-
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            font-size: 16px;
-            background-color: #f9f9f9;
-            color: #333;
-            margin: 0 auto;
-            max-width: 900px;
-            padding: 2rem;
-        }
-        
-        header {
-            margin-bottom: 2rem;
-        }
-        
-        header nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-            padding: 0;
-            margin: 0;
-        }
-        
-        header nav li {
-            display: inline;
-        }
-        
-        header nav a {
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: bold;
-            font-size: 1rem;
-        }
-        
-        main {
-            margin-bottom: 3rem;
-        }
-        
-        h1, h2, h3 {
-            color: #1a1a1a;
-            margin-top: 2rem;
-            margin-bottom: 0.5rem;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 0.3rem;
-            font-weight: normal;
-        }
-        
         h3 {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-        
-        a {
-            color: #007acc;
-            text-decoration: underline;
-        }
-        
-        ol {
-            padding-left: 1.2rem;
-        }
-        
-        ol li {
-            margin-bottom: 1rem;
-        }
-        
+
         li p {
             margin: 0.25rem 0;
         }
-        
+
         .section-nav {
             display: flex;
             gap: 1rem;
@@ -89,7 +28,7 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        
+
         .section-nav a {
             padding: 0.5rem 1rem;
             background: white;
@@ -100,13 +39,13 @@
             font-size: 0.9em;
             transition: all 0.2s;
         }
-        
+
         .section-nav a:hover {
             background: #2c3e50;
             color: white;
             border-color: #2c3e50;
         }
-        
+
         .back-to-top {
             display: inline-block;
             margin-left: 1rem;
@@ -119,19 +58,19 @@
             font-size: 0.85em;
             transition: all 0.2s;
         }
-        
+
         .back-to-top:hover {
             background: #007acc;
             color: white;
             border-color: #007acc;
         }
-        
-        #map { 
+
+        #map {
             height: 450px;
             border: 1px solid #ccc;
             position: relative;
         }
-        
+
         .map-legend {
             position: absolute;
             bottom: 30px;
@@ -143,13 +82,13 @@
             z-index: 1000;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-        
+
         .map-legend h4 {
             margin: 0 0 8px 0;
             font-size: 0.9em;
             font-weight: bold;
         }
-        
+
         .legend-item {
             display: flex;
             align-items: center;
@@ -157,14 +96,14 @@
             margin: 5px 0;
             font-size: 0.8em;
         }
-        
+
         .legend-color {
             width: 14px;
             height: 14px;
             border-radius: 50%;
             flex-shrink: 0;
         }
-        
+
         .loading-status {
             background: #f0f0f0;
             border-left: 3px solid #007acc;
@@ -172,18 +111,18 @@
             margin: 1rem 0;
             font-size: 0.9em;
         }
-        
+
         .loading-status.success {
             background: #e8f5e9;
             border-color: #4caf50;
         }
-        
+
         .popup-event {
             margin-bottom: 8px;
             padding-bottom: 8px;
             border-bottom: 1px solid #eee;
         }
-        
+
         .popup-event:last-child {
             border-bottom: none;
             margin-bottom: 0;
@@ -193,6 +132,7 @@
 </head>
 <body>
     <header>
+        <a class="site-title" href="/">Dr. Luca Giovannini</a>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -206,7 +146,7 @@
     <main>
         <section id="conferences">
             <h2 id="top">Conferences, seminars, workshops, etc.</h2>
-            
+
             <nav class="section-nav">
                 <a href="#invited-talks-section">Invited Talks</a>
                 <a href="#contributed-talks-section">Contributed Talks</a>
@@ -214,11 +154,11 @@
                 <a href="#organisation-section">Organisation/Staff</a>
                 <a href="#attendance-section">Attendance</a>
             </nav>
-            
+
             <div id="loading-status" class="loading-status">
                 <strong>Loading map...</strong> Geocoding locations automatically.
             </div>
-            
+
             <div id="map">
                 <div class="map-legend">
                     <h4>Map Legend</h4>
@@ -246,185 +186,171 @@
                         <div class="legend-color" style="background: #767676;"></div>
                         <span>Attendance</span>
                     </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: linear-gradient(45deg, #21ba45 50%, #db2828 50%);"></div>
-                        <span>Multiple Activities</span>
-                    </div>
                 </div>
             </div>
             <p style="font-size: 0.9em; color: #666;">
                 <em>Map automatically generated from conference locations. Coordinates are cached locally for faster subsequent loads.</em>
             </p>
-            
+
             <h3 id="invited-talks-section"><b>Invited talks</b> <a href="#top" class="back-to-top">↑ Back to top</a></h3>
             <ol reversed id="invited-talks">
-                <li>
+                <li data-location="online">
                     <p><b>Seminar</b>, Cultural Analytics Research Lab, University of California, Berkeley • online, 28.02.2026</p>
                     <p><b>Title:</b> <i>Meet DraCor. An Introduction and a Showcase</i> [<a href="https://none">slides</a>]</p>
                 </li>
-				<li>
+                <li data-location="Nanterre, France">
                     <p><b>Workshop</b>, <i><a href="https://pictoria.hypotheses.org/6010">Visual Ecology & Archives</a></i> (Data-SHS Week), University of Paris-Nanterre • Nanterre, 12.12.2025</p>
                     <p><b>Title:</b><i> Building a participative digital humanities network: the Potsdam example</i> [<a href="https://lucagiovannini7.github.io/slides/nanterre-2025.pdf">slides</a>]</p>
                 </li>
-                <li>
+                <li data-location="Genoa, Italy">
                     <p><b>International conference</b>, <i>Il libro di teatro e l'editoria italiana nel Seicento. Casi di studio e progetti digitali tra Francia, Italia e Spagna</i>, University of Genova • Genoa, 06.06.2025</p>
                     <p><b>Title:</b> <i> Allacci Digitale: la Drammaturgia da repertorio a database</i> (with Giorgia Gallucci) [<a href="https://lucagiovannini7.github.io/slides/genova-2025.pdf">slides</a>]</p>
                 </li>
-                <li>
+                <li data-location="online">
                     <p><b>Lecture series</b>, <a href="https://www.germanistik.uni-rostock.de/forschung/digital-humanities/rosdh/ringvorlesung/sose-2025/n/investigating-the-evolution-of-early-modern-european-drama-with-digital-methods-232701/"><i>Digital Humanities im Fokus: Methoden, Anwendungen und Perspektiven</i></a>, University of Rostock • Rostock (online), 28.04.2025</p>
                     <p><b>Title:</b> <i>Investigating the Evolution of Early Modern European Drama with Digital Methods</i> [<a href="https://slides.com/luca-giovannini/deck-45d146/fullscreen">slides</a>]</p>
                 </li>
-                <li>
+                <li data-location="Tours, France">
                     <p><b>Seminar</b>, <a href="https://cesr.univ-tours.fr/centre-detudes-superieures-de-la-renaissance/manifestations/seminaire-humanites-numeriques-6-charting-the-evolution-of-early-modern-drama-aesthetics-a-computational-approach"><i>Humanités Numériques Tourangelles</i></a>, CESR • Tours, 04.02.2025</p>
                     <p><b>Title:</b> <i>Charting the Evolution of Early Modern Drama Aesthetics: A Computational Approach</i> [<a href="https://plu.sh/dhtours">slides</a>]</p>
                 </li>
-                <li>
+                <li data-location="Erlangen, Germany">
                     <p><a href="https://www.dhss.phil.fau.de/events/daniil-skorinkin-and-luca-giovannini-tbd/">Digital Humanities Kolloquium</a>, University of Erlangen-Nuremberg • Erlangen, 28.01.2025</p>
                     <p><b>Title:</b> <i>Computational Modelling of Literary Characters</i> (with Daniil Skorinkin) [<a href="https://lucagiovannini7.github.io/slides/dh-erlangen-2025.html">slides</a>]</p>
                 </li>
-                <li>
+                <li data-location="Padua, Italy">
                     <p><b>Digital Philology Seminar</b>: <i>Varianti digitali: metodi, cantieri, proposte</i> • Padua, 13.02.2024</p>
                     <p><b>Title:</b> <i>Critica computazionale: metodi e prospettive [Computational Criticism: Methods and Perspectives]</i> [<a href="https://lucagiovannini7.github.io/slides/fildig-2024.html">slides</a>]</p>
                 </li>
             </ol>
-            
+
             <h3 id="contributed-talks-section"><b>Contributed talks</b> <a href="#top" class="back-to-top">↑ Back to top</a></h3>
             <ol reversed id="contributed-talks">
-                <li>
+                <li data-location="Daejeon, South Korea">
                     <p><b>DH 2026</b>: <i>Engagement</i> • Daejeon, 24-28.07.2026</p>
                     <p><b>Title:</b> <i>A Decade in Drama Research. Data Mining the DraCor Bibliography (2015-2025)</i> [<a href="https://lucagiovannini7.github.io/slides/none.pdf">slides</a>]</p>
                 </li>
-				<li>
+                <li data-location="Daejeon, South Korea">
                     <p><b>DH 2026</b>: <i>Engagement</i> • Daejeon, 24-28.07.2026</p>
                     <p><b>Title:</b> <i>Introducing EcoCor: An Open Infrastructure for Digital Ecocriticism</i> [<a href="https://lucagiovannini7.github.io/slides/none.pdf">slides</a>]</p>
                 </li>
-				<li>
+                <li data-location="Potsdam, Germany">
                     <p><b>Potsdam DH-Day</b> • Potsdam, 13.11.2025</p>
                     <p><b>Title:</b> <i>Prototyping an LLM-powered encoding workflow for plays </i> [<a href="https://lucagiovannini7.github.io/slides/potsdam-2025.pdf">slides</a>]</p>
                 </li>
-				<li>
+                <li data-location="Lisbon, Portugal">
                     <p><b>DH 2025</b>: <i>Accessibility and Citizenship</i> • Lisbon, 14-18.07.2025</p>
                     <p><b>Title:</b> <i>A Modest Proposal for Operationalising Dramatic Texts</i> [<a href="https://lucagiovannini7.github.io/slides/lisbon-2025.pdf">slides</a>]</p>
                 </li>
-                <li>
+                <li data-location="Passau, Germany">
                     <p><b>DHd 2024:</b> <i>Quo vadis, DH?</i> • Passau, 26.02-1.03.2024</p>
                     <p><b>Title:</b> <i>Quantitative Ansätze zur Untersuchung der frühneuzeitlichen Dramengeschichte [Quantitative Approaches for the Investigation of Early Modern Drama History]</i> [<a href="https://lucagiovannini7.github.io/slides/dhd-2024.html">slides</a>]</p>
                 </li>
-                <li>
+                <li data-location="Genoa, Italy">
                     <p><b>SRDH Doctoral Symposium</b> • Genova, 21-22.05.2024</p>
                     <p><b>Title:</b> <i>Artificial Fairy Tales: An Experiment in Computational Narratology</i> [<a href="https://lucagiovannini7.github.io/slides/srdh-2024.pdf">slides</a>]</p>
                 </li>
-                <li>
+                <li data-location="Catania, Italy">
                     <p><b>AIUCD 2024:</b> <i>Mete Digitali</i> • Catania, 28-30.05.2024</p>
                     <p><b>Title:</b> <i>Digitalizzazione e modellazione della Drammaturgia di Leone Allacci [Digitalisation and modelling of Leone Allacci's Drammaturgia]</i> [<a href="https://lucagiovannini7.github.io/slides/aiucd-2024.pdf">slides</a>]</p>
                 </li>
-                <li>
+                <li data-location="Tallinn, Estonia">
                     <p><b>CUDAN 2023</b> • Tallinn, 13-16.12.2023</p>
                     <p><b>Title:</b> <i>The Courtroom as Stage: Exploring the Performative Dimension of Genocide Trials</i> [<a href="https://zenodo.org/records/10461155">slides</a>]</p>
                 </li>
-                <li>
+                <li data-location="Würzburg, Germany">
                     <p><b>CCLS 2023</b> + General Meeting, DFG SPP 2207 • Würzburg, 22-23.06.2023</p>
                     <p><b>Title:</b> <i>Computational approaches to opera libretti</i> [<a href="https://lucagiovannini7.github.io/slides/ccls-2023.html">slides</a>]</p>
                 </li>
             </ol>
-            
+
             <h3 id="poster-section"><b>Poster presentations</b> <a href="#top" class="back-to-top">↑ Back to top</a></h3>
             <ol reversed id="poster-presentations">
-                <li>
-                    <p><b>DH 2026:</b> <i>Not Only Text, Not Only Data</i> • Vienna, 23-27.02.2026 → <a href="">Poster</a></p>
+                <li data-location="Vienna, Austria">
+                    <p><b>DH 2026:</b> <i>Not Only Text, Not Only Data</i> • Vienna, 23-27.02.2026 → <a href="https://doi.org/10.6084/m9.figshare.31113820">Poster</a></p>
                 </li>
-				<li>
+                <li data-location="Verona, Italy">
                     <p><b>AIUCD 2025:</b> <i>Diversità, equità e inclusione</i> • Verona, 11-13.06.2025 → <a href="https://zenodo.org/records/15601637">Poster</a></p>
                 </li>
-                <li>
+                <li data-location="Washington, D.C., USA">
                     <p><b>DH 2024:</b> <i>Reinvention and Responsibility</i> • Washington D.C., 6-9.08.2024 → <a href="https://doi.org/10.5281/zenodo.13340332">Poster</a>, <a href="https://doi.org/10.5281/zenodo.13340325">Poster</a></p>
                 </li>
-                <li>
+                <li data-location="Graz, Austria">
                     <p><b>DH 2023:</b> <i>Collaboration as Opportunity</i> • Graz, 10-14.07.2023 → <a href="https://zenodo.org/records/8228523">Poster</a></p>
                 </li>
-                <li>
+                <li data-location="Siena, Italy">
                     <p><b>AIUCD 2023:</b> <i>La memoria digitale</i> • Siena, 5-7.06.2023 → <a href="https://zenodo.org/records/7963028">Poster</a></p>
                 </li>
-                <li>
+                <li data-location="Trier, Germany">
                     <p><b>DHd 2023:</b> <i>Open Humanities, Open Culture</i> • Trier, 13-17.03.2023 → <a href="https://zenodo.org/records/7715333">Poster</a></p>
                 </li>
-                <li>
+                <li data-location="online">
                     <p><b>DH 2022:</b> <i>Responding to Asian Diversity</i> • Tokyo (online), 19-23.09.2022 → <a href="https://github.com/lucagiovannini7/lucagiovannini7.github.io/blob/main/media/Final%20poster%20DH2022%20Tokyo.pdf">Poster</a></p>
                 </li>
             </ol>
-            
+
             <h3 id="organisation-section"><b>Organisation/Staff</b> <a href="#top" class="back-to-top">↑ Back to top</a></h3>
             <ol reversed id="organisation-staff">
-				<li>
+                <li data-location="Potsdam, Germany">
                     <p><b>CCLS 2026</b> • Potsdam, 28-29.05.2026 • <b>Role:</b> Local organiser</p>
                 </li>
-				<li>
+                <li data-location="Potsdam, Germany">
                     <p><a href="https://www.uni-potsdam.de/de/digital-humanities/events/dh-day-2025">Potsdam DH Day</a> • Potsdam, 13.11.2025 • <b>Role:</b> Organiser</p>
                 </li>
-                <li>
+                <li data-location="Berlin, Germany">
                     <p>Second <b>Workshop on Computational Drama Analysis</b>: Achievements and Opportunities (as part of the <a href="https://summit.dracor.org">DraCor Summit 2025</a>) • Berlin, 3.09.2025 • <b>Role:</b> Organiser</p>
                 </li>
-                <li>
+                <li data-location="Krakow, Poland">
                     <p><b>CCLS 2025</b> • Krakow, 2-3.07.2025 • <b>Role:</b> Session chair</p>
                 </li>
-                <li>
+                <li data-location="Potsdam, Germany">
                     <p><a href="https://www.uni-potsdam.de/de/digital-humanities/aktivitaeten/potsdam-dh-school-2025">DH Spring School: Text as Data</a> • Potsdam, 31.03-4.04.2025 • <b>Role:</b> Organiser, workshop leader</p>
                 </li>
-                <li>
+                <li data-location="Potsdam, Germany">
                     <p><b>Book presentation:</b> Theater as Data (with the author, Miguel Escobar Varela) • Potsdam, 28.11.2024 • <b>Role:</b> Organiser</p>
                 </li>
-                <li>
+                <li data-location="Washington, D.C., USA">
                     <p><b>DH 2024</b> • Washington, 6-9.08.2024 • <b>Role:</b> Session chair</p>
                 </li>
-                <li>
+                <li data-location="Vienna, Austria">
                     <p><b>CCLS 2024</b> • Vienna, 13-14.06.2024 • <b>Role:</b> On-site staff</p>
                 </li>
-                <li>
+                <li data-location="Vienna, Austria">
                     <p><a href="https://clsinfra.io/events/training-school/">CLS-INFRA ExploreCor Training School</a> • Vienna, 10-12.06.2024 • <b>Role:</b> workshop leader</p>
                 </li>
-                <li>
+                <li data-location="Potsdam, Germany">
                     <p><b>DHd 2022:</b> <i>Kulturen des digitalen Gedächtnisses</i> + BarCamp • Potsdam and online, 7-11.03/8-9.07.2022 • <b>Role:</b> Member of the <a href="https://dhd2022.dig-hum.de/komitee-team/">local organisers' team</a></p>
                 </li>
             </ol>
-            
+
             <h3 id="attendance-section"><b>Attendance</b> <a href="#top" class="back-to-top">↑ Back to top</a></h3>
             <ol reversed id="attendance">
-                <li>
+                
+				
+				<li data-location="Krakow, Poland">
                     <p><b>Closing event</b>, CLS INFRA • Krakow, 2-5.07.2025</p>
                 </li>
-                <li>
+                <li data-location="Berlin, Germany">
                     <p><b>International Conference:</b> <i>Linked Open Data and Literary Studies</i> • Berlin, 19-20.11.2024</p>
                 </li>
-                <li>
+                <li data-location="Halle, Germany">
                     <p><b>Workshop</b>: <i>Digitale Komparatistik: Perspektiven und Strategien</i> (invited) • Halle/Saale, 14-15.11.2024</p>
                 </li>
-                <li>
+                <li data-location="Cologne, Germany">
                     <p><b>Workshop</b>: Computational Drama Analysis: Achievements and Opportunities • Cologne, 15-16.09.2022</p>
                 </li>
-                <li>
+                <li data-location="Darmstadt, Germany">
                     <p><b>CCLS 2022</b> + General Meeting, DFG SPP 2207 • Darmstadt, 31.05-02.06.2022</p>
                 </li>
-                <li>
+                <li data-location="Krakow, Poland">
                     <p><b>Closing Conference,</b> COST Action CA16204 • Krakow (online), 21-22.04.2022</p>
                 </li>
             </ol>
         </section>
     </main>
-    
+
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
-        // Manual overrides for ambiguous locations
-        const locationOverrides = {
-            "Paris-Nanterre": "Nanterre, France",
-            "Washington D.C.": "Washington, District of Columbia, USA",
-            "Washington": "Washington, District of Columbia, USA",
-            "Belval": "Belval, Luxembourg",
-            "Genova": "Genoa, Italy",
-            "Genoa": "Genoa, Italy",
-            "Kraków": "Krakow, Poland",
-            "Krakow": "Krakow, Poland"
-        };
-        
         // Education/Training locations
         const educationLocations = [
             { name: "Turin", fullName: "University of Turin", country: "Italy" },
@@ -432,9 +358,8 @@
             { name: "Potsdam", fullName: "University of Potsdam", country: "Germany" },
             { name: "Cologne", fullName: "University of Cologne", country: "Germany" },
             { name: "Warwick", fullName: "University of Warwick", country: "United Kingdom" },
-            { name: "Jerusalem", fullName: "Hebrew University of Jerusalem", country: "Israel" }
         ];
-        
+
         // Color priority order (higher priority = displayed on marker)
         const categoryPriority = {
             'invited': 5,
@@ -443,7 +368,7 @@
             'organisation': 2,
             'attendance': 1
         };
-        
+
         const categoryColors = {
             'invited': 'blue',
             'contributed': 'green',
@@ -451,34 +376,44 @@
             'organisation': 'red',
             'attendance': 'grey'
         };
-        
+
         // Initialize map
         const map = L.map('map').setView([50, 10], 4);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
-        
-        // Geocoding function with caching
+
+        // Tracks the timestamp of the last network geocoding request
+        let lastGeocodingRequest = 0;
+
+        // Geocoding function with caching and self-contained rate limiting
         async function geocodeLocation(location) {
             const cacheKey = `geocode_${location}`;
             const cached = localStorage.getItem(cacheKey);
-            
+
             if (cached) {
                 return JSON.parse(cached);
             }
-            
-            // Apply manual override if exists
-            const searchLocation = locationOverrides[location] || location;
-            
-            const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(searchLocation)}`;
-            
+
+            // Enforce Nominatim rate limit (1 req/s) only for actual network requests
+            const elapsed = Date.now() - lastGeocodingRequest;
+            if (elapsed < 1100) {
+                await new Promise(resolve => setTimeout(resolve, 1100 - elapsed));
+            }
+            lastGeocodingRequest = Date.now();
+
+            const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(location)}`;
+
             try {
-                const response = await fetch(url, {
-                    headers: { 'User-Agent': 'ConferenceMap/1.0' }
-                });
-                
+                const response = await fetch(url);
+
+                if (!response.ok) {
+                    console.error(`Nominatim error ${response.status} for "${location}"`);
+                    return null;
+                }
+
                 const data = await response.json();
-                
+
                 if (data && data[0]) {
                     const coords = {
                         lat: parseFloat(data[0].lat),
@@ -488,33 +423,16 @@
                     return coords;
                 }
             } catch (error) {
-                console.error(`Failed to geocode ${location}:`, error);
+                console.error(`Failed to geocode "${location}":`, error);
             }
-            
+
             return null;
         }
-        
-        // Extract location from text
-        function extractLocation(text) {
-            // Pattern: "• Location, Date"
-            const match = text.match(/[•]\s*([^,]+?)(?:,|\s+\d)/);
-            if (match) {
-                let location = match[1].trim();
-                // Skip if location contains "online"
-                if (location.toLowerCase().includes('online')) {
-                    return null;
-                }
-                // Remove trailing parenthetical info like "(online)"
-                location = location.replace(/\s*\([^)]*\)\s*$/, '');
-                return location;
-            }
-            return null;
-        }
-        
+
         // Get category from list element
         function getCategory(listElement) {
             const listId = listElement.closest('ol').id;
-            
+
             if (listId.includes('invited')) return 'invited';
             if (listId.includes('contributed')) return 'contributed';
             if (listId.includes('poster')) return 'poster';
@@ -522,7 +440,7 @@
             if (listId.includes('attendance')) return 'attendance';
             return 'attendance';
         }
-        
+
         // Get category display name
         function getCategoryName(category) {
             const names = {
@@ -534,12 +452,12 @@
             };
             return names[category] || 'Conference';
         }
-        
+
         // Determine marker color based on highest priority category
         function getMarkerColorForCategories(categories) {
             let highestPriority = 0;
             let color = 'grey';
-            
+
             for (const category of categories) {
                 const priority = categoryPriority[category] || 0;
                 if (priority > highestPriority) {
@@ -547,16 +465,16 @@
                     color = categoryColors[category];
                 }
             }
-            
+
             return color;
         }
-        
+
         // Process education locations first
         async function processEducationLocations() {
             for (const edu of educationLocations) {
                 const searchQuery = `${edu.fullName}, ${edu.country}`;
                 const coords = await geocodeLocation(searchQuery);
-                
+
                 if (coords) {
                     const icon = new L.Icon({
                         iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-violet.png',
@@ -566,35 +484,31 @@
                         popupAnchor: [1, -34],
                         shadowSize: [41, 41]
                     });
-                    
+
                     const popupContent = `<strong>${edu.name}</strong><br><em>Education/Training:</em> ${edu.fullName}`;
-                    
+
                     L.marker([coords.lat, coords.lon], { icon })
                         .addTo(map)
                         .bindPopup(popupContent);
                 }
-                
-                // Rate limiting
-                await new Promise(resolve => setTimeout(resolve, 1100));
             }
         }
-        
+
         // Process all conference entries
         async function processConferences() {
             const statusDiv = document.getElementById('loading-status');
-            
+
             // First add education locations
             statusDiv.innerHTML = `<strong>Adding education/training locations...</strong>`;
             await processEducationLocations();
-            
+
             const allItems = document.querySelectorAll('#conferences ol li');
             const locationMap = new Map(); // Map location to array of {item, category}
-            
-            // Collect items by location with their categories
+
+            // Collect items by location using data-location attribute
             allItems.forEach(item => {
-                const text = item.textContent;
-                const location = extractLocation(text);
-                if (location) {
+                const location = item.dataset.location;
+                if (location && location !== 'online') {
                     const category = getCategory(item);
                     if (!locationMap.has(location)) {
                         locationMap.set(location, []);
@@ -602,13 +516,13 @@
                     locationMap.get(location).push({ item, category });
                 }
             });
-            
+
             statusDiv.innerHTML = `<strong>Geocoding ${locationMap.size} conference locations...</strong>`;
-            
+
             // Geocode all unique locations
             const geocodedLocations = {};
             let processed = 0;
-            
+
             for (const [location] of locationMap.entries()) {
                 const coords = await geocodeLocation(location);
                 if (coords) {
@@ -616,20 +530,17 @@
                 }
                 processed++;
                 statusDiv.innerHTML = `<strong>Geocoding...</strong> ${processed}/${locationMap.size} locations processed`;
-                
-                // Rate limiting: 1 request per second (Nominatim requirement)
-                await new Promise(resolve => setTimeout(resolve, 1100));
             }
-            
+
             // Add markers to map
             for (const [location, entries] of locationMap.entries()) {
                 if (geocodedLocations[location]) {
                     const coords = geocodedLocations[location];
-                    
+
                     // Group entries by category
                     const categorizedEntries = {};
                     const uniqueCategories = new Set();
-                    
+
                     entries.forEach(({ item, category }) => {
                         uniqueCategories.add(category);
                         if (!categorizedEntries[category]) {
@@ -637,33 +548,33 @@
                         }
                         categorizedEntries[category].push(item);
                     });
-                    
+
                     // Create popup content organized by category
                     let popupContent = `<strong>${location}</strong><br><br>`;
-                    
+
                     // Sort categories by priority
                     const sortedCategories = Array.from(uniqueCategories).sort(
                         (a, b) => (categoryPriority[b] || 0) - (categoryPriority[a] || 0)
                     );
-                    
+
                     sortedCategories.forEach(category => {
                         const categoryName = getCategoryName(category);
                         const items = categorizedEntries[category];
-                        
+
                         items.forEach(item => {
                             const text = item.querySelector('p').textContent;
                             const titleMatch = text.match(/^[^•]*/);
                             const title = titleMatch ? titleMatch[0].trim() : text.substring(0, 50);
-                            
+
                             popupContent += `<div class="popup-event">`;
                             popupContent += `<em>${categoryName}:</em><br>${title}`;
                             popupContent += `</div>`;
                         });
                     });
-                    
+
                     // Determine marker color based on highest priority category
                     const color = getMarkerColorForCategories(uniqueCategories);
-                    
+
                     const icon = new L.Icon({
                         iconUrl: `https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-${color}.png`,
                         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -672,7 +583,7 @@
                         popupAnchor: [1, -34],
                         shadowSize: [41, 41]
                     });
-                    
+
                     L.marker([coords.lat, coords.lon], { icon })
                         .addTo(map)
                         .bindPopup(popupContent, {
@@ -681,21 +592,21 @@
                         });
                 }
             }
-            
+
             statusDiv.className = 'loading-status success';
             const totalLocations = Object.keys(geocodedLocations).length + educationLocations.length;
             statusDiv.innerHTML = `<strong>✓ Map loaded successfully!</strong> ${totalLocations} locations geocoded and displayed.`;
-            
+
             // Fit map bounds to show all markers
             const allCoords = [
                 ...Object.values(geocodedLocations).map(c => [c.lat, c.lon])
             ];
-            
+
             if (allCoords.length > 0) {
                 map.fitBounds(allCoords, { padding: [50, 50] });
             }
         }
-        
+
         // Run on page load
         processConferences();
     </script>
