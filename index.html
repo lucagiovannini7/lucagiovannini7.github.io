@@ -13,6 +13,7 @@
 <body>
     <header>
 		<a class="site-title" href="/">Dr. Luca Giovannini</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -24,11 +25,11 @@
         </nav>
     </header>
 	<main>
-		<section id="introduction" style="display: flex; gap: 2rem; align-items: flex-start;">
+		<section id="introduction" class="intro-section">
 			<!-- Image + contact links -->
-			<div style="flex-shrink: 0; text-align: center;">
+			<div class="intro-sidebar">
 				<img src="https://lucagiovannini7.github.io/assets/img/profile-pic.jpg" alt="Luca Giovannini" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; display: block;">
-				<div style="margin-top: 1.6rem; display: flex; flex-direction: column; gap: 0.5rem; align-items: center; font-size: 0.9em;">
+				<div class="intro-links">
 					<a href="mailto:giovannini@uni-potsdam.de" style="display: flex; align-items: center; gap: 0.4rem;"><i class="fas fa-envelope" style="width: 1em; text-align: center;"></i> Email</a>
 					<a href="https://bsky.app/profile/lucagiovannini.bsky.social" target="_blank" style="display: flex; align-items: center; gap: 0.4rem;"><i class="fab fa-bluesky" style="width: 1em; text-align: center;"></i> Bluesky</a>
 					<a href="https://github.com/lucagiovannini7" target="_blank" style="display: flex; align-items: center; gap: 0.4rem;"><i class="fab fa-github" style="width: 1em; text-align: center;"></i> GitHub</a>
@@ -36,7 +37,7 @@
 				</div>
 			</div>
 			<!-- Text content -->
-			<div style="text-align: justify;">
+			<div class="intro-text">
 				<p>
 					I currently work as a postdoc researcher at the University of Potsdam, Germany, where I coordinate the local <a href="https://www.uni-potsdam.de/de/digital-humanities">Network for Digital Humanities</a>. You can find my institutional webpage <a href='https://www.uni-potsdam.de/en/digital-humanities/network-organization/research-coordination/luca-giovannini' target="_blank">here</a>.
 				</p>
@@ -55,6 +56,7 @@
     <footer>
         <p></p>
     </footer>
+    <script src="nav.js"></script>
 </body>
 
 </html>
