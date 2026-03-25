@@ -1,51 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Map with Cities Markers</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-  <style>
-    #map {
-      height: 500px;
-      width: 100%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Map – Luca Giovannini</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <style>
+        /* Let the map break out of the 860px content constraint */
+        .map-wrapper {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            height: calc(100vh - 220px);
+            min-height: 380px;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+        /* Leaflet attribution fix */
+        .leaflet-control-attribution {
+            font-size: 0.7rem;
+        }
+    </style>
 </head>
 <body>
-  <div id="map"></div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-  <script>
-    var map = L.map('map').setView([37.8, -96], 4);
+    <header>
+        <a class="site-title" href="/">Dr. Luca Giovannini</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../publications.html">Publications</a></li>
+                <li><a href="../teaching.html">Teaching</a></li>
+                <li><a href="../conferences.html">Conferences</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Places</h1>
+        <p>Cities I have visited, weighted by frequency of visits.</p>
+
+        <div class="map-wrapper">
+            <div id="map"></div>
+        </div>
+    </main>
+
+    <!-- ─── City data ───────────────────────────────────────────────────────────
+         Format: { name, lat, lng, freq }
+         freq = rough number of visits / stays; drives heat intensity.
+    ──────────────────────────────────────────────────────────────────────────── -->
+    <script>
+    const cities = [
+        { name: "Marseille", lat: 43.2965, lng:  5.3698, freq: 1 },
+        { name: "Nice",      lat: 43.7102, lng:  7.2620, freq: 1 },
+        { name: "Genoa",     lat: 44.4056, lng:  8.9463, freq: 2 },
+        { name: "Turin",     lat: 45.0703, lng:  7.6869, freq: 3 },
+    ];
+    </script>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <script>
+    // ── Map init ────────────────────────────────────────────────────────────────
+    const map = L.map('map', { zoomControl: true });
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    var cities = [
-    "Berlin","Cologne","Duesseldorf","Essen","Bonn","Aachen","Munster","Trier","Mainz","Wiesbaden","Frankfurt","Darmstadt",
-    "Hamburg","Werningerode","Wittenberg","Potsdam","Brandenburg an der Havel", 
-    "London","Birmingham", 
-    "Paris","Marseille"
-];
+    // ── Fit view to all cities ──────────────────────────────────────────────────
+    const bounds = L.latLngBounds(cities.map(c => [c.lat, c.lng]));
+    map.fitBounds(bounds, { padding: [60, 60] });
 
-    var addMarkers = function() {
-        cities.forEach(function(city) {
-            var xhr = new XMLHttpRequest();
-            xhr.timeout = 800;
-            xhr.open("GET", `https://nominatim.openstreetmap.org/search?q=${city}&format=json`, true);
-            xhr.onreadystatechange = function() {
-                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-                    var result = JSON.parse(this.responseText);
-                    if (result.length > 0) {
-                        var r = result[0];
-                        L.marker([r.lat, r.lon]).addTo(map).bindPopup(r.display_name);
-                    }
-                }
-            };
-            xhr.send();
+    // ── Heatmap layer ───────────────────────────────────────────────────────────
+    const maxFreq = Math.max(...cities.map(c => c.freq));
+
+    const heatData = cities.map(c => [c.lat, c.lng, c.freq / maxFreq]);
+
+    L.heatLayer(heatData, {
+        radius:  45,
+        blur:    38,
+        maxZoom: 10,
+        max:     1.0,
+        gradient: {
+            0.0:  'rgba(200,220,255,0)',
+            0.25: '#c6dbef',
+            0.55: '#4292c6',
+            0.80: '#1a4f8a',
+            1.0:  '#08306b'
+        }
+    }).addTo(map);
+
+    // ── Circle markers with tooltips ────────────────────────────────────────────
+    cities.forEach(c => {
+        const radius = 5 + c.freq * 2.5;
+        L.circleMarker([c.lat, c.lng], {
+            radius,
+            color:       '#08306b',
+            fillColor:   '#4292c6',
+            fillOpacity: 0.85,
+            weight:      1.5
+        })
+        .bindTooltip(`<strong>${c.name}</strong><br>visits: ${c.freq}`, {
+            direction: 'top',
+            offset: [0, -radius]
+        })
+        .addTo(map);
+    });
+
+    // ── Mobile nav toggle (matches main site) ───────────────────────────────────
+    const toggle = document.getElementById('nav-toggle');
+    const nav    = document.querySelector('header nav');
+    if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+            const open = nav.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open);
         });
-    };
-
-    addMarkers();
-  </script>
+        nav.querySelectorAll('a').forEach(a =>
+            a.addEventListener('click', () => {
+                nav.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+            })
+        );
+    }
+    </script>
 </body>
 </html>
