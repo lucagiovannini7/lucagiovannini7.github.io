@@ -126,12 +126,17 @@ function closeVillagePanel() {
   popup.classList.add("hidden");
 }
 
+<<<<<<< Updated upstream
 // Close panel when clicking outside - with delay to avoid conflicts with marker clicks
 let clickTimeout;
+=======
+// Close panel when clicking outside
+>>>>>>> Stashed changes
 document.addEventListener('click', function(e) {
   const popup = document.getElementById("popup-panel");
   const popupContent = document.getElementById("popup-content");
   
+<<<<<<< Updated upstream
   // Check if popup is visible
   if (!popup.classList.contains('visible')) return;
   
@@ -148,6 +153,19 @@ document.addEventListener('click', function(e) {
     }
   }, 10);
 });
+=======
+  // Check if click is on a marker (Leaflet markers have class 'leaflet-marker-icon')
+  if (e.target.closest('.leaflet-marker-icon')) {
+    return; // Don't close if clicking a marker
+  }
+  
+  // Check if popup is visible and click is outside the content
+  if (popup.classList.contains('visible') && !popupContent.contains(e.target)) {
+    closeVillagePanel();
+  }
+});
+
+>>>>>>> Stashed changes
 
 // Toggle info box collapse/expand
 const infoBox = document.getElementById("info-box");
