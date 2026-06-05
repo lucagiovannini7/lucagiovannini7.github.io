@@ -221,10 +221,10 @@
                             <b>Giovannini, Luca</b>, Sluyter-Gäthje, Henny, Skorinkin, Daniil, Trilcke, Peer, Börner, Ingo, Fischer, Frank, Khilji, Tabeer (2026). "<a href="https://lucagiovannini7.github.io/none" target="_blank">A Decade in Drama Research. Data Mining the DraCor Bibliography (2015-2025)</a>". In: <i>DH2026 Book of Abstracts</i>. Korean Association for Digital Humanities, 2026.
                         </li>
 						<li data-authors="Luca Giovannini,Daniil Skorinkin,Peer Trilcke,Ingo Börner,Frank Fischer,Mareike Schumacher,Clara Helmig,Henny Sluyter-Gäthje, Sören Barkey, Clara Funk, Mark Schwindt, Anna Busch">
-                            Trilcke, Peer, Barkey, Sören, Börner, Ingo, Milling, Carsten, Schumacher, Mareike, Skorinkin, Daniil, Sluyter-Gäthje, Henny, Funk, Clara, Schwindt, Mark, Busch, Anna, Fischer, Frank, <b>Giovannini, Luca</b>, Clara Helmig (2026). "<a href="https://lucagiovannini7.github.io/none" target="_blank">Introducing EcoCor: An Open Infrastructure for Digital Ecocriticism</a>". In: <i>DH2026 Book of Abstracts</i>. Korean Association for Digital Humanities, 2026.
+                            Trilcke, Peer, Barkey, Sören, Börner, Ingo, Milling, Carsten, Schumacher, Mareike, Skorinkin, Daniil, Sluyter-Gäthje, Henny, Funk, Clara, Schwindt, Mark, Busch, Anna, Fischer, Frank, <b>Giovannini, Luca</b>, Helmig, Clara, Ottenberg, Bianca, Mantaj, Nele, and Rebecca Daniel (2026). "<a href="https://lucagiovannini7.github.io/none" target="_blank">Introducing EcoCor: An Open Infrastructure for Digital Ecocriticism</a>". In: <i>DH2026 Book of Abstracts</i>. Korean Association for Digital Humanities, 2026.
                         </li>
 						<li data-authors="Luca Giovannini,Alberto Savi">
-                            Savi, Alberto, and <b>Luca Giovannini</b> (2026). "<a href="https://lucagiovannini7.github.com/none" target="_blank">Una proposta di approccio computazionale alle geografie del cineam italiano</a>". In: <i>AIUCD 2026 Book of Abstracts</i>. Università di Cagliari, 2026.
+                            Savi, Alberto, and <b>Luca Giovannini</b> (2026). "<a href="https://amsacta.unibo.it/id/eprint/8980/1/AIUCD_2026_ATTI_DEFINITIVO.pdf" target="_blank">Una proposta di approccio computazionale alle geografie del cinema italiano</a>". In: <i>AIUCD 2026 Book of Abstracts</i>. Università di Cagliari, 2026.
                         </li>
 						<li data-authors="Frank Fischer,Peer Trilcke,Mark Schwindt,Carsten Milling,Henny Sluyter-Gäthje,Ivan Pozdniakov,Ingo Börner,Julia Jennifer Beine,Daniil Skorinkin,Lisa Poggel,Luca Giovannini">
                             Fischer, Frank, Trilcke, Peer, Schwindt, Mark, Milling, Carsten, Sluyter-Gäthje, Henny, Pozdniakov, Ivan, Börner, Ingo, Beine, Julia Jennifer, Skorinkin, Daniil, Poggel, Lisa, and <b>Luca Giovannini</b> (2026). "<a href="https://zenodo.org/records/18702913" target="_blank">Ganz viel Drama auf einen Blick: Der »Distant-Reading Showcase«, zehn Jahre danach</a>". In: <i>DHd2026 Book of Abstracts</i>. Universität Wien, 2026.
@@ -471,6 +471,15 @@
                 .append('div')
                 .attr('class', 'tooltip');
 
+            // Pre-seed node positions at their cluster centers (with small jitter)
+            // so the graph is centred on the very first paint instead of collapsing
+            // to (0,0) while the simulation warms up.
+            nodes.forEach(node => {
+                const c = clusterCenters[node.cluster] || clusterCenters.occasional;
+                node.x = c.x + (Math.random() - 0.5) * 60;
+                node.y = c.y + (Math.random() - 0.5) * 60;
+            });
+
             // Force simulation
             // - strong repulsion spreads nodes across the whole canvas
             // - weak clustering force (0.04) just biases each tier toward its region
@@ -484,6 +493,7 @@
                 .force('charge', d3.forceManyBody().strength(-550))
                 .force('collision', d3.forceCollide()
                     .radius(d => d.name === lucaName ? 22 : 14 + d.collabCount * 2))
+                .force('center', d3.forceCenter(width / 2, height / 2).strength(0.05))
                 .force('cluster', function (alpha) {
                     for (const node of nodes) {
                         const c = clusterCenters[node.cluster];
@@ -563,8 +573,8 @@
             statusDiv.innerHTML = `<strong>✓ Network loaded successfully!</strong> ${nodes.length} authors, ${links.length} collaborations.`;
         }
         
-        // Initialize on page load
-        createNetwork();
+        // Initialize once layout is complete so clientWidth/clientHeight are reliable
+        window.addEventListener('load', createNetwork);
     </script>
 </body>
 
