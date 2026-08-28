@@ -7,22 +7,89 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <style>
-        /* Let the map break out of the 860px content constraint */
-        .map-wrapper {
-            width: 100vw;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-            height: calc(100vh - 220px);
-            min-height: 380px;
-        }
         #map {
             width: 100%;
-            height: 100%;
+            height: calc(100vh - 60px);
+            min-height: 400px;
         }
-        /* Leaflet attribution fix */
+
         .leaflet-control-attribution {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
+        }
+
+        .map-legend {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px 14px;
+            border: 1px solid #d0d0d0;
+            border-radius: 4px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.12);
+            font-size: 0.78em;
+            color: #333;
+        }
+
+        .legend-title {
+            font-weight: 600;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #666;
+            margin-bottom: 7px;
+        }
+
+        .legend-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 4px 0;
+            line-height: 1.4;
+        }
+
+        .legend-swatch {
+            width: 13px;
+            height: 13px;
+            border-radius: 2px;
+            border: 1px solid rgba(0,0,0,0.08);
+            flex-shrink: 0;
+        }
+
+        .legend-divider {
+            border: none;
+            border-top: 1px solid #e8e8e8;
+            margin: 7px 0;
+        }
+
+        .marker-dot-sample {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #7f1d1d;
+            border: 1px solid rgba(255,255,255,0.8);
+            flex-shrink: 0;
+        }
+
+        .map-stats {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px 14px;
+            border: 1px solid #d0d0d0;
+            border-radius: 4px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.12);
+            font-size: 0.82em;
+            color: #555;
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+
+        .stats-num {
+            font-weight: 700;
+            color: #7f1d1d;
+        }
+
+        .stats-pct {
+            color: #999;
+            font-size: 0.9em;
+            margin-left: 2px;
         }
     </style>
 </head>
@@ -41,94 +108,156 @@
         </nav>
     </header>
 
-    <main>
-        <h1>Places</h1>
-        <p>Cities I have visited, weighted by frequency of visits.</p>
+    <div id="map"></div>
 
-        <div class="map-wrapper">
-            <div id="map"></div>
-        </div>
-    </main>
-
-    <!-- ─── City data ───────────────────────────────────────────────────────────
-         Format: { name, lat, lng, freq }
-         freq = rough number of visits / stays; drives heat intensity.
-    ──────────────────────────────────────────────────────────────────────────── -->
-    <script>
-    const cities = [
-        { name: "Marseille", lat: 43.2965, lng:  5.3698, freq: 1 },
-        { name: "Nice",      lat: 43.7102, lng:  7.2620, freq: 1 },
-        { name: "Genoa",     lat: 44.4056, lng:  8.9463, freq: 2 },
-        { name: "Turin",     lat: 45.0703, lng:  7.6869, freq: 3 },
-    ];
-    </script>
-
+    <script src="../nav.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
     <script>
-    // ── Map init ────────────────────────────────────────────────────────────────
-    const map = L.map('map', { zoomControl: true });
+        // Cities where I have lived — shown with a house marker
+        const HOME_CITIES = new Set(['Coventry', 'Agliè', 'Potsdam', 'Padova', 'Köln']);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+        // Normalise CSV country names → GeoJSON "name" field (Natural Earth)
+        const COUNTRY_ALIASES = {
+            'UK':            'United Kingdom',
+            'Great Britain': 'United Kingdom',
+            'England':       'United Kingdom',
+            'Scotland':      'United Kingdom',
+            'Wales':         'United Kingdom',
+            'USA':           'United States of America',
+            'United States': 'United States of America',
+            'US':            'United States of America',
+            'Czech Republic':'Czechia',
+            'Macedonia':     'North Macedonia',
+            'Vatican City':  'Vatican',
+            'Holy See':      'Vatican',
+        };
 
-    // ── Fit view to all cities ──────────────────────────────────────────────────
-    const bounds = L.latLngBounds(cities.map(c => [c.lat, c.lng]));
-    map.fitBounds(bounds, { padding: [60, 60] });
-
-    // ── Heatmap layer ───────────────────────────────────────────────────────────
-    const maxFreq = Math.max(...cities.map(c => c.freq));
-
-    const heatData = cities.map(c => [c.lat, c.lng, c.freq / maxFreq]);
-
-    L.heatLayer(heatData, {
-        radius:  45,
-        blur:    38,
-        maxZoom: 10,
-        max:     1.0,
-        gradient: {
-            0.0:  'rgba(200,220,255,0)',
-            0.25: '#c6dbef',
-            0.55: '#4292c6',
-            0.80: '#1a4f8a',
-            1.0:  '#08306b'
+        function normaliseCountry(name) {
+            const t = (name || '').trim();
+            return COUNTRY_ALIASES[t] || t;
         }
-    }).addTo(map);
 
-    // ── Circle markers with tooltips ────────────────────────────────────────────
-    cities.forEach(c => {
-        const radius = 5 + c.freq * 2.5;
-        L.circleMarker([c.lat, c.lng], {
-            radius,
-            color:       '#08306b',
-            fillColor:   '#4292c6',
-            fillOpacity: 0.85,
-            weight:      1.5
-        })
-        .bindTooltip(`<strong>${c.name}</strong><br>visits: ${c.freq}`, {
-            direction: 'top',
-            offset: [0, -radius]
-        })
-        .addTo(map);
-    });
+        // 5-level colour scale calibrated to actual data spread:
+        // isolated visits (1–4) · cluster (5–9) · well-travelled (10–15) · deeply explored (16–27) · home territory (28+)
+        function choroColor(n) {
+            if (!n)      return null;
+            if (n >= 28) return '#7f1d1d';
+            if (n >= 16) return '#b71c1c';
+            if (n >= 10) return '#d94f26';
+            if (n >= 5)  return '#e8823a';
+            return '#f5c18a';
+        }
 
-    // ── Mobile nav toggle (matches main site) ───────────────────────────────────
-    const toggle = document.getElementById('nav-toggle');
-    const nav    = document.querySelector('header nav');
-    if (toggle && nav) {
-        toggle.addEventListener('click', () => {
-            const open = nav.classList.toggle('open');
-            toggle.setAttribute('aria-expanded', open);
+        // Visited city — small dark-red dot
+        const dotIcon = L.divIcon({
+            className: '',
+            html: '<div style="width:5px;height:5px;border-radius:50%;background:#7f1d1d;border:1px solid rgba(255,255,255,0.8);"></div>',
+            iconSize: [5, 5],
+            iconAnchor: [2, 2],
         });
-        nav.querySelectorAll('a').forEach(a =>
-            a.addEventListener('click', () => {
-                nav.classList.remove('open');
-                toggle.setAttribute('aria-expanded', 'false');
-            })
-        );
-    }
+
+        // Lived-in city — house glyph
+        const homeIcon = L.divIcon({
+            className: '',
+            html: `<svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                     <polygon points="9,2 17,9 14,9 14,16 11,16 11,11.5 7,11.5 7,16 4,16 4,9 1,9"
+                              fill="#b71c1c" stroke="white" stroke-width="1.2" stroke-linejoin="round"/>
+                   </svg>`,
+            iconSize: [18, 18],
+            iconAnchor: [9, 16],
+        });
+
+        const map = L.map('map', { zoomControl: true }).setView([30, 10], 2);
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            subdomains: 'abcd',
+            maxZoom: 19,
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',
+        }).addTo(map);
+
+        // Legend (bottom-right)
+        const legend = L.control({ position: 'bottomright' });
+        legend.onAdd = () => {
+            const div = L.DomUtil.create('div', 'map-legend');
+            div.innerHTML = `
+                <div class="legend-title">Cities per country</div>
+                <div class="legend-row"><div class="legend-swatch" style="background:#f5c18a"></div>1–4</div>
+                <div class="legend-row"><div class="legend-swatch" style="background:#e8823a"></div>5–9</div>
+                <div class="legend-row"><div class="legend-swatch" style="background:#d94f26"></div>10–15</div>
+                <div class="legend-row"><div class="legend-swatch" style="background:#b71c1c"></div>16–27</div>
+                <div class="legend-row"><div class="legend-swatch" style="background:#7f1d1d"></div>28+</div>
+                <hr class="legend-divider">
+                <div class="legend-row"><div class="marker-dot-sample"></div>Visited</div>
+                <div class="legend-row">
+                  <svg width="12" height="12" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+                    <polygon points="9,2 17,9 14,9 14,16 11,16 11,11.5 7,11.5 7,16 4,16 4,9 1,9"
+                             fill="#b71c1c" stroke="white" stroke-width="1.2" stroke-linejoin="round"/>
+                  </svg>
+                  Lived here
+                </div>
+            `;
+            return div;
+        };
+        legend.addTo(map);
+
+        // Load GeoJSON + CSV in parallel
+        Promise.all([
+            fetch('https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson').then(r => r.json()),
+            fetch('cities.csv').then(r => r.text()),
+        ]).then(([geojson, csvText]) => {
+
+            const { data } = Papa.parse(csvText, { header: true, skipEmptyLines: true, delimiter: ';' });
+
+            // Count cities per country
+            const cityCount = new Map();
+            data.forEach(row => {
+                const country = normaliseCountry(row.country);
+                if (country) cityCount.set(country, (cityCount.get(country) || 0) + 1);
+            });
+
+            // Stats box (top-right)
+            const totalCities     = data.filter(r => (r.city || '').trim()).length;
+            const totalCountries  = cityCount.size;
+            const pct             = Math.round(totalCountries / 195 * 100);
+
+            const statsCtrl = L.control({ position: 'topright' });
+            statsCtrl.onAdd = () => {
+                const div = L.DomUtil.create('div', 'map-stats');
+                div.innerHTML =
+                    `<span class="stats-num">${totalCountries}</span>&nbsp;countries` +
+                    `&ensp;·&ensp;` +
+                    `<span class="stats-num">${totalCities}</span>&nbsp;cities` +
+                    `<span class="stats-pct">&ensp;(${pct}% of the world)</span>`;
+                return div;
+            };
+            statsCtrl.addTo(map);
+
+            // Choropleth — rendered before markers so dots sit on top
+            L.geoJSON(geojson, {
+                style: feature => {
+                    const n = cityCount.get(feature.properties.name) || 0;
+                    return {
+                        fillColor:   choroColor(n),
+                        fillOpacity: n ? 0.65 : 0,
+                        color:       '#bbb',
+                        weight:      0.4,
+                    };
+                },
+            }).addTo(map);
+
+            // City markers — coordinates read directly from CSV
+            data.forEach(row => {
+                const city = (row.city || '').trim();
+                const lat  = parseFloat(row.lat);
+                const lon  = parseFloat(row.lon);
+                if (!city || isNaN(lat) || isNaN(lon)) return;
+
+                L.marker([lat, lon], { icon: HOME_CITIES.has(city) ? homeIcon : dotIcon })
+                 .addTo(map);
+            });
+
+        }).catch(err => console.error('Map data failed to load:', err));
     </script>
 </body>
 </html>
