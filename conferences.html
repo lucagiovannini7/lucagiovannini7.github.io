@@ -388,8 +388,7 @@
 
         // Initialize map
         const map = L.map('map').setView([50, 10], 4);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
+        L.tileLayer('https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=cb1_56sf_1_d2976d8244efd2bb76988f2c'
         }).addTo(map);
 
         // Tracks the timestamp of the last network geocoding request
