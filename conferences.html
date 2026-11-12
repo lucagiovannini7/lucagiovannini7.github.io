@@ -388,9 +388,8 @@
 
         // Initialize map
         const map = L.map('map').setView([50, 10], 4);
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        L.tileLayer('https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=cb1_56sf_1_d2976d8244efd2bb76988f2c', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-            subdomains: 'abcd',
             maxZoom: 19
         }).addTo(map);
 
