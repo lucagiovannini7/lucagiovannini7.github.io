@@ -157,7 +157,7 @@
             </nav>
 
             <div id="loading-status" class="loading-status">
-                <strong>Loading map...</strong> Geocoding locations automatically.
+                <strong>Loading map...</strong>
             </div>
 
             <div id="map">
@@ -190,7 +190,7 @@
                 </div>
             </div>
             <p style="font-size: 0.9em; color: #666;">
-                <em>Map automatically generated from conference locations. Coordinates are cached locally for faster subsequent loads.</em>
+                <em>Map generated from the lists below. Locations missing from the built-in coordinate table are geocoded via OpenStreetMap and cached locally.</em>
             </p>
 
             <h3 id="invited-talks-section"><b>Invited talks</b> <a href="#top" class="back-to-top">↑ Back to top</a></h3>
@@ -238,18 +238,14 @@
                 <li data-location="Cagliari, Italy">
                     <p><b>AIUCD 2026</b>: <i>Digital Technologies and Public Engagement: Practices and Perspectives in the Digital Humanities</i> • Cagliari, 3-5.06.2026</p>
                     <p><b>Title:</b> <i>Una proposta di approccio computazionale alle geografie del cinema italiano [A computational approach to the geography of Italian cinema]</i> [<a href="https://lucagiovannini7.github.io/slides/research/aiucd-2026.pdf">slides</a>]</p>
-                <li data-location="Potsdam, Germany">
-                    <p><b>Potsdam DH Day</b> • Potsdam, 13.11.2025 •</p>
-                    <p><b>Title:</b> <i>Prototyping an LLM-powered encoding workflow for plays</i> [<a href="https://lucagiovannini7.github.io/slides/research/potsdam-2025.pdf.pdf">slides</a>]</p>
                 </li>
-				</li>
-	                <li data-location="Lisbon, Portugal">
+                <li data-location="Potsdam, Germany">
+                    <p><b>Potsdam DH Day</b> • Potsdam, 13.11.2025</p>
+                    <p><b>Title:</b> <i>Prototyping an LLM-powered encoding workflow for plays</i> [<a href="https://lucagiovannini7.github.io/slides/research/potsdam-2025.pdf">slides</a>]</p>
+                </li>
+                <li data-location="Lisbon, Portugal">
                     <p><b>DH 2025</b>: <i>Accessibility and Citizenship</i> • Lisbon, 14-18.07.2025</p>
                     <p><b>Title:</b> <i>A Modest Proposal for Operationalising Dramatic Texts</i> [<a href="https://lucagiovannini7.github.io/slides/research/dh-2025.pdf">slides</a>]</p>
-                </li>
-                <li data-location="Passau, Germany">
-                    <p><b>DHd 2024:</b> <i>Quo vadis, DH?</i> • Passau, 26.02-1.03.2024</p>
-                    <p><b>Title:</b> <i>Quantitative Ansätze zur Untersuchung der frühneuzeitlichen Dramengeschichte [Quantitative Approaches for the Investigation of Early Modern Drama History]</i> [<a href="https://lucagiovannini7.github.io/slides/research/dhd-2024.html">slides</a>]</p>
                 </li>
                 <li data-location="Genoa, Italy">
                     <p><b>SRDH Doctoral Symposium</b> • Genova, 21-22.05.2024</p>
@@ -258,6 +254,10 @@
                 <li data-location="Catania, Italy">
                     <p><b>AIUCD 2024:</b> <i>Mete Digitali</i> • Catania, 28-30.05.2024</p>
                     <p><b>Title:</b> <i>Digitalizzazione e modellazione della Drammaturgia di Leone Allacci [Digitalisation and modelling of Leone Allacci's Drammaturgia]</i> [<a href="https://lucagiovannini7.github.io/slides/research/aiucd-2024.pdf">slides</a>]</p>
+                </li>
+                <li data-location="Passau, Germany">
+                    <p><b>DHd 2024:</b> <i>Quo vadis, DH?</i> • Passau, 26.02-1.03.2024</p>
+                    <p><b>Title:</b> <i>Quantitative Ansätze zur Untersuchung der frühneuzeitlichen Dramengeschichte [Quantitative Approaches for the Investigation of Early Modern Drama History]</i> [<a href="https://lucagiovannini7.github.io/slides/research/dhd-2024.html">slides</a>]</p>
                 </li>
                 <li data-location="Tallinn, Estonia">
                     <p><b>CUDAN 2023</b> • Tallinn, 13-16.12.2023</p>
@@ -272,7 +272,7 @@
             <h3 id="poster-section"><b>Poster presentations</b> <a href="#top" class="back-to-top">↑ Back to top</a></h3>
             <ol reversed id="poster-presentations">
                 <li data-location="Vienna, Austria">
-                    <p><b>DHd 2026:</b> <i>Not Only Text, Not Only Data</i> • Vienna, 23-27.02.2026 → <a href="https://doi.org/10.6084/m9.figshare.31113820">Poster</a> (🏆<a="https://bsky.app/profile/dhpotsdam.bsky.social/post/3mft57pxfgk2v">Best poster award</a>)</p>
+                    <p><b>DHd 2026:</b> <i>Not Only Text, Not Only Data</i> • Vienna, 23-27.02.2026 → <a href="https://doi.org/10.6084/m9.figshare.31113820">Poster</a> (🏆<a href="https://bsky.app/profile/dhpotsdam.bsky.social/post/3mft57pxfgk2v">Best poster award</a>)</p>
                 </li>
                 <li data-location="Verona, Italy">
                     <p><b>AIUCD 2025:</b> <i>Diversità, equità e inclusione</i> • Verona, 11-13.06.2025 → <a href="https://zenodo.org/records/15601637">Poster</a></p>
@@ -362,11 +362,11 @@
     <script>
         // Education/Training locations
         const educationLocations = [
-            { name: "Turin", fullName: "University of Turin", country: "Italy" },
-            { name: "Padova", fullName: "University of Padua", country: "Italy" },
-            { name: "Potsdam", fullName: "University of Potsdam", country: "Germany" },
-            { name: "Cologne", fullName: "University of Cologne", country: "Germany" },
-            { name: "Warwick", fullName: "University of Warwick", country: "United Kingdom" },
+            { name: "Turin", fullName: "University of Turin", country: "Italy", coords: [45.0703, 7.6869] },
+            { name: "Padova", fullName: "University of Padua", country: "Italy", coords: [45.4064, 11.8768] },
+            { name: "Potsdam", fullName: "University of Potsdam", country: "Germany", coords: [52.4019, 13.0123] },
+            { name: "Cologne", fullName: "University of Cologne", country: "Germany", coords: [50.9281, 6.9288] },
+            { name: "Warwick", fullName: "University of Warwick", country: "United Kingdom", coords: [52.3793, -1.5615] },
         ];
 
         // Color priority order (higher priority = displayed on marker)
@@ -388,20 +388,66 @@
 
         // Initialize map
         const map = L.map('map').setView([50, 10], 4);
-        L.tileLayer('https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=cb1_56sf_1_d2976d8244efd2bb76988f2c'
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
         }).addTo(map);
+
+        // Marker icons (the old cdn.rawgit.com host is defunct; use jsDelivr)
+        const ICON_BASE = 'https://cdn.jsdelivr.net/gh/pointhi/leaflet-color-markers@master/img/';
+        const SHADOW = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png';
+        function makeIcon(color) {
+            return new L.Icon({
+                iconUrl: `${ICON_BASE}marker-icon-${color}.png`,
+                shadowUrl: SHADOW,
+                iconSize: [25, 41], iconAnchor: [12, 41],
+                popupAnchor: [1, -34], shadowSize: [41, 41]
+            });
+        }
+
+        // Built-in coordinates (avoids network geocoding for known places)
+        const KNOWN_COORDS = {
+            "Nanterre, France": [48.8924, 2.2071],
+            "Genoa, Italy": [44.4056, 8.9463],
+            "Tours, France": [47.3941, 0.6848],
+            "Erlangen, Germany": [49.5897, 11.0120],
+            "Padua, Italy": [45.4064, 11.8768],
+            "Daejeon, South Korea": [36.3504, 127.3845],
+            "Cagliari, Italy": [39.2238, 9.1217],
+            "Potsdam, Germany": [52.3906, 13.0645],
+            "Lisbon, Portugal": [38.7223, -9.1393],
+            "Passau, Germany": [48.5665, 13.4312],
+            "Catania, Italy": [37.5079, 15.0830],
+            "Tallinn, Estonia": [59.4370, 24.7536],
+            "Würzburg, Germany": [49.7913, 9.9534],
+            "Vienna, Austria": [48.2082, 16.3738],
+            "Verona, Italy": [45.4384, 10.9916],
+            "Washington, D.C., USA": [38.9072, -77.0369],
+            "Graz, Austria": [47.0707, 15.4395],
+            "Siena, Italy": [43.3188, 11.3308],
+            "Trier, Germany": [49.7499, 6.6371],
+            "Berlin, Germany": [52.5200, 13.4050],
+            "Krakow, Poland": [50.0647, 19.9450],
+            "Halle, Germany": [51.4828, 11.9697],
+            "Cologne, Germany": [50.9375, 6.9603],
+            "Darmstadt, Germany": [49.8728, 8.6512]
+        };
 
         // Tracks the timestamp of the last network geocoding request
         let lastGeocodingRequest = 0;
 
         // Geocoding function with caching and self-contained rate limiting
         async function geocodeLocation(location) {
-            const cacheKey = `geocode_${location}`;
-            const cached = localStorage.getItem(cacheKey);
-
-            if (cached) {
-                return JSON.parse(cached);
+            if (KNOWN_COORDS[location]) {
+                return { lat: KNOWN_COORDS[location][0], lon: KNOWN_COORDS[location][1] };
             }
+
+            const cacheKey = `geocode_${location}`;
+            try {
+                const cached = localStorage.getItem(cacheKey);
+                if (cached) return JSON.parse(cached);
+            } catch (e) { /* storage unavailable */ }
 
             // Enforce Nominatim rate limit (1 req/s) only for actual network requests
             const elapsed = Date.now() - lastGeocodingRequest;
@@ -427,7 +473,7 @@
                         lat: parseFloat(data[0].lat),
                         lon: parseFloat(data[0].lon)
                     };
-                    localStorage.setItem(cacheKey, JSON.stringify(coords));
+                    try { localStorage.setItem(cacheKey, JSON.stringify(coords)); } catch (e) {}
                     return coords;
                 }
             } catch (error) {
@@ -481,17 +527,13 @@
         async function processEducationLocations() {
             for (const edu of educationLocations) {
                 const searchQuery = `${edu.fullName}, ${edu.country}`;
-                const coords = await geocodeLocation(searchQuery);
+                const coords = edu.coords
+                    ? { lat: edu.coords[0], lon: edu.coords[1] }
+                    : await geocodeLocation(searchQuery);
 
                 if (coords) {
-                    const icon = new L.Icon({
-                        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-violet.png',
-                        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                        iconSize: [25, 41],
-                        iconAnchor: [12, 41],
-                        popupAnchor: [1, -34],
-                        shadowSize: [41, 41]
-                    });
+                    edu.resolved = coords;
+                    const icon = makeIcon('violet');
 
                     const popupContent = `<strong>${edu.name}</strong><br><em>Education/Training:</em> ${edu.fullName}`;
 
@@ -507,7 +549,6 @@
             const statusDiv = document.getElementById('loading-status');
 
             // First add education locations
-            statusDiv.innerHTML = `<strong>Adding education/training locations...</strong>`;
             await processEducationLocations();
 
             const allItems = document.querySelectorAll('#conferences ol li');
@@ -525,7 +566,6 @@
                 }
             });
 
-            statusDiv.innerHTML = `<strong>Geocoding ${locationMap.size} conference locations...</strong>`;
 
             // Geocode all unique locations
             const geocodedLocations = {};
@@ -537,7 +577,6 @@
                     geocodedLocations[location] = coords;
                 }
                 processed++;
-                statusDiv.innerHTML = `<strong>Geocoding...</strong> ${processed}/${locationMap.size} locations processed`;
             }
 
             // Add markers to map
@@ -583,14 +622,7 @@
                     // Determine marker color based on highest priority category
                     const color = getMarkerColorForCategories(uniqueCategories);
 
-                    const icon = new L.Icon({
-                        iconUrl: `https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-${color}.png`,
-                        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                        iconSize: [25, 41],
-                        iconAnchor: [12, 41],
-                        popupAnchor: [1, -34],
-                        shadowSize: [41, 41]
-                    });
+                    const icon = makeIcon(color);
 
                     L.marker([coords.lat, coords.lon], { icon })
                         .addTo(map)
@@ -602,12 +634,14 @@
             }
 
             statusDiv.className = 'loading-status success';
-            const totalLocations = Object.keys(geocodedLocations).length + educationLocations.length;
-            statusDiv.innerHTML = `<strong>✓ Map loaded successfully!</strong> ${totalLocations} locations geocoded and displayed.`;
+            const unresolved = locationMap.size - Object.keys(geocodedLocations).length;
+            statusDiv.innerHTML = `<strong>✓ Map loaded.</strong> ${Object.keys(geocodedLocations).length} conference locations and ${educationLocations.filter(e => e.resolved).length} education/training locations shown.` +
+                (unresolved ? ` ${unresolved} location(s) could not be geocoded.` : '');
 
             // Fit map bounds to show all markers
             const allCoords = [
-                ...Object.values(geocodedLocations).map(c => [c.lat, c.lon])
+                ...Object.values(geocodedLocations).map(c => [c.lat, c.lon]),
+                ...educationLocations.filter(e => e.resolved).map(e => [e.resolved.lat, e.resolved.lon])
             ];
 
             if (allCoords.length > 0) {
@@ -616,7 +650,11 @@
         }
 
         // Run on page load
-        processConferences();
+        processConferences().catch(err => {
+            console.error(err);
+            const s = document.getElementById('loading-status');
+            s.textContent = 'The map could not be loaded.';
+        });
     </script>
 </body>
 </html>
