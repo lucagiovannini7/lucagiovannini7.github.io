@@ -156,10 +156,6 @@
                 <a href="#attendance-section">Attendance</a>
             </nav>
 
-            <div id="loading-status" class="loading-status">
-                <strong>Loading map...</strong>
-            </div>
-
             <div id="map">
                 <div class="map-legend">
                     <h4>Map Legend</h4>
@@ -556,8 +552,6 @@
 
         // Process all conference entries
         async function processConferences() {
-            const statusDiv = document.getElementById('loading-status');
-
             // First add education locations
             await processEducationLocations();
 
@@ -643,11 +637,6 @@
                 }
             }
 
-            statusDiv.className = 'loading-status success';
-            const unresolved = locationMap.size - Object.keys(geocodedLocations).length;
-            statusDiv.innerHTML = `<strong>✓ Map loaded.</strong> ${Object.keys(geocodedLocations).length} conference locations and ${educationLocations.filter(e => e.resolved).length} education/training locations shown.` +
-                (unresolved ? ` ${unresolved} location(s) could not be geocoded.` : '');
-
             // Fit map bounds to show all markers
             const allCoords = [
                 ...Object.values(geocodedLocations).map(c => [c.lat, c.lon]),
@@ -660,11 +649,7 @@
         }
 
         // Run on page load
-        processConferences().catch(err => {
-            console.error(err);
-            const s = document.getElementById('loading-status');
-            s.textContent = 'The map could not be loaded.';
-        });
+        processConferences().catch(err => console.error('Map could not be loaded:', err));
     </script>
 </body>
 </html>
